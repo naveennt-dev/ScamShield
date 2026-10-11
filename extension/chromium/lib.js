@@ -60,7 +60,7 @@ export async function checkWithService(url, fetchImpl = fetch) {
       host: r.displayHostname || r.hostname || "",
       reasons: (r.evidence || []).filter((e) => e.severity !== "low").slice(0, 3).map((e) => String(e.detail).slice(0, 200)),
     };
-  } catch (e) {
+  } catch {
     return { ok: false, reason: ctrl.signal.aborted ? "the service did not answer in time" : "the ScamShield service isn't running" };
   } finally {
     clearTimeout(timer);

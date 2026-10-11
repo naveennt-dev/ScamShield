@@ -68,9 +68,14 @@ SIGN_ID="${IDENTITY:--}"
 # runtime; the Node.js runtime additionally gets Engine.entitlements (V8 JIT only).
 if [[ -d "$APP/Contents/Resources/engine" ]]; then
   echo "▸ signing the embedded engine's native code"
+  # Without an Apple Team ID (local/ad-hoc identity) library validation would block the engine's own
+  # native modules; only Developer ID builds keep it on.
+  ENGINE_ENT=Engine-LocalSigning.entitlements
+  [[ "$SIGN_ID" == "Developer ID Application:"* ]] && ENGINE_ENT=Engine.entitlements
+  echo "  engine entitlements: $ENGINE_ENT"
   while IFS= read -r f; do
     if file -b "$f" | grep -q "Mach-O"; then
-      ENT=(); [[ "$f" == "$APP/Contents/Resources/engine/node" ]] && ENT=(--entitlements Engine.entitlements)
+      ENT=(); [[ "$f" == "$APP/Contents/Resources/engine/node" ]] && ENT=(--entitlements "$ENGINE_ENT")
       codesign --force --sign "$SIGN_ID" ${SCAMSHIELD_SIGN_KEYCHAIN:+--keychain "$SCAMSHIELD_SIGN_KEYCHAIN"} --options runtime --timestamp=none ${ENT[@]+"${ENT[@]}"} "$f"
     fi
   done < <(find "$APP/Contents/Resources/engine" -type f \( -perm -u+x -o -name "*.node" -o -name "*.dylib" \))
@@ -83,5 +88,16 @@ else
   codesign --force --sign - --options runtime --timestamp=none "$APP"
 fi
 codesign --verify --strict "$APP"
+
+# The engine smoke test runs before signing; prove the SIGNED runtime can still load every native
+# module (library validation failures only appear after signing).
+if [[ -d "$APP/Contents/Resources/engine" ]]; then
+  echo "▸ loading native modules with the signed runtime"
+  while IFS= read -r m; do
+    "$APP/Contents/Resources/engine/node" -e 'process.dlopen({exports:{}}, process.argv[1])' "$m" \
+      || { echo "✗ signed runtime cannot load ${m#"$APP/"}"; exit 1; }
+  done < <(find "$(cd "$APP" && pwd -P)/Contents/Resources/engine" -name "*.node")
+  echo "  ✓ all native modules load"
+fi
 
 echo "✓ built $APP ($CONFIG)"
