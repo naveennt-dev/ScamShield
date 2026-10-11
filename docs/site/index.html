@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <title>Download ScamShield</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header>
+    <h1>Download ScamShield</h1>
+    <p>Checks suspicious messages and links on your device. Free and open source (Apache-2.0).</p>
+    <p class="notice" id="release-line">Loading release information…</p>
+  </header>
+  <main>
+    <section aria-labelledby="rec-title" id="recommended" hidden>
+      <h2 id="rec-title">Recommended for your device</h2>
+      <div id="rec-card"></div>
+    </section>
+    <section aria-labelledby="all-title">
+      <h2 id="all-title">All platforms</h2>
+      <label for="picker">Choose a platform</label>
+      <select id="picker"></select>
+      <div class="grid" id="cards"></div>
+    </section>
+    <section aria-labelledby="verify-title">
+      <h2 id="verify-title">Verify your download</h2>
+      <p>Every published file is listed with its SHA-256 checksum. On macOS or Linux run
+        <code>shasum -a 256 &lt;file&gt;</code>; on Windows <code>Get-FileHash &lt;file&gt;</code>. The result must match exactly.
+        Only download from this page or the project's GitHub Releases — never from mirrors.</p>
+    </section>
+  </main>
+  <footer>
+    <a href="https://github.com/">Source code</a> ·
+    <a href="../release/PRIVACY-NOTICE-DRAFT.md">Privacy</a> ·
+    <a href="../../LICENSE">Licence</a> ·
+    <a href="../../TRADEMARKS.md">Trademark policy</a> ·
+    <a href="../../SECURITY.md">Report a security issue</a>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

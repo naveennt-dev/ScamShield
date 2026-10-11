@@ -1,31 +1,52 @@
 # ScamShield
 
-ScamShield checks suspicious **messages, links, screenshots and emails** and tells people, in
-plain language, whether something looks like a scam, why, and what to do next. It combines:
+ScamShield checks suspicious **messages, links and screenshots** and tells you, in plain language,
+whether something looks like a scam, **why**, and what to do next. Checks run **on your device**;
+an AI second opinion is optional and off until you agree to it.
 
-- a **deterministic rule engine** (OTP/PIN/CVV requests, KYC threats, UPI refund tricks, job fees,
-  investment promises, impersonation, remote-access requests, prompt-injection attempts, …),
-- a **machine-learning classifier** (TF-IDF + logistic regression, trained in Python, served in TypeScript),
-- **URL intelligence** (brand impersonation, typosquats, homographs, IP hosts, shorteners, risky
-  TLDs, executable links, crowd-reported domains; SSRF-safe redirect resolution),
-- optional **LLM analysis via OpenRouter** with model fallback,
+> **Preview — no official release yet.** The code is public for review and contributions. There
+> are no published downloads yet; see [Download ScamShield](#download-scamshield).
+> Detection is automated and **never 100% accurate**.
 
-fused into one explainable risk score. If the LLM is down, misconfigured or manipulated,
-ScamShield still produces a safe baseline result — the LLM can never on its own declare something safe.
+## Download ScamShield
 
-> **Status:** functional and tested, but **not** a finished production service. The bundled ML
-> model is trained on 120 hand-written examples, there is no reviewer workflow for crowd reports,
-> and no accuracy figures exist for real traffic. See [`docs/production-readiness.md`](docs/production-readiness.md).
+There is **no published release yet**, so there is nothing to download from this page today. When a
+release exists it will appear under [Releases](../../releases) with SHA-256 checksums, and on the
+downloads page (`docs/site/`, published with GitHub Pages once releases exist).
 
-## macOS menu-bar app (in progress)
+## Platform status
 
-ScamShield is becoming a personal **macOS menu-bar utility**: click the shield (or press ⇧⌘S) and it
-checks what's on screen, staying quiet unless something looks like a scam. Phases 1–3 of 6 are done. The
-native app lives in [`macos/`](macos/README.md) (Phase 2: ScreenCaptureKit + Vision OCR). Phase 3
-made detection fully local and offline-capable: rule engine (English/Hindi/Hinglish) + local ML
-(Python service on 127.0.0.1 with an embedded fallback) + local risk engine — no API key needed.
-Run it with `npm run build && npm run ml:train && scripts/local-stack.sh start`.
-Roadmap: [`docs/phases/roadmap.md`](docs/phases/roadmap.md); Phase 3: [`docs/phases/phase-3.md`](docs/phases/phase-3.md).
+| Platform | Status | Evidence |
+|---|---|---|
+| **macOS** (Apple silicon, macOS 14+) | Built (self-contained app + DMG) — **not notarized** | 147 Swift tests, 64-check UI self-test, launch/scan/recovery test of the DMG; Liquid Glass design verified on macOS 26+ (macOS 27.0.1), previous look on 14–25 (not tested on those versions) |
+| **Android** | **Debug APK built**; not yet tested on a device or emulator; no signed release, not on Google Play | Same on-device engine as the server: 440/440 identical results on the test sets |
+| **Chromium extension** | Works with the macOS app (local, unpacked); not in the Chrome Web Store | 14 unit tests, 8-check browser test |
+| **Windows** | Planned — not built | — |
+| **Linux desktop** | Planned — not built (the engine's tests pass on Linux) | — |
+| **iPhone / iPad** | Planned — not built (needs Xcode and an Apple Developer account) | — |
+| **Web app / API** (self-hosted) | Works locally | 742 TypeScript tests |
+
+## How it works
+
+- **Safety rules** (OTP/PIN/CVV requests, KYC threats, UPI refund tricks, job fees, investment
+  promises, impersonation, remote-access requests, prompt-injection attempts, …; English, Hindi,
+  Hinglish),
+- **an on-device ML model** (TF-IDF + logistic regression, trained on the public UCI SMS Spam
+  Collection plus hand-written synthetic examples — 3,771 training messages),
+- **link analysis** (look-alike domains and character swaps, deceptive subdomains, punycode,
+  shorteners, risky endings, downloads; an SSRF-safe link scanner),
+- optionally an **AI second opinion** (OpenRouter, free models only, masked text only),
+
+fused into one explainable score. A failed check is shown as **"Unable to assess"**, never as safe,
+and the AI can raise a risk but never lower the on-device result.
+
+Measured on test sets written for this project (not real-world traffic): 50/50 scams caught with
+1/50 false alarm (blind set), 68/69 · 5/59 (held-out), 28/28 · 0/22 (realistic); look-alike links
+100% precision / 90–96% recall at "high risk". See [`docs/ml/evaluation.md`](docs/ml/evaluation.md).
+
+**Guides:** [macOS install](docs/guides/install-macos.md) · [Android](docs/guides/android.md) ·
+[Privacy notice (draft)](docs/release/PRIVACY-NOTICE-DRAFT.md) · [Security](SECURITY.md) ·
+[Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
 ## Architecture
 

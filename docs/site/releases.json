@@ -1,0 +1,13 @@
+{
+  "_comment": "Download buttons are enabled ONLY for entries with status \"released\" and a real asset (https URL on this repository's GitHub Releases + sha256). Never add an asset that is not published and verified.",
+  "version": null,
+  "releaseDate": null,
+  "platforms": [
+    { "id": "macos", "name": "macOS", "requirements": "Apple silicon (M1 or later), macOS 14 Sonoma or later", "package": "DMG", "status": "built-not-released", "statusText": "Built and tested, not yet released (awaiting Apple notarization).", "guide": "../guides/install-macos.md", "asset": null },
+    { "id": "windows", "name": "Windows", "requirements": "—", "package": "Installer", "status": "planned", "statusText": "Planned — not built yet.", "guide": null, "asset": null },
+    { "id": "android", "name": "Android", "requirements": "Android 7.0 or later", "package": "APK (Google Play later)", "status": "in-testing", "statusText": "Debug build only; device testing and a signed release are pending.", "guide": "../guides/android.md", "asset": null, "store": null },
+    { "id": "ios", "name": "iPhone & iPad", "requirements": "—", "package": "App Store", "status": "planned", "statusText": "Planned — needs an approved App Store listing before any link appears here.", "guide": null, "asset": null, "store": null },
+    { "id": "linux", "name": "Linux", "requirements": "—", "package": "—", "status": "planned", "statusText": "Planned — no supported distribution yet.", "guide": null, "asset": null },
+    { "id": "extension", "name": "Browser extension (Chromium)", "requirements": "Needs the ScamShield desktop app", "package": "Web store", "status": "planned", "statusText": "Works locally as an unpacked extension; no store listing yet.", "guide": "../../extension/chromium/README.md", "asset": null, "store": null }
+  ]
+}

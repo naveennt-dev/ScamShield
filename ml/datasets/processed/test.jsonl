@@ -1,0 +1,755 @@
+{"text": "Dear Customer, your SBI Credit Card statement is ready. Total due Rs 8,212. Pay by 15 Oct via the SBI Card app.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v1", "language": "en", "group": 4}
+{"text": "Reminder: your electricity bill of Rs 1,240 is due on 12 Oct. Pay via the official BESCOM website or app.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v1", "language": "en", "group": 9}
+{"text": "Can you send me the notes from yesterday's lecture? I missed the second half.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v1", "language": "en", "group": 17}
+{"text": "Thank you for applying. Unfortunately we will not be moving forward with your application at this time.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v1", "language": "en", "group": 23}
+{"text": "Your GST return for September has been filed successfully. Acknowledgement number 4521.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v1", "language": "en", "group": 24}
+{"text": "Hi! This is Priya from the yoga class. Here is the schedule for next week.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v1", "language": "en", "group": 26}
+{"text": "Hello sir, I am the plumber. I will come at 4 pm to fix the leak.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v1", "language": "en", "group": 42}
+{"text": "We tried to reach you about your recent order. Call us back at your earliest.", "label": "suspicious", "category": "delivery", "source": "synthetic-handwritten-v1", "language": "en", "group": 51}
+{"text": "Your package could not be delivered. Visit the link to reschedule: dlvry-help.info/track", "label": "suspicious", "category": "delivery", "source": "synthetic-handwritten-v1", "language": "en", "group": 53}
+{"text": "Get guaranteed stock tips from our premium advisory. Join now for 50% discount.", "label": "suspicious", "category": "investment", "source": "synthetic-handwritten-v1", "language": "en", "group": 58}
+{"text": "Win big! Play our online game and earn real cash every day.", "label": "suspicious", "category": "lottery", "source": "synthetic-handwritten-v1", "language": "en", "group": 60}
+{"text": "Dear customer your HDFC account will be suspended within 24 hours. Click here to update your PAN details: hdfc-pan-verify.top", "label": "scam", "category": "banking", "source": "synthetic-handwritten-v1", "language": "en", "group": 66}
+{"text": "You have received a refund of Rs 4,500. Enter your UPI PIN to receive the money in your account.", "label": "scam", "category": "upi", "source": "synthetic-handwritten-v1", "language": "en", "group": 70}
+{"text": "Airline job vacancy: ground staff positions available. Pay Rs 3,500 training fee to book your interview slot.", "label": "scam", "category": "job", "source": "synthetic-handwritten-v1", "language": "en", "group": 81}
+{"text": "Invest Rs 10,000 and get Rs 50,000 in one week. 100% profit guaranteed by our expert trader. Risk-free.", "label": "scam", "category": "investment", "source": "synthetic-handwritten-v1", "language": "en", "group": 83}
+{"text": "Income Tax Department: you are eligible for a refund of Rs 15,490. Submit your bank card details at incometax-refund.xyz to receive it.", "label": "scam", "category": "government_impersonation", "source": "synthetic-handwritten-v1", "language": "en", "group": 87}
+{"text": "Get instant loan of Rs 2 lakh without CIBIL check. Pay processing fee of Rs 1,999 and get approval in 10 minutes.", "label": "scam", "category": "loan", "source": "synthetic-handwritten-v1", "language": "en", "group": 94}
+{"text": "Earn money online: like posts and follow channels, get paid Rs 50 per like. Start now with a small investment of Rs 1,000.", "label": "scam", "category": "job", "source": "synthetic-handwritten-v1", "language": "en", "group": 115}
+{"text": "Your DigiLocker account was accessed from a new device. If this was you, no action is needed.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v2", "language": "en", "group": 127}
+{"text": "आपके खाते में ₹15,000 जमा किए गए हैं। उपलब्ध शेष राशि ₹42,310 है।", "label": "safe", "category": "other", "source": "synthetic-handwritten-v2", "language": "hi", "group": 133}
+{"text": "कल शाम को मिलते हैं, मैं सात बजे तक पहुँच जाऊँगा।", "label": "safe", "category": "other", "source": "synthetic-handwritten-v2", "language": "hi", "group": 134}
+{"text": "Hi, I found your number on the alumni list. Are you still working in Bangalore? Would love to connect.", "label": "suspicious", "category": "other", "source": "synthetic-handwritten-v2", "language": "en", "group": 140}
+{"text": "Hello dear, I am new in your city and looking for a friend. Can we chat on Telegram?", "label": "suspicious", "category": "romance", "source": "synthetic-handwritten-v2", "language": "en", "group": 142}
+{"text": "Kya aap ghar baithe paise kamana chahte hain? Details ke liye reply karein.", "label": "suspicious", "category": "job", "source": "synthetic-handwritten-v2", "language": "hinglish", "group": 144}
+{"text": "Aapko 5000 ka refund mila hai, receive karne ke liye UPI PIN daaliye.", "label": "scam", "category": "upi", "source": "synthetic-handwritten-v2", "language": "hinglish", "group": 152}
+{"text": "आपके फोन पर आया ओटीपी तुरंत बताइए, नहीं तो आपका खाता ब्लॉक हो जाएगा।", "label": "scam", "category": "credential_theft", "source": "synthetic-handwritten-v2", "language": "hi", "group": 161}
+{"text": "घर बैठे रोज़ 3000 रुपये कमाएं। रजिस्ट्रेशन फीस केवल 500 रुपये।", "label": "scam", "category": "job", "source": "synthetic-handwritten-v2", "language": "hi", "group": 163}
+{"text": "U R G E N T: Your account will be blocked within 2 hours. Share the OTP to unblock.", "label": "scam", "category": "credential_theft", "source": "synthetic-handwritten-v2", "language": "en", "group": 167}
+{"text": "Your account will be blocked! Pay ₹499 now: https://fake-example.com/pay", "label": "scam", "category": "banking", "source": "synthetic-handwritten-v2", "language": "en", "group": 168}
+{"text": "Paytm: Rs 50 received from Amit via UPI. Balance updated. Never share your UPI PIN with anyone.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v3", "language": "en", "group": 188}
+{"text": "Aapke A/c XX7781 se Rs 799 debit hue hain. Agar ye aapne nahi kiya to 1800 1234 par call karein.", "label": "safe", "category": "other", "source": "synthetic-handwritten-v3", "language": "hinglish", "group": 189}
+{"text": "Rs 49,999 debited from your account. If not you, call 91234 56789 immediately and share your card details to cancel.", "label": "scam", "category": "banking", "source": "synthetic-handwritten-v3", "language": "en", "group": 192}
+{"text": "Ok lar... Joking wif u oni...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 195}
+{"text": "FreeMsg Hey there darling it's been 3 week's now and no word back! I'd like some fun you up for it still? Tb ok! XxX std chgs to send, £1.50 to rcv", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 199}
+{"text": "Had your mobile 11 months or more? U R entitled to Update to the latest colour mobiles with camera for Free! Call The Mobile Update Co FREE on 08002986030", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 203}
+{"text": "Wait that's still not all that clear, were you not sure about me being sarcastic or that that's why x doesn't want to live with us", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 224}
+{"text": "WHO ARE YOU SEEING?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 237}
+{"text": "Sorry, I'll call later in meeting.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 251}
+{"text": "I am waiting machan. Call me once you free.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 269}
+{"text": "Its not the same here. Still looking for a job. How much do Ta's earn there.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 273}
+{"text": "You will be in the place of that man", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 277}
+{"text": "Your free ringtone is waiting to be collected. Simply text the password \"MIX\" to 85069 to verify. Get Usher and Britney. FML, PO Box 5249, MK17 92H. 450Ppw 16", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 289}
+{"text": "Watching telugu movie..wat abt u?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 290}
+{"text": "wow. You're right! I didn't mean to do that. I guess once i gave up on boston men and changed my search location to nyc, something changed. Cuz on my signin page it still says boston.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 297}
+{"text": "I'm ok wif it cos i like 2 try new things. But i scared u dun like mah. Cos u said not too loud.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 306}
+{"text": "Hmm...my uncle just informed me that he's paying the school directly. So pls buy food.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 312}
+{"text": "PRIVATE! Your 2004 Account Statement for 07742676969 shows 786 unredeemed Bonus Points. To claim call 08719180248 Identifier Code: 45239 Expires", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 313}
+{"text": "FreeMsg Why haven't you replied to my text? I'm Randy, sexy, female and live local. Luv to hear from u. Netcollex Ltd 08700621170150p per msg reply Stop to end", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 340}
+{"text": "Hello, my love. What are you doing? Did you get to that interview today? Are you you happy? Are you being a good boy? Do you think of me?Are you missing me ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 350}
+{"text": "I'm so in love with you. I'm excited each day i spend with you. You make me so happy.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 354}
+{"text": "Great escape. I fancy the bridge but needs her lager. See you tomo", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 359}
+{"text": "It will stop on itself. I however suggest she stays with someone that will be able to give ors for every stool.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 383}
+{"text": "How are you doing? Hope you've settled in for the new school year. Just wishin you a gr8 day", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 384}
+{"text": "Found it, ENC &lt;#&gt; , where you at?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 389}
+{"text": "You please give us connection today itself before &lt;DECIMAL&gt; or refund the bill", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 397}
+{"text": "500 New Mobiles from 2004, MUST GO! Txt: NOKIA to No: 89545 & collect yours today!From ONLY £1 www.4-tc.biz 2optout 087187262701.50gbp/mtmsg18", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 412}
+{"text": "I have printed it oh. So &lt;#&gt; come upstairs", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 423}
+{"text": "New Theory: Argument wins d SITUATION, but loses the PERSON. So dont argue with ur friends just.. . . . kick them &amp; say, I'm always correct.!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 426}
+{"text": "Where are you lover ? I need you ...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 445}
+{"text": "MY NO. IN LUTON [number removed] RING ME IF UR AROUND! H*", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 450}
+{"text": "Ur ringtone service has changed! 25 Free credits! Go to club4mobiles.com to choose content now! Stop? txt CLUB STOP to 87070. 150p/wk Club4 PO Box1146 MK45 2WT", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 455}
+{"text": "Come to mu, we're sorting out our narcotics situation", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 458}
+{"text": "Ok..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 474}
+{"text": "My life Means a lot to me, Not because I love my life, But because I love the people in my life, The world calls them friends, I call them my World:-).. Ge:-)..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 476}
+{"text": "Haf u found him? I feel so stupid da v cam was working.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 479}
+{"text": "Oops. 4 got that bit.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 480}
+{"text": "I accidentally deleted the message. Resend please.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 482}
+{"text": "T-Mobile customer you may now claim your FREE CAMERA PHONE upgrade & a pay & go sim card for your loyalty. Call on 0845 021 3680.Offer ends 28thFeb.T&C's apply", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 483}
+{"text": "I cant pick the phone right now. Pls send a message", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 486}
+{"text": "Think ur smart ? Win £200 this week in our weekly quiz, text PLAY to 85222 now!T&Cs WinnersClub PO BOX 84, M26 3UZ. 16+. GBP1.50/week", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 499}
+{"text": "Not really dude, have no friends i'm afraid :(", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 505}
+{"text": "That would be great. We'll be at the Guild. Could meet on Bristol road or somewhere - will get in touch over weekend. Our plans take flight! Have a good week", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 511}
+{"text": "I'd say that's a good sign but, well, you know my track record at reading women", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 514}
+{"text": "Any chance you might have had with me evaporated as soon as you violated my privacy by stealing my phone number from your employer's paperwork. Not cool at all. Please do not contact me again or I will report you to your supervisor.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 520}
+{"text": "U calling me right? Call my hand phone...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 525}
+{"text": "I take it the post has come then! You must have 1000s of texts now! Happy reading. My one from wiv hello caroline at the end is my favourite. Bless him", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 527}
+{"text": "Where u been hiding stranger?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 528}
+{"text": "One small prestige problem now.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 533}
+{"text": "Thank You for calling.Forgot to say Happy Onam to you Sirji.I am fine here and remembered you when i met an insurance person.Meet You in Qatar Insha Allah.Rakhesh, ex Tata AIG who joined TISSCO,Tayseer.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 541}
+{"text": "Ha ha cool cool chikku chikku:-):-DB-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 545}
+{"text": "Good afternoon sunshine! How dawns that day ? Are we refreshed and happy to be alive? Do we breathe in the air and smile ? I think of you, my love ... As always", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 549}
+{"text": "Huh so late... Fr dinner?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 575}
+{"text": "Hey so this sat are we going for the intro pilates only? Or the kickboxing too?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 576}
+{"text": "The hair cream has not been shipped.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 587}
+{"text": "Send a logo 2 ur lover - 2 names joined by a heart. Txt LOVE NAME1 NAME2 MOBNO eg LOVE ADAM EVE 07123456789 to 87077 Yahoo! POBox36504W45WQ TxtNO 4 no ads 150p", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 604}
+{"text": "\"HEY HEY WERETHE MONKEESPEOPLE SAY WE MONKEYAROUND! HOWDY GORGEOUS, HOWU DOIN? FOUNDURSELF A JOBYET SAUSAGE?LOVE JEN XXX\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 628}
+{"text": "Ok i will tell her to stay out. Yeah its been tough but we are optimistic things will improve this month.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 637}
+{"text": "UpgrdCentre Orange customer, you may now claim your FREE CAMERA PHONE upgrade for your loyalty. Call now on 0207 153 9153. Offer ends 26th July. T&C's apply. Opt-out available", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 646}
+{"text": "Ok i am on the way to railway", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 648}
+{"text": "When are you going to ride your bike?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 651}
+{"text": "Nothing. I meant that once the money enters your account here, the bank will remove its flat rate. Someone transfered &lt;#&gt; to my account and &lt;#&gt; dollars got removed. So the banks differ and charges also differ.be sure you trust the 9ja person you are sending account details to cos...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 656}
+{"text": "Want 2 get laid tonight? Want real Dogging locations sent direct 2 ur Mob? Join the UK's largest Dogging Network by txting MOAN to 69888Nyt. ec2a. 31p.msg@150p", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 657}
+{"text": "When're you guys getting back? G said you were thinking about not staying for mcr", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 663}
+{"text": "Almost there, see u in a sec", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 664}
+{"text": "Sorry man my account's dry or I would, if you want we could trade back half or I could buy some shit with my credit card", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 674}
+{"text": "Sorry,in meeting I'll call later", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 251}
+{"text": "Some of them told accenture is not confirm. Is it true.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 679}
+{"text": "When can ü come out?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 683}
+{"text": "Prabha..i'm soryda..realy..frm heart i'm sory", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 693}
+{"text": "No..jst change tat only..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 695}
+{"text": "But that's on ebay it might be less elsewhere.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 702}
+{"text": "URGENT!: Your Mobile No. was awarded a £2,000 Bonus Caller Prize on 02/09/03! This is our 2nd attempt to contact YOU! Call 0871-872-9755 BOX95QU", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 706}
+{"text": "from www.Applausestore.com MonthlySubscription@50p/msg max6/month T&CsC web age16 2stop txt stop", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 721}
+{"text": "Imagine you finally get to sink into that bath after I have put you through your paces, maybe even having you eat me for a while before I left ... But also imagine the feel of that cage on your cock surrounded by the bath water, reminding you always who owns you ... Enjoy, my cuck", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 731}
+{"text": "O. Well uv causes mutations. Sunscreen is like essential thesedays", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 736}
+{"text": "Aiyo... U always c our ex one... I dunno abt mei, she haven reply... First time u reply so fast... Y so lucky not workin huh, got bao by ur sugardad ah...gee..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 740}
+{"text": "Geeeee ... I love you so much I can barely stand it", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 743}
+{"text": "Yar lor wait 4 my mum 2 finish sch then have lunch lor... I whole morning stay at home clean my room now my room quite clean... Hee...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 750}
+{"text": "You have won ?1,000 cash or a ?2,000 prize! To claim, call09050000327", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 755}
+{"text": "Ü wait 4 me in sch i finish ard 5..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 757}
+{"text": "So how's scotland. Hope you are not over showing your JJC tendencies. Take care. Live the dream", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 764}
+{"text": "\"Pete can you please ring meive hardly gotany credit\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 767}
+{"text": "For ur chance to win a £250 wkly shopping spree TXT: SHOP to 80878. T's&C's www.txt-2-shop.com custcare 08715705022, 1x150p/wk", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 770}
+{"text": "If u sending her home first it's ok lor. I'm not ready yet.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 780}
+{"text": "THANX4 TODAY CER IT WAS NICE 2 CATCH UP BUT WE AVE 2 FIND MORE TIME MORE OFTEN OH WELL TAKE CARE C U SOON.C", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 792}
+{"text": "I called and said all to him:)then he have to choose this future.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 793}
+{"text": "He like not v shock leh. Cos telling shuhui is like telling leona also. Like dat almost all know liao. He got ask me abt ur reaction lor.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 795}
+{"text": "Let there be snow. Let there be snow. This kind of weather brings ppl together so friendships can grow.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 798}
+{"text": "New TEXTBUDDY Chat 2 horny guys in ur area 4 just 25p Free 2 receive Search postcode or at gaytextbuddy.com. TXT ONE name to 89693", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 807}
+{"text": "What will we do in the shower, baby?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 817}
+{"text": "Well imma definitely need to restock before thanksgiving, I'll let you know when I'm out", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 819}
+{"text": "No prob. I will send to your email.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 826}
+{"text": "Tell them the drug dealer's getting impatient", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 832}
+{"text": "Piggy, r u awake? I bet u're still sleeping. I'm going 4 lunch now...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 853}
+{"text": "Have you finished work yet? :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 861}
+{"text": "Dear,Me at cherthala.in case u r coming cochin pls call bfore u start.i shall also reach accordingly.or tell me which day u r coming.tmorow i am engaged ans its holiday.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 863}
+{"text": "What is important is that you prevent dehydration by giving her enough fluids", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 877}
+{"text": "True dear..i sat to pray evening and felt so.so i sms'd you in some time...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 879}
+{"text": "Save yourself the stress. If the person has a dorm account, just send your account details and the money will be sent to you.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 887}
+{"text": "Book which lesson? then you msg me... I will call up after work or sth... I'm going to get specs. My membership is PX3748", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 891}
+{"text": "The world is running and i am still.maybe all are feeling the same,so be it.or i have to admit,i am mad.then where is the correction?or let me call this is life.and keep running with the world,may be u r also running.lets run.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 898}
+{"text": "Of cos can lar i'm not so ba dao ok... 1 pm lor... Y u never ask where we go ah... I said u would ask on fri but he said u will ask today...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 900}
+{"text": "Dunno y u ask me.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 903}
+{"text": "Email AlertFrom: Jeri StewartSize: 2KBSubject: Low-cost prescripiton drvgsTo listen to email call 123", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 904}
+{"text": "No he didn't. Spring is coming early yay!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 905}
+{"text": "Even u dont get in trouble while convincing..just tel him once or twice and just tel neglect his msgs dont c and read it..just dont reply", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 907}
+{"text": "Ok. There may be a free gym about.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 917}
+{"text": "Dunno he jus say go lido. Same time 930.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 919}
+{"text": "You have an important customer service announcement from PREMIER.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 925}
+{"text": "Faith makes things possible,Hope makes things work,Love makes things beautiful,May you have all three this Christmas!Merry Christmas!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 931}
+{"text": "Urgent Ur £500 guaranteed award is still unclaimed! Call 09066368327 NOW closingdate04/09/02 claimcode M39M51 £1.50pmmorefrommobile2Bremoved-MobyPOBox734LS27YF", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 936}
+{"text": "UR awarded a City Break and could WIN a £200 Summer Shopping spree every WK. Txt STORE to 88039 . SkilGme. TsCs087147403231Winawk!Age16 £1.50perWKsub", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 939}
+{"text": "Lol! U drunkard! Just doing my hair at d moment. Yeah still up 4 tonight. Wats the plan?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 943}
+{"text": "That means get the door", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 950}
+{"text": "Hmmm ... I thought we said 2 hours slave, not 3 ... You are late ... How should I punish you ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 951}
+{"text": "Orange customer, you may now claim your FREE CAMERA PHONE upgrade for your loyalty. Call now on 0207 153 9996. Offer ends 14thMarch. T&C's apply. Opt-out availa", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 964}
+{"text": "You have won a guaranteed £200 award or even £1000 cashto claim UR award call free on 08000407165 (18+) 2 stop getstop on 88222 PHP. RG21 4JX", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 971}
+{"text": "\"BOO BABE! U ENJOYIN YOURJOB? U SEEMED 2 B GETTIN ON WELL HUNNY!HOPE URE OK?TAKE CARE & ILLSPEAK 2U SOONLOTS OF LOVEME XXXX.\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 987}
+{"text": "Hahaha..use your brain dear", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 993}
+{"text": "U reach orchard already? U wan 2 go buy tickets first?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1015}
+{"text": "Going to take your babe out ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1021}
+{"text": "In work now. Going have in few min.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1025}
+{"text": "What do U want for Xmas? How about 100 free text messages & a new video phone with half price line rental? Call free now on 0800 0721072 to find out more!", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1033}
+{"text": "Its going good...no problem..but still need little experience to understand american customer voice...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1035}
+{"text": "Reminder: You have not downloaded the content you have already paid for. Goto http://doit. mymoby. tv/ to collect your content.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1042}
+{"text": "Why do you ask princess?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1052}
+{"text": "I'm used to it. I just hope my agents don't drop me since i've only booked a few things this year. This whole me in boston, them in nyc was an experiment.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1059}
+{"text": "Probably money worries. Things are coming due and i have several outstanding invoices for work i did two and three months ago.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1061}
+{"text": "My love ! How come it took you so long to leave for Zaher's? I got your words on ym and was happy to see them but was sad you had left. I miss you", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1071}
+{"text": "Ok lor but not too early. Me still having project meeting now.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1074}
+{"text": "Dont talk to him ever ok its my word.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1080}
+{"text": "It shall be fine. I have avalarr now. Will hollalater", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1083}
+{"text": "Actually i deleted my old website..now i m blogging at magicalsongs.blogspot.com", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1085}
+{"text": "K, wait chikku..il send aftr &lt;#&gt; mins", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1086}
+{"text": "Oh all have to come ah?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1089}
+{"text": "Urgent! call 09061749602 from Landline. Your complimentary 4* Tenerife Holiday or £10,000 cash await collection SAE T&Cs BOX 528 HP20 1YF 150ppm 18+", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1099}
+{"text": "I sent my scores to sophas and i had to do secondary application for a few schools. I think if you are thinking of applying, do a research on cost also. Contact joke ogunrinde, her school is one me the less expensive ones", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1105}
+{"text": "Filthy stories and GIRLS waiting for your", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1115}
+{"text": "Sorry i now then c ur msg... Yar lor so poor thing... But only 4 one night... Tmr u'll have a brand new room 2 sleep in...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1116}
+{"text": "Love isn't a decision, it's a feeling. If we could decide who to love, then, life would be much simpler, but then less magical", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1117}
+{"text": "U sure u can't take any sick time?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1121}
+{"text": "I am not sure about night menu. . . I know only about noon menu", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1125}
+{"text": "Are you willing to go for aptitude class.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1127}
+{"text": "It wont b until 2.15 as trying 2 sort house out, is that ok?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1128}
+{"text": "Haha awesome, omw back now then", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1130}
+{"text": "If he started searching he will get job in few days.he have great potential and talent.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1139}
+{"text": "Aight will do, thanks again for comin out", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1158}
+{"text": "Just buy a pizza. Meat lovers or supreme. U get to pick.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1170}
+{"text": "I walked an hour 2 c u! doesnt that show I care y wont u believe im serious?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1203}
+{"text": "I might come to kerala for 2 days.so you can be prepared to take a leave once i finalise .dont plan any travel during my visit.need to finish urgent works.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1216}
+{"text": "Meeting u is my work. . . Tel me when shall i do my work tomorrow", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1222}
+{"text": "Jus finish bathing...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1224}
+{"text": "Where can download clear movies. Dvd copies.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1230}
+{"text": "Ryder unsold.now gibbs.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1248}
+{"text": "Yeah go on then, bored and depressed sittin waitin for phone to ring... Hope the wind drops though, scary", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1254}
+{"text": "S s..first time..dhoni rocks...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1262}
+{"text": "Good morning princess! How are you?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1275}
+{"text": "I don't know u and u don't know me. Send CHAT to 86688 now and let's find each other! Only 150p/Msg rcvd. HG/Suite342/2Lands/Row/W1J6HL LDN. 18 years or over.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1289}
+{"text": "(That said can you text him one more time?)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1298}
+{"text": "K. I will sent it again", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1308}
+{"text": "Happy new years melody!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1317}
+{"text": "You flippin your shit yet?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1326}
+{"text": "Ok then i will come to ur home after half an hour", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1354}
+{"text": "Yeah, probably but not sure. Ilol let u know, but personally I wuldnt bother, then again if ur goin to then I mite as well!!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1356}
+{"text": "K..k..i'm also fine:)when will you complete the course?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1360}
+{"text": "Rofl betta invest in some anti aging products", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1365}
+{"text": "I want to show you the world, princess :) how about europe?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1380}
+{"text": "I do know what u mean, is the king of not havin credit! I'm goin2bed now. Night night sweet! Only1more sleep!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1385}
+{"text": "Yeah like if it goes like it did with my friends imma flip my shit in like half an hour", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1388}
+{"text": "What your plan for pongal?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1390}
+{"text": "Yo, I'm at my parents' gettin cash. Good news: we picked up a downstem", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1396}
+{"text": "Wot u up 2 u weirdo?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1409}
+{"text": "Am I the only one who doesn't stalk profiles?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1415}
+{"text": "Sure! I am driving but will reach my destination soon.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1429}
+{"text": "I jokin oni lar.. Ü busy then i wun disturb ü.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1440}
+{"text": "How abt making some of the pics bigger?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1445}
+{"text": "Win the newest “Harry Potter and the Order of the Phoenix (Book 5) reply HARRY, answer 5 questions - chance to be the first among readers!", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1449}
+{"text": "Just chill for another 6hrs. If you could sleep the pain is not a surgical emergency so see how it unfolds. Okay", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1472}
+{"text": "Crazy ar he's married. Ü like gd looking guys not me. My frens like say he's korean leona's fave but i dun thk he is. Aft some thinking mayb most prob i'll go.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1474}
+{"text": "Were somewhere on Fredericksburg", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1475}
+{"text": "&lt;#&gt; %of pple marry with their lovers... becz they hav gud undrstndng dat avoids problems. i sent dis 2 u, u wil get gud news on friday by d person you like. And tomorrow will be the best day of your life. Dont break this chain. If you break you will suffer. send this to &lt;#&gt; frnds in &lt;#&gt; mins whn u read...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1489}
+{"text": "Yo dude guess who just got arrested the other day", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1490}
+{"text": "Did you try making another butt.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1499}
+{"text": "I though we shd go out n have some fun so bar in town or something – sound ok?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1501}
+{"text": "Bears Pic Nick, and Tom, Pete and ... Dick. In fact, all types try gay chat with photo upload call 08718730666 (10p/min). 2 stop texts call 08712460324", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1503}
+{"text": "500 New Mobiles from 2004, MUST GO! Txt: NOKIA to No: 89545 & collect yours today!From ONLY £1 www.4-tc.biz 2optout 087187262701.50gbp/mtmsg18 TXTAUCTION", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 412}
+{"text": "Auntie huai juan never pick up her phone", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1505}
+{"text": "R we still meeting 4 dinner tonight?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1522}
+{"text": "Then we wait 4 u lor... No need 2 feel bad lar...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1524}
+{"text": "cool. We will have fun practicing making babies!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1529}
+{"text": "I jus hope its true that missin me cos i'm really missin him! You haven't done anything to feel guilty about, yet.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1558}
+{"text": "Wat so late still early mah. Or we juz go 4 dinner lor. Aiya i dunno...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1559}
+{"text": "Cool breeze... Bright sun... Fresh flower... Twittering birds... All these waiting to wish u: \"GOODMORNING &amp; HAVE A NICE DAY\" :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1562}
+{"text": "09066362231 URGENT! Your mobile No 07xxxxxxxxx won a £2,000 bonus caller prize on 02/06/03! this is the 2nd attempt to reach YOU! call 09066362231 ASAP!", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1583}
+{"text": "Have you always been saying welp?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1600}
+{"text": "Ok i juz receive..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1607}
+{"text": "Thanks for the Vote. Now sing along with the stars with Karaoke on your mobile. For a FREE link just reply with SING now.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1623}
+{"text": "Pete,is this your phone still? Its Jenny from college and Leanne.what are you up to now?:)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1626}
+{"text": "K:)all the best:)congrats...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1630}
+{"text": "URGENT! Your Mobile No was awarded a £2,000 Bonus Caller Prize on 1/08/03! This is our 2nd attempt to contact YOU! Call 0871-4719-523 BOX95QU BT National Rate", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 706}
+{"text": "Hey what happen de. Are you alright.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1643}
+{"text": "You have won a Nokia 7250i. This is what you get when you win our FREE auction. To take part send Nokia to 86021 now. HG/Suite342/2Lands Row/W1JHL 16+", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1650}
+{"text": "Midnight at the earliest", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1653}
+{"text": "Good afternoon, my love ! Any job prospects ? Are you missing me ? What do you do ? Are you being lazy and bleak, hmmm ? Or happy and filled with my love ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1660}
+{"text": "In e msg jus now. U said thanks for gift.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1666}
+{"text": "U too...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1667}
+{"text": "Good sleep is about rhythm. The person has to establish a rhythm that the body will learn and use. If you want to know more :-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1671}
+{"text": "Single line with a big meaning::::: \"Miss anything 4 ur \"Best Life\" but, don't miss ur best life for anything... Gud nyt...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1674}
+{"text": "How to Make a girl Happy? It's not at all difficult to make girls happy. U only need to be... 1. A friend 2. Companion 3. Lover 4. Chef . . . &lt;#&gt; . Good listener &lt;#&gt; . Organizer &lt;#&gt; . Good boyfriend &lt;#&gt; . Very clean &lt;#&gt; . Sympathetic &lt;#&gt; . Athletic &lt;#&gt; . Warm . . . &lt;#&gt; . Courageous &lt;#&gt; . Determined &lt;#&gt; . True &lt;#&gt; . Dependable &lt;#&gt; . Intelligent . . . &lt;#&gt; . Psychologist &lt;#&gt; . Pest exterminator &lt;#&gt; . Psychiatrist &lt;#&gt; . Healer . . &lt;#&gt; . Stylist &lt;#&gt; . Driver . . Aaniye pudunga venaam..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1691}
+{"text": "Somewhr someone is surely made 4 u. And God has decided a perfect time to make u meet dat person. . . . till den, . . . . . Enjoy ur crushes..!!!;-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1702}
+{"text": "Will it help if we propose going back again tomorrow", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1704}
+{"text": "Yeah probably, I still gotta check out with leo", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1709}
+{"text": "When you came to hostel.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1715}
+{"text": "Me sef dey laugh you. Meanwhile how's my darling anjie!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1724}
+{"text": "The 2 oz guy is being kinda flaky but one friend is interested in picking up $ &lt;#&gt; worth tonight if possible", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1728}
+{"text": "Sleeping nt feeling well", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1751}
+{"text": "U WILL SWITCH YOUR FONE ON DAMMIT!!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1752}
+{"text": "India have to take lead:)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1753}
+{"text": "ITS A LAPTOP TAKE IT WITH YOU.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1758}
+{"text": "At 7 we will go ok na.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1763}
+{"text": "So now my dad is gonna call after he gets out of work and ask all these crazy questions.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1774}
+{"text": "Lmao!nice 1", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1777}
+{"text": "So many people seems to be special at first sight, But only very few will remain special to you till your last sight.. Maintain them till life ends.. Sh!jas", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1784}
+{"text": "Y lei?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1786}
+{"text": "U meet other fren dun wan meet me ah... Muz b a guy rite...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1812}
+{"text": "Yeah I don't see why not", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1817}
+{"text": "WOW! The Boys R Back. TAKE THAT 2007 UK Tour. Win VIP Tickets & pre-book with VIP Club. Txt CLUB to 81303. Trackmarque Ltd info@vipclub4u.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1820}
+{"text": "UR GOING 2 BAHAMAS! CallFREEFONE 08081560665 and speak to a live operator to claim either Bahamas cruise of£2000 CASH 18+only. To opt out txt X to 07786200117", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1841}
+{"text": "Jus came back fr lunch wif my sis only. U leh?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1853}
+{"text": "SMS AUCTION You have won a Nokia 7250i. This is what you get when you win our FREE auction. To take part send Nokia to 86021 now. HG/Suite342/2Lands Row/W1JHL 16+", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1650}
+{"text": ";-( oh well, c u later", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1877}
+{"text": "Arun can u transfr me d amt", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1883}
+{"text": "Am not working but am up to eyes in philosophy so will text u later when a bit more free for chat...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1885}
+{"text": "I hope your alright babe? I worry that you might have felt a bit desparate when you learned the job was a fake ? I am here waiting when you come back, my love", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1890}
+{"text": "If we hit it off, you can move in with me :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1894}
+{"text": "Am i that much dirty fellow?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1912}
+{"text": "Sent me ur email id soon", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1918}
+{"text": "Hack Chat. Get backdoor entry into 121 chat rooms at a fraction of the cost. Reply NEO69 or call 09050280520, to subscribe 25p pm. DPS, Bcm box 8027 Ldn, wc1n3xx", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1930}
+{"text": "\"Are you comingdown later?\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1934}
+{"text": "Its on in engalnd! But telly has decided it won't let me watch it and mia and elliot were kissing! Damn it!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1938}
+{"text": "You got job in wipro:)you will get every thing in life in 2 or 3 years.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1941}
+{"text": "I just made some payments so dont have that much. Sorry. Would you want it fedex or the other way.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1945}
+{"text": "Say this slowly.? GOD,I LOVE YOU &amp; I NEED YOU,CLEAN MY HEART WITH YOUR BLOOD.Send this to Ten special people &amp; u c miracle tomorrow, do it,pls,pls do it...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1948}
+{"text": "It could work, we'll reach a consensus at the next meeting", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1952}
+{"text": "You have WON a guaranteed £1000 cash or a £2000 prize.To claim yr prize call our customer service representative on", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1965}
+{"text": "Come to me, slave. Your doing it again ... Going into your shell and unconsciously avoiding me ... You are making me unhappy :-(", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1972}
+{"text": "Wat would u like 4 ur birthday?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1985}
+{"text": "Then u going ikea str aft dat?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1995}
+{"text": "New TEXTBUDDY Chat 2 horny guys in ur area 4 just 25p Free 2 receive Search postcode or at gaytextbuddy.com. TXT ONE name to 89693. 08715500022 rpl Stop 2 cnl", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 807}
+{"text": "Fffff. Can you text kadeem or are you too far gone", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2001}
+{"text": "My planning usually stops at \"find hella weed, smoke hella weed\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2019}
+{"text": "The fact that you're cleaning shows you know why i'm upset. Your priority is constantly \"what i want to do,\" not \"what i need to do.\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2020}
+{"text": "Dude avatar 3d was imp. At one point i thought there were actually flies in the room and almost tried hittng one as a reflex", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2023}
+{"text": "I got lousy sleep. I kept waking up every 2 hours to see if my cat wanted to come in. I worry about him when its cold :(", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2026}
+{"text": "Yeah, I'll leave in a couple minutes &amp; let you know when I get to mu", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2027}
+{"text": "Haha... Really oh no... How? Then will they deduct your lesson tmr?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2033}
+{"text": "Howz that persons story", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2040}
+{"text": "LOL that would be awesome payback.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2041}
+{"text": "You have won a guaranteed £200 award or even £1000 cashto claim UR award call free on 08000407165 (18+) 2 stop getstop on 88222 PHP", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 971}
+{"text": "LMAO where's your fish memory when I need it?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2070}
+{"text": "But i'll b going 2 sch on mon. My sis need 2 take smth.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2071}
+{"text": "S....s...india going to draw the series after many years in south african soil..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2074}
+{"text": "Shopping lor. Them raining mah hard 2 leave orchard.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2076}
+{"text": "See the forwarding message for proof", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2078}
+{"text": "Ya it came a while ago", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2087}
+{"text": "Is there any movie theatre i can go to and watch unlimited movies and just pay once?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2092}
+{"text": "U having lunch alone? I now so bored...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2093}
+{"text": "Oh sorry please its over", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2106}
+{"text": "Y so late but i need to go n get da laptop...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2122}
+{"text": "URGENT! Your mobile No *********** WON a £2,000 Bonus Caller Prize on 02/06/03! This is the 2nd attempt to reach YOU! Call 09066362220 ASAP! BOX97N7QP, 150ppm", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1583}
+{"text": "Hmmm ... And imagine after you've come home from that having to rub my feet, make me dinner and help me get ready for my date ! Are you sure your ready for that kind of life ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2171}
+{"text": "Lara said she can loan me &lt;#&gt; .", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2172}
+{"text": "Argh my 3g is spotty, anyway the only thing I remember from the research we did was that province and sterling were the only problem-free places we looked at", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2182}
+{"text": "Tessy..pls do me a favor. Pls convey my birthday wishes to Nimya..pls dnt forget it. Today is her birthday Shijas", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2187}
+{"text": "Well I'm going to be an aunty!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2188}
+{"text": "Spoke with uncle john today. He strongly feels that you need to sacrifice to keep me here. He's going to call you. When he does, i beg you to just listen. Dont make any promises or make it clear things are not easy. And i need you to please let us work things out. As long as i keep expecting help, my creativity will be stifled so pls just keep him happy, no promises on your part.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2193}
+{"text": "Carlos took a while (again), we leave in a minute", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2194}
+{"text": "After the drug she will be able to eat.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2199}
+{"text": "Waaaat?? Lololo ok next time then!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2207}
+{"text": "What year. And how many miles.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2213}
+{"text": "I think you should go the honesty road. Call the bank tomorrow. Its the tough decisions that make us great people.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2216}
+{"text": "Is she replying. Has boye changed his phone number", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2218}
+{"text": "hi my darlin im on my way to London and we have just been smashed into by another driver! and have a big dent! im really missing u what have u been up to? xxx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2219}
+{"text": "Thank you. And by the way, I just lost.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2222}
+{"text": "\"CAN I PLEASE COME UP NOW IMIN TOWN.DONTMATTER IF URGOIN OUTL8R,JUST REALLYNEED 2DOCD.PLEASE DONTPLEASE DONTIGNORE MYCALLS,U NO THECD ISV.IMPORTANT TOME 4 2MORO\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2225}
+{"text": "Ooh, 4got, i'm gonna start belly dancing in moseley weds 6.30 if u want 2 join me, they have a cafe too.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2242}
+{"text": "(And my man carlos is definitely coming by mu tonight, no excuses)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2254}
+{"text": "soon you will have the real thing princess! Do i make you wet? :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2255}
+{"text": "Haha, my legs and neck are killing me and my amigos are hoping to end the night with a burn, think I could swing by in like an hour?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2257}
+{"text": "URGENT! Your mobile No 07xxxxxxxxx won a £2,000 bonus caller prize on 02/06/03! this is the 2nd attempt to reach YOU! call 09066362231 ASAP! BOX97N7QP, 150PPM", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1583}
+{"text": "Hmm well, night night", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2259}
+{"text": "Great. I was getting worried about you. Just know that a wonderful and caring person like you will have only the best in life. Know that u r wonderful and God's love is yours.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2270}
+{"text": "I prefer my free days... Tues, wed, fri oso can... Ü ask those workin lor...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2272}
+{"text": "If you have belive me. Come to my home.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2274}
+{"text": "Nothing just getting msgs by dis name wit different no's..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2280}
+{"text": "\"Si.como no?!listened2the plaid album-quite gd&the new air1 which is hilarious-also boughtbraindancea comp.ofstuff on aphexs ;abel,u hav2hear it!c u sn xxxx\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2282}
+{"text": "K I'll call you when I'm close", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2287}
+{"text": "How did you find out in a way that didn't include all of these details", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2292}
+{"text": "Here got lots of hair dresser fr china.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2303}
+{"text": "Did you show him and wot did he say or could u not c him 4 dust?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2307}
+{"text": "Life spend with someone for a lifetime may be meaningless but a few moments spent with someone who really love you means more than life itself..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2315}
+{"text": "Hello! How r u? Im bored. Inever thought id get bored with the tv but I am. Tell me something exciting has happened there? Anything! =/", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2320}
+{"text": "You have 1 new message. Please call 08718738034.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2336}
+{"text": "We can make a baby in yo tho", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2343}
+{"text": "In which place do you want da.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2358}
+{"text": "Ok lor.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2362}
+{"text": "URGENT! Your mobile number *************** WON a £2000 Bonus Caller prize on 10/06/03! This is the 2nd attempt to reach you! Call 09066368753 ASAP! Box 97N7QP, 150ppm", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1583}
+{"text": "Am surfing online store. For offers do you want to buy any thing.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2365}
+{"text": "We are both fine. Thanks", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2368}
+{"text": "Hi this is yijue, can i meet u at 11 tmr?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2379}
+{"text": "Yar else i'll thk of all sorts of funny things.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2383}
+{"text": "Ok try to do week end course in coimbatore.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2396}
+{"text": "Thanx 4 2day! U r a goodmate I THINK UR RITE SARY! ASUSUAL!1 U CHEERED ME UP! LOVE U FRANYxxxxx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2405}
+{"text": "I'm on my way home. Went to change batt 4 my watch then go shop a bit lor.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2406}
+{"text": "Hi, Mobile no. &lt;#&gt; has added you in their contact list on www.fullonsms.com It s a great place to send free sms to people For more visit fullonsms.com", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2408}
+{"text": "Thanks da thangam, i feel very very happy dear. I also miss you da.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2419}
+{"text": "Oh... Kay... On sat right?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2426}
+{"text": "Oh oh... Wasted... Den muz chiong on sat n sun liao...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2429}
+{"text": "One of best dialogue in cute reltnship..!! \"Wen i Die, Dont Come Near My Body..!! Bcoz My Hands May Not Come 2 Wipe Ur Tears Off That Time..!Gud ni8", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2433}
+{"text": "Oh k k:)but he is not a big hitter.anyway good", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2450}
+{"text": "Guess who am I?This is the first time I created a web page WWW.ASJESUS.COM read all I wrote. I'm waiting for your opinions. I want to be your friend 1/1", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2454}
+{"text": "Uncle boye. I need movies oh. Guide me. Plus you know torrents are not particularly legal here. And the system is slowing down. What should i do. Have a gr8 day. Plus have you started cos i dont meet you online. How was the honey moon.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2459}
+{"text": "Back in brum! Thanks for putting us up and keeping us all and happy. See you soon", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2466}
+{"text": "Then she dun believe wat?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2473}
+{"text": "Left dessert. U wan me 2 go suntec look 4 u?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2478}
+{"text": "Lol well don't do it without me. We could have a big sale together.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2492}
+{"text": "Princess, i like to make love &lt;#&gt; times per night. Hope thats not a problem!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2497}
+{"text": "You at mu? You should try to figure out how much money everyone has for gas and alcohol, jay and I are trying to figure out our weed budget", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2516}
+{"text": "Hiya , have u been paying money into my account? If so, thanks. Got a pleasant surprise when i checked my balance -u c, i don't get statements 4 that acc", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2532}
+{"text": "Can you just come in for a sec? There's somebody here I want you to see", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2543}
+{"text": "Glad it went well :) come over at 11 then we'll have plenty of time before claire goes to work.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2547}
+{"text": "That's y we haf to combine n c how lor...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2551}
+{"text": "They said if its gonna snow, it will start around 8 or 9 pm tonite! They are predicting an inch of accumulation.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2554}
+{"text": "I'm done. C ü there.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2565}
+{"text": "Are you still getting the goods.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2574}
+{"text": "I dont want to hear anything", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2579}
+{"text": "Ultimately tor motive tui achieve korli.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2581}
+{"text": "… and don‘t worry we‘ll have finished by march … ish!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2583}
+{"text": "3 FREE TAROT TEXTS! Find out about your love life now! TRY 3 FOR FREE! Text CHANCE to 85555 16 only! After 3 Free, Msgs £1.50 each", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2593}
+{"text": "Goodmorning, today i am late for 1hr.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2594}
+{"text": "Got fujitsu, ibm, hp, toshiba... Got a lot of model how to say...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2607}
+{"text": "R U &SAM P IN EACHOTHER. IF WE MEET WE CAN GO 2 MY HOUSE", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2615}
+{"text": ":-) yeah! Lol. Luckily i didn't have a starring role like you!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2616}
+{"text": "Hello madam how are you ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2617}
+{"text": "Lol! Nah wasn't too bad thanks. Its good to b home but its been quite a reality check. Hows ur day been? Did u do anything with website?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2627}
+{"text": "URGENT! Your mobile No 077xxx WON a £2,000 Bonus Caller Prize on 02/06/03! This is the 2nd attempt to reach YOU! Call 09066362206 ASAP! BOX97N7QP, 150ppm", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 1583}
+{"text": "Why she wants to talk to me", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2642}
+{"text": "Em, its olowoyey@ usc.edu have a great time in argentina. Not sad about secretary, everything is a blessing", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2646}
+{"text": "You might want to pull out more just in case and just plan on not spending it if you can, I don't have much confidence in derek and taylor's money management", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2649}
+{"text": "Great! I have to run now so ttyl!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2655}
+{"text": "I'm okay. Chasing the dream. What's good. What are you doing next.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2680}
+{"text": "Yes I know the cheesy songs from frosty the snowman :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2683}
+{"text": "Ya ok, vikky vl c witin &lt;#&gt; mins and il reply u..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2684}
+{"text": "Nope but i'm going home now then go pump petrol lor... Like going 2 rain soon...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2691}
+{"text": "Tunde, how are you doing. This is just wishing you a great day. Abiola.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2713}
+{"text": "Urgent Please call 09066612661 from landline. £5000 cash or a luxury 4* Canary Islands Holiday await collection. T&Cs SAE award. 20M12AQ. 150ppm. 16+ “", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2717}
+{"text": "Urgent! Please call 09066612661 from your landline, your complimentary 4* Lux Costa Del Sol holiday or £1000 CASH await collection. ppm 150 SAE T&Cs James 28, EH74RR", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2718}
+{"text": "Mm feeling sleepy. today itself i shall get that dear", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2720}
+{"text": "I meant middle left or right?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2724}
+{"text": "Really? I crashed out cuddled on my sofa.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2725}
+{"text": "Nothing. Can...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2728}
+{"text": "Forgot it takes me 3 years to shower, sorry. Where you at/your phone dead yet?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2770}
+{"text": "And smile for me right now as you go and the world will wonder what you are smiling about and think your crazy and keep away from you ... *grins*", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2782}
+{"text": "Gr8 Poly tones 4 ALL mobs direct 2u rply with POLY TITLE to 8007 eg POLY BREATHE1 Titles: CRAZYIN, SLEEPINGWITH, FINEST, YMCA :getzed.co.uk POBox365O4W45WQ 300p", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2795}
+{"text": "Don't forget who owns you and who's private property you are ... And be my good boy always .. *passionate kiss*", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2797}
+{"text": "Oh god..taken the teeth?is it paining", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2799}
+{"text": "Then u ask darren go n pick u lor... But i oso sian tmr haf 2 meet lect...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2801}
+{"text": "No need to buy lunch for me.. I eat maggi mee..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2802}
+{"text": "Nice.nice.how is it working?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2809}
+{"text": "1's reach home call me.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2810}
+{"text": "Will be out of class in a few hours. Sorry", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2817}
+{"text": "Your gonna be the death if me. I'm gonna leave a note that says its all robs fault. Avenge me.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2826}
+{"text": "I am not at all happy with what you saying or doing", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2831}
+{"text": "Ok that would b lovely, if u r sure. Think about wot u want to do, drinkin, dancin, eatin, cinema, in, out, about... Up to u! Wot about ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2833}
+{"text": "Smith waste da.i wanna gayle.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2835}
+{"text": "Mum, i've sent you many many messages since i got here. I just want to know that you are actually getting them. Do enjoy the rest of your day.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2836}
+{"text": "I dont understand your message.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2840}
+{"text": "I take it we didn't have the phone callon Friday. Can we assume we won't have it this year now?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2854}
+{"text": "K I'll be sure to get up before noon and see what's what", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2859}
+{"text": "Helloooo... Wake up..! \"Sweet\" \"morning\" \"welcomes\" \"You\" \"Enjoy\" \"This Day\" \"with full of joy\".. \"GUD MRNG\".", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2870}
+{"text": "How do you guys go to see movies on your side.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2873}
+{"text": "Nothing lor... A bit bored too... Then y dun u go home early 2 sleep today...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2877}
+{"text": "Only 2% students solved this CAT question in 'xam... 5+3+2= &lt;#&gt; 9+2+4= &lt;#&gt; 8+6+3= &lt;#&gt; then 7+2+5=????? Tell me the answer if u r brilliant...1thing.i got d answr.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2894}
+{"text": "And stop wondering \"wow is she ever going to stop tm'ing me ?!\" because I will tm you whenever I want because you are MINE ... *laughs*", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2898}
+{"text": "My supervisor find 4 me one lor i thk his students. I havent ask her yet. Tell u aft i ask her.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2902}
+{"text": "Hey now am free you can call me.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2911}
+{"text": "Are you being good, baby? :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2925}
+{"text": "Mostly sports type..lyk footbl,crckt..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2926}
+{"text": "Yar lor... Keep raining non stop... Or u wan 2 go elsewhere?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2935}
+{"text": "What u mean u almost done? Done wif sleeping? But i tot u going to take a nap.. Yup i send her liao so i'm picking her up at ard 4 smth lor..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2936}
+{"text": "Tonight? Yeah, I'd be down for that", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2937}
+{"text": "He said that he had a right giggle when he saw u again! You would possibly be the first person2die from NVQ, but think how much you could for!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2939}
+{"text": "This message is free. Welcome to the new & improved Sex & Dogging club! To unsubscribe from this service reply STOP. msgs@150p 18+only", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2953}
+{"text": "Update_Now - 12Mths Half Price Orange line rental: 400mins...Call MobileUpd8 on 08000839402 or call2optout=J5Q", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2958}
+{"text": "Yeah no probs - last night is obviously catching up with you... Speak soon", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2961}
+{"text": "Wat time do u wan 2 meet me later?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2968}
+{"text": "How dare you change my ring", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2971}
+{"text": "You have got tallent but you are wasting.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2977}
+{"text": "What is your record for one night? :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2978}
+{"text": "Cos darren say ü considering mah so i ask ü...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2985}
+{"text": "Your bill at 3 is £33.65 so thats not bad!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2990}
+{"text": "Let me know how it changes in the next 6hrs. It can even be appendix but you are out of that age range. However its not impossible. So just chill and let me know in 6hrs", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2991}
+{"text": "So how's the weather over there?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2993}
+{"text": "Lol they don't know about my awesome phone. I could click delete right now if I want.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2996}
+{"text": "Pls send me the correct name da.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2999}
+{"text": "Dear all, as we know &lt;#&gt; th is the &lt;#&gt; th birthday of our loving Gopalettan. We are planning to give a small gift on that day. Those who like to participate in that you are welcome. Please contact our admin team for more details", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3004}
+{"text": "What u talking bout early morning? It's almost noon where your at!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3006}
+{"text": "Ok. So april. Cant wait", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3012}
+{"text": "Ay wana meet on sat?ü wkg on sat?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3014}
+{"text": "I'm now but have to wait till 2 for the bus to pick me.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3015}
+{"text": "*deep sigh* ... I miss you :-( ... I am really surprised you haven't gone to the net cafe yet to get to me ... Don't you miss me?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3024}
+{"text": "Ok lor. I ned 2 go toa payoh 4 a while 2 return smth u wan 2 send me there or wat?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3029}
+{"text": "Am going to take bath ill place the key in window:-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3034}
+{"text": "staff.science.nus.edu.sg/~phyhcmk/teaching/pc1323", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3037}
+{"text": "We walked from my moms. Right on stagwood pass right on winterstone left on victors hill. Address is &lt;#&gt;", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3040}
+{"text": "Just haven't decided where yet eh ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3055}
+{"text": "Uncle Abbey! Happy New Year. Abiola", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3059}
+{"text": "Now am free call me pa.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3060}
+{"text": "He telling not to tell any one. If so treat for me hi hi hi", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3065}
+{"text": "Haha better late than ever, any way I could swing by?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3070}
+{"text": "Ok going to sleep. Hope i can meet her.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3075}
+{"text": "Wat r u doing now?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3078}
+{"text": "Haha I heard that, text me when you're around", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3083}
+{"text": "Sorry, in meeting I'll call you later", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 251}
+{"text": "Cheers for the card ... Is it that time of year already?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3099}
+{"text": "Ugh hopefully the asus ppl dont randomly do a reformat.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3100}
+{"text": "There the size of elephant tablets & u shove um up ur ass!!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3110}
+{"text": "So many people seems to be special at first sight, But only very few will remain special to you till your last sight.. Maintain them till life ends.. take cr da", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 1784}
+{"text": "MAYBE IF YOU WOKE UP BEFORE FUCKING 3 THIS WOULDN'T BE A PROBLEM.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3114}
+{"text": "Great. P diddy is my neighbor and comes for toothpaste every morning", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3121}
+{"text": "I av a new number, . Wil u only use this one,ta.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3122}
+{"text": "So its to be poking man everyday that they teach you in canada abi! How are you. Just saying hi.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3123}
+{"text": "Oh, yes, I've just been a little under the weather so i've kind of been coccooning at home", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3130}
+{"text": "What's ur pin?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3138}
+{"text": "Come to mahal bus stop.. &lt;DECIMAL&gt;", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3141}
+{"text": "* You gonna ring this weekend or wot?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3166}
+{"text": "44 7732584351, Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3182}
+{"text": "K actually can you guys meet me at the sunoco on howard? It should be right on the way", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3187}
+{"text": "Hey you around? I've got enough for a half + the ten I owe you", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3197}
+{"text": "The gas station is like a block away from my house, you'll drive right by it since armenia ends at swann and you have to take howard", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3202}
+{"text": "I'm not smoking while people use \"wylie smokes too much\" to justify ruining my shit", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3205}
+{"text": "Dear good morning how you feeling dear", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3206}
+{"text": "Just do what ever is easier for you", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3211}
+{"text": "Okie ü wan meet at bishan? Cos me at bishan now. I'm not driving today.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3220}
+{"text": "Kay... Since we are out already", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3228}
+{"text": "Eh sorry leh... I din c ur msg. Not sad already lar. Me watching tv now. U still in office?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3229}
+{"text": "Ok darlin i supose it was ok i just worry too much.i have to do some film stuff my mate and then have to babysit again! But you can call me there.xx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3231}
+{"text": "Still i have not checked it da. . .", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3249}
+{"text": "Oh is it! Which brand?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3256}
+{"text": "I emailed yifeng my part oredi.. Can ü get it fr him..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3260}
+{"text": "Ok not a problem will get them a taxi. C ing tomorrow and tuesday. On tuesday think we r all going to the cinema.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3263}
+{"text": "Please attend the phone:)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3266}
+{"text": "You only hate me. You can call any but you didnt accept even a single call of mine. Or even you messaged", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3267}
+{"text": "Well, I meant as opposed to my drunken night of before", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3285}
+{"text": "O. Guess they both got screwd", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3292}
+{"text": "It only does simple arithmetic not percentages.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3297}
+{"text": "Yeah we wouldn't leave for an hour at least, how's 4 sound?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3298}
+{"text": "Do you want a New Nokia 3510i colour phone DeliveredTomorrow? With 300 free minutes to any mobile + 100 free texts + Free Camcorder reply or call 08000930705", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3182}
+{"text": "Where do you need to go to get it?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3308}
+{"text": "Had your mobile 10 mths? Update to latest Orange camera/video phones for FREE. Save £s with Free texts/weekend calls. Text YES for a callback orno to opt out", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3316}
+{"text": "Haha okay... Today weekend leh...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3320}
+{"text": "Save money on wedding lingerie at www.bridal.petticoatdreams.co.uk Choose from a superb selection with national delivery. Brought to you by WeddingFriend", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3334}
+{"text": "Your board is working fine. The issue of overheating is also reslove. But still software inst is pending. I will come around 8'o clock.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3335}
+{"text": "Have your lunch and come quickly and open the door:)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3347}
+{"text": "K.. I yan jiu liao... Sat we can go 4 bugis vill one frm 10 to 3 den hop to parco 4 nb. Sun can go cine frm 1030 to 2, den hop to orc mrt 4 hip hop at 4...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3350}
+{"text": "Haha figures, well I found the piece and priscilla's bowl", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3354}
+{"text": "What was she looking for?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3366}
+{"text": "Happy birthday... May u find ur prince charming soon n dun work too hard...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3377}
+{"text": "Free any day but i finish at 6 on mon n thurs...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3384}
+{"text": "I just saw ron burgundy captaining a party boat so yeah", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3391}
+{"text": "Well, I was about to give up cos they all said no they didn‘t do one nighters. I persevered and found one but it is very cheap so i apologise in advance. It is just somewhere to sleep isnt it?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3397}
+{"text": "No it will reach by 9 only. She telling she will be there. I dont know", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3401}
+{"text": "Prepare to be pounded every night...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3412}
+{"text": "Mmmmm ... It was sooooo good to wake to your words this morning, my Love!! Mmmm fuck ... I love you too, my Lion ... *devouring kiss from across the sea*", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3417}
+{"text": "What happen dear. Why you silent. I am tensed", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3419}
+{"text": "Dad wanted to talk about the apartment so I got a late start, omw now", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3429}
+{"text": "From next month get upto 50% More Calls 4 Ur standard network charge 2 activate Call 9061100010 C Wire3.net 1st4Terms PoBox84 M26 3UZ Cost £1.50 min MobcudB more", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3434}
+{"text": "Text BANNEDUK to 89555 to see! cost 150p textoperator g696ga 18+ XXX", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3440}
+{"text": "Collect your VALENTINE'S weekend to PARIS inc Flight & Hotel + £200 Prize guaranteed! Text: PARIS to No: 69101. www.rtf.sphosting.com", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3446}
+{"text": "I've sent my wife your text. After we buy them she'll tell you what to do. So just relax. We should go get them this wkend.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3465}
+{"text": "Good morning princess! Happy New Year!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3471}
+{"text": "Aight, we'll head out in a few", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3473}
+{"text": "Then wat r u doing now? Busy wif work?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3474}
+{"text": "Cps is causing the outages to conserve energy.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3477}
+{"text": "I meant as an apology from me for texting you to get me drugs at &lt;#&gt; at night", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3493}
+{"text": "Goin to workout lor... Muz lose e fats...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3495}
+{"text": "It's not that you make me cry. It's just that when all our stuff happens on top of everything else, it pushes me over the edge. You don't underdtand how often i cry over my sorry, sorry life.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3505}
+{"text": "\"ME 2 BABE I FEEL THE SAME LETS JUST 4GET ABOUT IT+BOTH TRY +CHEER UP+NOT FIT SOO MUCHXXLOVE U LOCAXX\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3506}
+{"text": "Sorry, left phone upstairs. OK, might be hectic but would be all my birds with one fell swoop. It's a date.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3513}
+{"text": "Why i come in between you people", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3523}
+{"text": "Frnd s not juz a word.....not merely a relationship.....its a silent promise which says ... \" I will be with YOU \" Wherevr.. Whenevr.. Forevr... Gudnyt dear..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3532}
+{"text": "Ok thanx... Take care then...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3539}
+{"text": "Promotion Number: 8714714 - UR awarded a City Break and could WIN a £200 Summer Shopping spree every WK. Txt STORE to 88039 . SkilGme. TsCs087147403231Winawk!Age16 £1.50perWKsub", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 939}
+{"text": "LOL what happens in Vegas stays in vegas", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3546}
+{"text": "Dad says hurry the hell up", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3549}
+{"text": "I'll meet you in the lobby", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3553}
+{"text": "I was about to do it when i texted. I finished a long time ago and showered and er'ything!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3557}
+{"text": "I am in tirupur. call you da.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3560}
+{"text": "If i not meeting ü all rite then i'll go home lor. If ü dun feel like comin it's ok.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3574}
+{"text": "I'm gonna rip out my uterus.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3578}
+{"text": "I guess you could be as good an excuse as any, lol.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3589}
+{"text": "Nobody names their penis a girls name this story doesn't add up at all", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3600}
+{"text": "I'm not. She lip synced with shangela.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3602}
+{"text": "I love you !!! You know? Can you feel it? Does it make your belly warm? I wish it does, my love ... I shall meet you in your dreams, Ahmad ... *adoring kiss*", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3638}
+{"text": "They have a thread on the wishlist section of the forums where ppl post nitro requests. Start from the last page and collect from the bottom up.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3644}
+{"text": "Yup song bro. No creative. Neva test quality. He said check review online.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3649}
+{"text": "Dude while were makin those weirdy brownies my sister made awesome cookies. I took pics.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3651}
+{"text": "Pls dont restrict her from eating anythin she likes for the next two days.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3652}
+{"text": "Please protect yourself from e-threats. SIB never asks for sensitive information like Passwords,ATM/SMS PIN thru email. Never share your password with anybody.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3668}
+{"text": "Hi. I'm always online on yahoo and would like to chat with you someday", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3670}
+{"text": "Sure, I'll see if I can come by in a bit", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3674}
+{"text": "I'm thinking that chennai forgot to come for auction..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3678}
+{"text": "Pls go there today &lt;#&gt; . I dont want any excuses", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3689}
+{"text": "I to am looking forward to all the sex cuddling.. Only two more sleeps", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3692}
+{"text": "Customer place, i wil cal u sir.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3703}
+{"text": "No let me do the math. Your not good at it.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3710}
+{"text": "Yeah my usual guy's out of town but there're definitely people around I know", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3712}
+{"text": "No. Did you multimedia message them or e-mail?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3715}
+{"text": "Okie but i scared u say i fat... Then u dun wan me already...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3716}
+{"text": "A link to your picture has been sent. You can also use http://alto18.co.uk/wave/wave.asp?o=44345", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3723}
+{"text": "ok....take care.umma to you too...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3727}
+{"text": "Okay lor... Will they still let us go a not ah? Coz they will not know until later. We drop our cards into the box right?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3754}
+{"text": "Lol ... I really need to remember to eat when I'm drinking but I do appreciate you keeping me company that night babe *smiles*", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3758}
+{"text": "Yeah, in fact he just asked if we needed anything like an hour ago. When and how much?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3768}
+{"text": "How u doin baby girl ?? hope u are okay every time I call ure phone is off! I miss u get in touch", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3776}
+{"text": "Night night, see you tomorrow", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3801}
+{"text": "do u think that any girl will propose u today by seing ur bloody funky shit fucking face...............asssssholeeee................", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3803}
+{"text": "ringtoneking 84484", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3807}
+{"text": "Ringtone Club: Gr8 new polys direct to your mobile every week !", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3813}
+{"text": "IM FINE BABES AINT BEEN UP 2 MUCH THO! SAW SCARY MOVIE YEST ITS QUITE FUNNY! WANT 2MRW AFTERNOON? AT TOWN OR MALL OR SUMTHIN?xx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3828}
+{"text": "Ha... Then we must walk to everywhere... Cannot take tram. My cousin said can walk to vic market from our hotel", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3831}
+{"text": "U've been selected to stay in 1 of 250 top British hotels - FOR NOTHING! Holiday valued at £350! Dial 08712300220 to claim - National Rate Call. Bx526, SW73SS", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3838}
+{"text": "We have to pick rayan macleran there.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3840}
+{"text": "I am literally in bed and have been up for like &lt;#&gt; hours", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3860}
+{"text": "Yes, my reg is Ciao!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3861}
+{"text": "Ok ok take care. I can understand.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3866}
+{"text": "Ya ok, then had dinner?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3868}
+{"text": "I was slept that time.you there?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3869}
+{"text": "Ha ha nan yalrigu heltini..Iyo kothi chikku, u shared many things wit me..so far i didn't told any body and even uttered a word abt u.. If ur trusting me so much how can i tell these to others.. Plz nxt time dont use those words to me..ok, chikku:-);-)B-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3872}
+{"text": "This weeks SavaMob member offers are now accessible. Just call 08709501522 for details! SavaMob, POBOX 139, LA3 2WU. Only £1.50/week. SavaMob - offers mobile!", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 3875}
+{"text": "How are you. Its been ages. How's abj", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3878}
+{"text": "I've reached home n i bathe liao... U can call me now...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3886}
+{"text": "I think just yourself …Thanks and see you tomo", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3909}
+{"text": "Sure thing big man. i have hockey elections at 6, shouldn‘t go on longer than an hour though", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3924}
+{"text": "Babe! How goes that day ? What are you up to ? I miss you already, my Love ... * loving kiss* ... I hope everything goes well.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3927}
+{"text": "Hi baby ive just got back from work and i was wanting to see u allday! I hope i didnt piss u off on the phone today. If u are up give me a call xxx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3936}
+{"text": "Is it your yahoo boys that bring in the perf? Or legal.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3938}
+{"text": "I told that am coming on wednesday.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3964}
+{"text": "Are you at work right now ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3967}
+{"text": "Pls what's the full name of joke's school cos fees in university of florida seem to actually be &lt;#&gt; k. Pls holla back", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3970}
+{"text": "How are you doing. How's the queen. Are you going for the royal wedding", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3973}
+{"text": "Ok lor then we go tog lor...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3975}
+{"text": "Can ü send me a copy of da report?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3977}
+{"text": "Ok i'm coming home now.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 3989}
+{"text": "I want kfc its Tuesday. Only buy 2 meals ONLY 2. No gravy. Only 2 Mark. 2!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4000}
+{"text": "Oi when you gonna ring", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4002}
+{"text": "Will be office around 4 pm. Now i am going hospital.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4008}
+{"text": "U free on sat rite? U wan 2 watch infernal affairs wif me n darren n mayb xy?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4011}
+{"text": "Double eviction this week - Spiral and Michael and good riddance to them!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4014}
+{"text": "U really pig leh sleep so much. My dad wake me up at 10 smth 2 eat lunch today.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4021}
+{"text": "The LAY MAN! Just to let you know you are missed and thought off. Do have a great day. And if you can send me bimbo and ugo's numbers, ill appreciate. Safe", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4027}
+{"text": "Show ur colours! Euro 2004 2-4-1 Offer! Get an England Flag & 3Lions tone on ur phone! Click on the following service message for info!", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4029}
+{"text": "Aight, I'm chillin in a friend's room so text me when you're on the way", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4030}
+{"text": "Are you plans with your family set in stone ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4043}
+{"text": "Congrats. That's great. I wanted to tell you not to tell me your score cos it might make me relax. But its motivating me so thanks for sharing", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4066}
+{"text": "I wud never mind if u dont miss me or if u dont need me.. But u wil really hurt me wen u need me &amp; u dont tell me......... Take care:-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4067}
+{"text": "For you information, IKEA is spelled with all caps. That is not yelling. when you thought i had left you, you were sitting on the bed among the mess when i came in. i said we were going after you got home from class. please don't try and bullshit me. It makes me want to listen to you less.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4070}
+{"text": "Call me when u're done...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4071}
+{"text": "Yup i'm free...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4078}
+{"text": "I guess it is useless calling u 4 something important.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4082}
+{"text": "Are you still playing with gautham?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4092}
+{"text": "1Apple/Day=No Doctor. 1Tulsi Leaf/Day=No Cancer. 1Lemon/Day=No Fat. 1Cup Milk/day=No Bone Problms 3 Litres Watr/Day=No Diseases Snd ths 2 Whom U Care..:-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4100}
+{"text": "Fyi I'm taking a quick shower, be at epsilon in like &lt;#&gt; min", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4107}
+{"text": "Yes when is the appt again?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4109}
+{"text": "Yes. Rent is very expensive so its the way we save.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4119}
+{"text": "Our dating service has been asked 2 contact U by someone shy! CALL 09058091870 NOW all will be revealed. POBox84, M26 3UZ 150p", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4124}
+{"text": "Mm yes dear look how i am hugging you both. :-P", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4132}
+{"text": "How are you. Just checking up on you", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4144}
+{"text": "Dun need to use dial up juz open da browser n surf...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4167}
+{"text": "Awesome, plan to get here any time after like &lt;#&gt; , I'll text you details in a wee bit", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4169}
+{"text": "You also didnt get na hi hi hi hi hi", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4172}
+{"text": "If i said anything wrong sorry de:-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4174}
+{"text": "MMM ... Fuck .... Merry Christmas to me", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4182}
+{"text": "Just now saw your message.it k da:)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4185}
+{"text": "So what did the bank say about the money?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4187}
+{"text": "Don't b floppy... b snappy & happy! Only gay chat service with photo upload call 08718730666 (10p/min). 2 stop our texts call 08712460324", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4195}
+{"text": "How come u got nothing to do?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4196}
+{"text": "Please tell me you have some of that special stock you were talking about", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4206}
+{"text": "Sorry I flaked last night, shit's seriously goin down with my roommate, what you up to tonight?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4218}
+{"text": "3. You have received your mobile content. Enjoy", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4226}
+{"text": "Oh :-)only 4 outside players allowed to play know", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4231}
+{"text": "Call me when you get the chance plz &lt;3", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4241}
+{"text": "Hi good mornin.. Thanku wish u d same..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4270}
+{"text": "I've sent ü my part..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4273}
+{"text": "Normally i use to drink more water daily:)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4285}
+{"text": "Urgh, coach hot, smells of chip fat! Thanks again, especially for the duvet (not a predictive text word).", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4288}
+{"text": "I've been trying to reach him without success", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4291}
+{"text": "Haha, my friend tyler literally just asked if you could get him a dubsack", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4296}
+{"text": "Great. Have a safe trip. Dont panic surrender all.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4298}
+{"text": "Sun ah... Thk mayb can if dun have anythin on... Thk have to book e lesson... E pilates is at orchard mrt u noe hor...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4300}
+{"text": "How much u trying to get?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4308}
+{"text": "Tell me again what your address is", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4310}
+{"text": "\"CHA QUITEAMUZING THATSCOOL BABE,PROBPOP IN & CU SATTHEN HUNNY 4BREKKIE! LOVE JEN XXX. PSXTRA LRG PORTIONS 4 ME PLEASE \"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4316}
+{"text": "No plans yet. What are you doing ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4322}
+{"text": "Wow didn't think it was that common. I take it all back ur not a freak! Unless u chop it off:-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4325}
+{"text": "Noooooooo please. Last thing I need is stress. For once in your life be fair.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4326}
+{"text": "I wanted to wish you a Happy New Year and I wanted to talk to you about some legal advice to do with when Gary and I split but in person. I'll make a trip to Ptbo for that. I hope everything is good with you babe and I love ya :)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4328}
+{"text": "Right it wasnt you who phoned it was someone with a number like yours!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4330}
+{"text": "It's ok i wun b angry. Msg u aft i come home tonight.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4331}
+{"text": "Oh... Haha... Den we shld had went today too... Gee, nvm la... Kaiez, i dun mind goin jazz oso... Scared hiphop open cant catch up...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4344}
+{"text": "Just glad to be talking to you.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4348}
+{"text": "These won't do. Have to move on to morphine", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4368}
+{"text": "Not..tel software name..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4393}
+{"text": "IM REALY SOZ IMAT MY MUMS 2NITE WHAT ABOUT 2MORO", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4395}
+{"text": "Ü ready then call me...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4401}
+{"text": "Eatin my lunch...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4411}
+{"text": "By march ending, i should be ready. But will call you for sure. The problem is that my capital never complete. How far with you. How's work and the ladies", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4415}
+{"text": "URGENT! Your Mobile No 07808726822 was awarded a £2,000 Bonus Caller Prize on 02/09/03! This is our 2nd attempt to contact YOU! Call 0871-872-9758 BOX95QU", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 706}
+{"text": "Yes fine", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4419}
+{"text": "Wif my family booking tour package.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4426}
+{"text": "Haha awesome, I might need to take you up on that, what you doin tonight?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4428}
+{"text": "Hey. What happened? U switch off ur cell d whole day. This isnt good. Now if u do care, give me a call tomorrow.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4435}
+{"text": "There'll be a minor shindig at my place later tonight, you interested?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4443}
+{"text": "Had your mobile 10 mths? Update to the latest Camera/Video phones for FREE. KEEP UR SAME NUMBER, Get extra free mins/texts. Text YES for a call", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4445}
+{"text": "It's é only $140 ard...É rest all ard $180 at least...Which is é price 4 é 2 bedrm ($900)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4473}
+{"text": "if you text on your way to cup stop that should work. And that should be BUS", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4477}
+{"text": "PRIVATE! Your 2004 Account Statement for 078498****7 shows 786 unredeemed Bonus Points. To claim call 08719180219 Identifier Code: 45239 Expires 06.05.05", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 313}
+{"text": "Honey, can you pls find out how much they sell Predicte in Nigeria. And how many times can it be used. Its very important to have a reply before monday", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4516}
+{"text": "Me too. Mark is taking forever to pick up my prescription and the pain is coming back.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4522}
+{"text": "Im good! I have been thinking about you...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4526}
+{"text": "Yup but it's not giving me problems now so mayb i'll jus leave it...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4531}
+{"text": "New Mobiles from 2004, MUST GO! Txt: NOKIA to No: 89545 & collect yours today! From ONLY £1. www.4-tc.biz 2optout 087187262701.50gbp/mtmsg18 TXTAUCTION.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 412}
+{"text": "Missing you too.pray inshah allah", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4546}
+{"text": "either way works for me. I am &lt;#&gt; years old. Hope that doesnt bother you.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4549}
+{"text": "Thanks and ! Or bomb and date as my phone wanted to say!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4557}
+{"text": "**FREE MESSAGE**Thanks for using the Auction Subscription Service. 18 . 150p/MSGRCVD 2 Skip an Auction txt OUT. 2 Unsubscribe txt STOP CustomerCare 08718726270", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4561}
+{"text": "Hi dis is yijue i would be happy to work wif ü all for gek1510...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4569}
+{"text": "The world's most happiest frnds never have the same characters... Dey just have the best understanding of their differences...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4573}
+{"text": "no, i *didn't* mean to post it. I wrote it, and like so many other times i've ritten stuff to you, i let it sit there. it WAS what i was feeling at the time. I was angry. Before i left, i hit send, then stop. It wasn't there. I checked on my phone when i got to my car. It wasn't there. You said you didn't sleep, you were bored. So why wouldn't THAT be the time to clean, fold laundry, etc.? At least make the bed?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4593}
+{"text": "You've already got a flaky parent. It'snot supposed to be the child's job to support the parent...not until they're The Ride age anyway. I'm supposed to be there to support you. And now i've hurt you. unintentional. But hurt nonetheless.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4603}
+{"text": "Sitting in mu waiting for everyone to get out of my suite so I can take a shower", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4606}
+{"text": "Good morning, my boytoy! How's those yummy lips ? Where's my sexy buns now ? What do you do ? Do you think of me ? Do you crave me ? Do you need me ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4617}
+{"text": "Match started.india &lt;#&gt; for 2", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4618}
+{"text": "Hey babe, how's it going ? Did you ever figure out where your going for New Years ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4620}
+{"text": "K..k.:)congratulation ..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4621}
+{"text": "Ü go home liao? Ask dad to pick me up at 6...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4625}
+{"text": "Check mail.i have mailed varma and kept copy to you regarding membership.take care.insha allah.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4628}
+{"text": "hi baby im sat on the bloody bus at the mo and i wont be home until about 7:30 wanna do somethin later? call me later ortxt back jess xx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4635}
+{"text": "Why didn't u call on your lunch?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4642}
+{"text": "I want &lt;#&gt; rs da:)do you have it?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4644}
+{"text": "I said its okay. Sorry", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4661}
+{"text": "goldviking (29/M) is inviting you to be his friend. Reply YES-762 or NO-762 See him: www.SMS.ac/u/goldviking STOP? Send STOP FRND to 62468", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4664}
+{"text": "Nope. Since ayo travelled, he has forgotten his guy", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4680}
+{"text": "My mobile number.pls sms ur mail id.convey regards to achan,amma.Rakhesh.Qatar", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4688}
+{"text": "Uncle G, just checking up on you. Do have a rewarding month", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4691}
+{"text": "It's cool, we can last a little while. Getting more any time soon?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4697}
+{"text": ":-( sad puppy noise", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4698}
+{"text": "Anyway holla at me whenever you're around because I need an excuse to go creep on people in sarasota", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4700}
+{"text": "I'd like to tell you my deepest darkest fantasies. Call me 09094646631 just 60p/min. To stop texts call 08712460324 (nat rate)", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4704}
+{"text": "Pls clarify back if an open return ticket that i have can be preponed for me to go back to kerala.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4712}
+{"text": "Dunno, my dad said he coming home 2 bring us out 4 lunch. Yup i go w u lor. I call u when i reach school lor...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4716}
+{"text": "I will vote for wherever my heart guides me", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4720}
+{"text": "With my sis lor... We juz watched italian job.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4721}
+{"text": "Sorry, I'll call you later. I am in meeting sir.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4729}
+{"text": "As in different styles?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4738}
+{"text": "This is the 2nd attempt to contract U, you have won this weeks top prize of either £1000 cash or £200 prize. Just call 09066361921", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 4741}
+{"text": "Amazing : If you rearrange these letters it gives the same meaning... Dormitory = Dirty room Astronomer = Moon starer The eyes = They see Election results = Lies lets recount Mother-in-law = Woman Hitler Eleven plus two =Twelve plus one Its Amazing... !:-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4748}
+{"text": "Hi Shanil,Rakhesh here.thanks,i have exchanged the uncut diamond stuff.leaving back. Excellent service by Dino and Prem.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4759}
+{"text": "In other news after hassling me to get him weed for a week andres has no money. HAUGHAIGHGTUJHYGUJ", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4768}
+{"text": "Ding me on ya break fassyole! Blacko from londn", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4769}
+{"text": "To the wonderful Okors, have a great month. We cherish you guys and wish you well each day. MojiBiola", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4785}
+{"text": "Cuz ibored. And don wanna study", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4786}
+{"text": "Sday only joined.so training we started today:)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4792}
+{"text": "Yeah I imagine he would be really gentle. Unlike the other docs who treat their patients like turkeys.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4797}
+{"text": "Like &lt;#&gt; , same question", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4810}
+{"text": "MY NEW YEARS EVE WAS OK. I WENT TO A PARTY WITH MY BOYFRIEND. WHO IS THIS SI THEN HEY", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4811}
+{"text": "Ü still got lessons? Ü in sch?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4820}
+{"text": "Now i'm going for lunch.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4824}
+{"text": "I'm in town now so i'll jus take mrt down later.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4834}
+{"text": "WOT STUDENT DISCOUNT CAN U GET ON BOOKS?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4846}
+{"text": "Well thats nice. Too bad i cant eat it", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4855}
+{"text": "I accidentally brought em home in the box", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4856}
+{"text": "Jane babes not goin 2 wrk, feel ill after lst nite. Foned in already cover 4 me chuck.:-)", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4858}
+{"text": "5 nights...We nt staying at port step liao...Too ex", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4859}
+{"text": "\"OH FUCK. JUSWOKE UP IN A BED ON A BOATIN THE DOCKS. SLEPT WID 25 YEAR OLD. SPINOUT! GIV U DA GOSSIP L8R. XXX\"", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4861}
+{"text": "Haven't eaten all day. I'm sitting here staring at this juicy pizza and I can't eat it. These meds are ruining my life.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4877}
+{"text": "I didnt get anything da", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4884}
+{"text": "Ok... Sweet dreams...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4885}
+{"text": "Hi. Hope ur day * good! Back from walk, table booked for half eight. Let me know when ur coming over.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4901}
+{"text": "Xy trying smth now. U eat already? We havent...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4914}
+{"text": "Are u coming to the funeral home", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4918}
+{"text": "What you did in leave.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4928}
+{"text": "K.k:)i'm going to tirunelvali this week to see my uncle ..i already spend the amount by taking dress .so only i want money.i will give it on feb 1", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4932}
+{"text": "Sir, waiting for your letter.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4948}
+{"text": "No. It's not pride. I'm almost &lt;#&gt; years old and shouldn't be takin money from my kid. You're not supposed to have to deal with this stuff. This is grownup stuff--why i don't tell you.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4954}
+{"text": "This is ur face test ( 1 2 3 4 5 6 7 8 9 &lt;#&gt; ) select any number i will tell ur face astrology.... am waiting. quick reply...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4972}
+{"text": "Hey, iouri gave me your number, I'm wylie, ryan's friend", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4973}
+{"text": "Just trying to figure out when I'm suppose to see a couple different people this week. We said we'd get together but I didn't set dates", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4978}
+{"text": "Hi mom we might be back later than &lt;#&gt;", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4980}
+{"text": "You have 1 new message. Call 0207-083-6089", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 2336}
+{"text": "Nt joking seriously i told", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 4996}
+{"text": "I dont know exactly could you ask chechi.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5000}
+{"text": "HARD BUT TRUE: How much you show &amp; express your love to someone....that much it will hurt when they leave you or you get seperated...!鈥┾??〨ud evening...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5006}
+{"text": "Babes I think I got ur brolly I left it in English wil bring it in 2mrw 4 u luv Franxx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5007}
+{"text": "Hi babe its me thanks for coming even though it didnt go that well!i just wanted my bed! Hope to see you soon love and kisses xxx", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5008}
+{"text": "So how many days since then?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5011}
+{"text": "Gr8. So how do you handle the victoria island traffic. Plus when's the album due", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5018}
+{"text": "Oh yeah! And my diet just flew out the window", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5030}
+{"text": "Santa Calling! Would your little ones like a call from Santa Xmas eve? Call 09058094583 to book your time.", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 5031}
+{"text": "You didnt complete your gist oh.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5032}
+{"text": "If I was I wasn't paying attention", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5035}
+{"text": "And that's fine, I got enough bud to last most of the night at least", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5049}
+{"text": "I am back. Good journey! Let me know if you need any of the receipts. Shall i tell you like the pendent?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5050}
+{"text": "Im just wondering what your doing right now?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5058}
+{"text": "http//tms. widelive.com/index. wml?id=820554ad0a1705572711&first=true¡C C Ringtone¡", "label": "suspicious", "category": "other", "source": "uci-sms-spam", "language": "en", "group": 5066}
+{"text": "Have you seen who's back at Holby?!", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5076}
+{"text": "So li hai... Me bored now da lecturer repeating last weeks stuff waste time...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5078}
+{"text": "Oh thanks a lot..i already bought 2 eggs ..", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5083}
+{"text": "What i told before i tell. Stupid hear after i wont tell anything to you. You dad called to my brother and spoken. Not with me.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5096}
+{"text": "Just making dinner, you ?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5102}
+{"text": "No. I dont want to hear anything", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 2579}
+{"text": "Ok which your another number", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5121}
+{"text": "No. I meant the calculation is the same. That &lt;#&gt; units at &lt;#&gt; . This school is really expensive. Have you started practicing your accent. Because its important. And have you decided if you are doing 4years of dental school or if you'll just do the nmde exam.", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5140}
+{"text": "Ok lor... Sony ericsson salesman... I ask shuhui then she say quite gd 2 use so i considering...", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5144}
+{"text": "Pity, * was in mood for that. So...any other suggestions?", "label": "safe", "category": "other", "source": "uci-sms-ham", "language": "en", "group": 5149}
