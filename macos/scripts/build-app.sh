@@ -17,7 +17,9 @@ if [[ "$CONFIG" == "production" ]]; then
 else
   export SCAMSHIELD_DEVTOOLS=1; SCRATCH=".build-dev"
 fi
-echo "▸ swift build (release, $CONFIG)"
+# Record the real SDK in the binary (see Package.swift: decides the macOS 26+ system design).
+SCAMSHIELD_SDK_VERSION="$(xcrun --sdk macosx --show-sdk-version)"; export SCAMSHIELD_SDK_VERSION
+echo "▸ swift build (release, $CONFIG, SDK $SCAMSHIELD_SDK_VERSION)"
 swift build -c release --scratch-path "$SCRATCH" --product ScamShield
 swift build -c release --scratch-path "$SCRATCH" --product ScamShieldSnapshots
 BIN_DIR="$(swift build -c release --scratch-path "$SCRATCH" --show-bin-path)"
@@ -88,6 +90,9 @@ else
   codesign --force --sign - --options runtime --timestamp=none "$APP"
 fi
 codesign --verify --strict "$APP"
+BUILT_SDK="$(otool -l "$APP/Contents/MacOS/ScamShield" | awk '/LC_BUILD_VERSION/{f=1} f&&/ sdk /{print $2; exit}')"
+[[ "$BUILT_SDK" == "$SCAMSHIELD_SDK_VERSION" ]] || { echo "✗ app records SDK $BUILT_SDK, expected $SCAMSHIELD_SDK_VERSION"; exit 1; }
+echo "  ✓ linked against macOS SDK $BUILT_SDK (minimum macOS $(/usr/libexec/PlistBuddy -c 'Print :LSMinimumSystemVersion' "$APP/Contents/Info.plist"))"
 
 # The engine smoke test runs before signing; prove the SIGNED runtime can still load every native
 # module (library validation failures only appear after signing).

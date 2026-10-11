@@ -43,6 +43,10 @@ final class SelfTest {
     private var userInput: [String] = []
     private var inputMonitor: Any?
 
+    /// The drag checks move the card, which the app remembers in the user's real defaults; the
+    /// user's own placement is saved here and put back when the run ends.
+    private let savedScannerOrigin = UserDefaults.standard.object(forKey: ScannerPanelController.originKey)
+
     func run() {
         try? FileManager.default.createDirectory(at: out, withIntermediateDirectories: true)
         inputMonitor = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown, .keyDown]) { [weak self] e in
@@ -343,9 +347,39 @@ final class SelfTest {
         return (phases, origins)
     }
 
+    /// "Keep the scanner above other windows", both states, through the real setting → panel wiring:
+    /// an ordinary window brought to the front must stay BEHIND the card when ON and cover it when OFF.
+    private func alwaysOnTopChecks(_ panel: NSPanel) async {
+        let blocker = NSWindow(contentRect: panel.frame, styleMask: [.titled], backing: .buffered, defer: false)
+        blocker.title = "ScamShield self-test ordinary window"
+        blocker.isReleasedWhenClosed = false
+        defer { blocker.orderOut(nil) }
+        func cardInFront() -> Bool? {
+            let order = NSWindow.windowNumbers(options: []) ?? [] // this app's windows, front to back
+            guard let p = order.firstIndex(of: NSNumber(value: panel.windowNumber)),
+                  let b = order.firstIndex(of: NSNumber(value: blocker.windowNumber)) else { return nil }
+            return p < b
+        }
+        for on in [false, true] {
+            state.settings.scannerAlwaysOnTop = on
+            blocker.orderFrontRegardless()
+            await pause(250)
+            let front = cardInFront()
+            let expected = ScannerWindowPolicy.level(alwaysOnTop: on)
+            check(on ? "always-on-top ON: an ordinary window brought forward stays behind the card"
+                     : "always-on-top OFF: an ordinary window brought forward covers the card",
+                  panel.level == expected && front == on && panel.isVisible,
+                  "level=\(panel.level.rawValue) cardInFront=\(front.map { "\($0)" } ?? "unknown") visible=\(panel.isVisible)")
+        }
+    }
+
     private func windowChecks() async {
         let controller = state.scannerPanel
         let panel = controller.panel
+        // The self-test shares the user's settings: remember this one and always put it back.
+        let userAlwaysOnTop = state.settings.scannerAlwaysOnTop
+        defer { state.settings.scannerAlwaysOnTop = userAlwaysOnTop }
+        state.settings.scannerAlwaysOnTop = true
         check("scanner window uses ordinary floating level (not above menus, not on every Space)",
               panel.level == .floating && !panel.collectionBehavior.contains(.canJoinAllSpaces), "level=\(panel.level.rawValue)")
 
@@ -365,6 +399,7 @@ final class SelfTest {
         } else {
             check("header strip drags the window", false, "no content view")
         }
+        await alwaysOnTopChecks(panel)
         state.closeScanner(reason: "self-test")
         await pause(200)
 
@@ -714,6 +749,11 @@ final class SelfTest {
     }
 
     private func finish() {
+        if let savedScannerOrigin {
+            UserDefaults.standard.set(savedScannerOrigin, forKey: ScannerPanelController.originKey)
+        } else {
+            UserDefaults.standard.removeObject(forKey: ScannerPanelController.originKey)
+        }
         let failed = checks.filter { $0.status == "fail" }
         let report: [String: Any] = [
             "passed": failed.isEmpty,

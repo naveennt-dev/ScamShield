@@ -32,8 +32,13 @@ public struct MenuBarView: View {
     let connection: ConnectionStatus
     let analysisMode: AnalysisMode
     let actions: Actions
+    /// Shows this row highlighted as if hovered (developer UI captures only; nil in the app).
+    let highlightedRow: String?
+    @Environment(\.colorScheme) private var scheme
 
-    public init(shortcut: HotkeyShortcut?, connection: ConnectionStatus, analysisMode: AnalysisMode = .localOnly, actions: Actions) {
+    public init(shortcut: HotkeyShortcut?, connection: ConnectionStatus, analysisMode: AnalysisMode = .localOnly,
+                highlightedRow: String? = nil, actions: Actions) {
+        self.highlightedRow = highlightedRow
         self.shortcut = shortcut
         self.connection = connection
         self.analysisMode = analysisMode
@@ -49,7 +54,7 @@ public struct MenuBarView: View {
                     Label(analysisMode == .localOnly ? "Local-only analysis" : "Remote AI assist on",
                           systemImage: analysisMode == .localOnly ? "lock.laptopcomputer" : "network")
                         .font(.caption2)
-                        .foregroundStyle(analysisMode == .localOnly ? Color.secondary : Color.orange)
+                        .foregroundStyle(analysisMode == .localOnly ? Theme.secondaryText : AnyShapeStyle(GlassSupport.isAvailable ? Theme.textColor(for: .caution, scheme: scheme) : Color.orange))
                         .accessibilityIdentifier("menuAnalysisMode")
                 }
                 Spacer()
@@ -61,7 +66,7 @@ public struct MenuBarView: View {
             Divider().padding(.horizontal, 8)
 
             VStack(spacing: 2) {
-                MenuRow("Scan Screen", systemImage: "viewfinder", shortcut: shortcut?.displayString, action: actions.scanScreen)
+                MenuRow("Scan Screen", systemImage: "viewfinder", shortcut: shortcut?.displayString, forced: highlightedRow, action: actions.scanScreen)
                 MenuRow("Select Region", systemImage: "crop", action: actions.selectRegion)
                 MenuRow("Scan Link…", systemImage: "link", action: actions.scanLink)
             }
@@ -82,6 +87,7 @@ public struct MenuBarView: View {
                 .padding(.top, 2)
         }
         .frame(width: 260)
+        .menuReadabilityBacking()
     }
 }
 
@@ -96,10 +102,12 @@ private struct MenuRow: View {
     let systemImage: String
     let shortcut: String?
     let action: () -> Void
+    let forced: String?
     @StateObject private var hover = HoverState()
-    private var hovering: Bool { hover.isHovering }
+    private var hovering: Bool { hover.isHovering || forced == title }
 
-    init(_ title: String, systemImage: String, shortcut: String? = nil, action: @escaping () -> Void) {
+    init(_ title: String, systemImage: String, shortcut: String? = nil, forced: String? = nil, action: @escaping () -> Void) {
+        self.forced = forced
         self.title = title
         self.systemImage = systemImage
         self.shortcut = shortcut
@@ -109,15 +117,15 @@ private struct MenuRow: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 10) {
-                Image(systemName: systemImage).frame(width: 18).foregroundStyle(hovering ? .white : .secondary)
+                Image(systemName: systemImage).frame(width: 18).foregroundStyle(hovering ? AnyShapeStyle(.white) : Theme.secondaryText)
                 Text(title)
                 Spacer()
-                if let shortcut { Text(shortcut).foregroundStyle(hovering ? .white.opacity(0.8) : .secondary).font(.callout) }
+                if let shortcut { Text(shortcut).foregroundStyle(hovering ? AnyShapeStyle(.white.opacity(GlassSupport.isAvailable ? 1 : 0.8)) : Theme.secondaryText).font(.callout) }
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
             .foregroundStyle(hovering ? .white : .primary)
-            .background(hovering ? Theme.brand : .clear, in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+            .menuRowHighlight(hovering)
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
@@ -131,7 +139,7 @@ private struct ConnectionFooter: View {
     var body: some View {
         HStack(spacing: 6) {
             Circle().fill(color).frame(width: 7, height: 7)
-            Text(label).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+            Text(label).font(.caption).foregroundStyle(Theme.secondaryText).lineLimit(1)
         }
         .accessibilityElement(children: .combine)
     }

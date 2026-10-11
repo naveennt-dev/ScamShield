@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 import ScamShieldCore
 
@@ -41,7 +42,7 @@ public struct ScannerView: View {
                 case .selectingRegion:
                     StatusStack(title: "Select the message", subtitle: "Drag around it on screen · Esc to cancel") { ShieldMark(lineWidth: 3).foregroundStyle(Theme.brand) }
                 case .cancelled:
-                    StatusStack(title: "Scan cancelled", subtitle: "Nothing was captured") { ShieldMark(lineWidth: 3).foregroundStyle(.secondary) }
+                    StatusStack(title: "Scan cancelled", subtitle: "Nothing was captured") { ShieldMark(lineWidth: 3).foregroundStyle(Theme.secondaryText) }
                 case .requestingPermission, .capturing, .processingOCR, .textReady, .sendingForAnalysis:
                     BusyStage(phase: phase, ocrPreparing: ocrPreparing)
                 case .safe(let p):
@@ -64,24 +65,16 @@ public struct ScannerView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .accessibilityHidden(true)
 
-            Button(action: onClose) {
-                Image(systemName: "xmark")
-                    .font(.system(size: 11, weight: .bold))
-                    .foregroundStyle(.secondary)
-                    .frame(width: 24, height: 24)
-                    .background(.quaternary, in: Circle())
-            }
-            .buttonStyle(.plain)
+            CloseButton(action: onClose)
             .focusable(false) // never activatable by Space from keyboard focus
             .padding(14)
             .help("Close (Esc)")
             .accessibilityLabel("Close scanner")
         }
         .frame(width: Self.size.width, height: Self.size.height)
-        .background(.regularMaterial)
+        .cardSurface(cornerRadius: 26)
         .overlay(alignment: .top) { accentBar }
         .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 26, style: .continuous).strokeBorder(.white.opacity(0.08)))
         .animation(.smooth(duration: 0.35), value: phaseKey)
     }
 
@@ -108,6 +101,33 @@ public struct ScannerView: View {
     }
 }
 
+/// The card's ✕: a glass circle (26+) or the previous quaternary circle (14–25). Never takes
+/// keyboard focus (Esc closes the card), never starts a window drag.
+private struct CloseButton: View {
+    let action: () -> Void
+
+    var body: some View {
+        Group {
+            if #available(macOS 26, *) {
+                Button(action: action) {
+                    Image(systemName: "xmark").font(.system(size: 11, weight: .bold)).frame(width: 16, height: 16)
+                }
+                .buttonStyle(.glass)
+                .buttonBorderShape(.circle)
+            } else {
+                Button(action: action) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 11, weight: .bold))
+                        .foregroundStyle(Theme.secondaryText)
+                        .frame(width: 24, height: 24)
+                        .background(.quaternary, in: Circle())
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+}
+
 // MARK: - Busy states
 
 private struct BusyStage: View {
@@ -126,18 +146,18 @@ private struct BusyStage: View {
             .frame(width: 170, height: 140)
             .windowDraggable()
             VStack(spacing: 4) {
-                Text("ScamShield").font(.system(size: 12, weight: .semibold)).foregroundStyle(.secondary).textCase(.uppercase).tracking(1.5)
+                Text("ScamShield").font(.system(size: 12, weight: .semibold)).foregroundStyle(Theme.secondaryText).textCase(.uppercase).tracking(1.5)
                 Text(title).font(.system(size: 24, weight: .semibold, design: .rounded))
             }
             .windowDraggable()
             StageList(current: phase.stage ?? .capturing)
             if case .textReady(let summary) = phase {
-                Text(summaryLine(summary)).font(.callout).foregroundStyle(.secondary)
+                Text(summaryLine(summary)).font(.callout).foregroundStyle(Theme.secondaryText)
             } else {
                 LoadingDots(animated: !reduceMotion)
                 if case .processingOCR = phase, ocrPreparing {
                     Text("Preparing on-device text recognition (first scan only, may take up to a minute)")
-                        .font(.caption).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                        .font(.caption).foregroundStyle(Theme.secondaryText).multilineTextAlignment(.center)
                 }
             }
         }
@@ -250,13 +270,13 @@ private struct SafeResult: View {
                 .shadow(color: Theme.color(for: .safe).opacity(0.35), radius: 16, y: 6)
                 .windowDraggable()
             Text(presentation.headline).font(.system(size: 20, weight: .semibold)).multilineTextAlignment(.center)
-            Text(presentation.detail).font(.body).foregroundStyle(.secondary).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+            Text(presentation.detail).font(.body).foregroundStyle(Theme.secondaryText).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
             if let score = presentation.riskScore {
-                Text("Risk score \(score) / 100 · low").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                Text("Risk score \(score) / 100 · low").font(.caption.monospacedDigit()).foregroundStyle(Theme.secondaryText)
             }
             if !presentation.reasons.isEmpty {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("What was checked").font(.caption.weight(.semibold)).foregroundStyle(.secondary).textCase(.uppercase).tracking(1)
+                    Text("What was checked").font(.caption.weight(.semibold)).foregroundStyle(Theme.secondaryText).textCase(.uppercase).tracking(1)
                     ForEach(presentation.reasons, id: \.self) { Text("• \($0)").font(.callout).fixedSize(horizontal: false, vertical: true) }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -264,23 +284,17 @@ private struct SafeResult: View {
                 .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
             if let why = presentation.why {
-                Text(why).font(.caption).foregroundStyle(.secondary).multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true).frame(maxWidth: .infinity, alignment: .leading)
-                    .accessibilityIdentifier("whyColour")
-            }
-            NotesView(notes: presentation.notes)
-            if let why = presentation.why {
-                Text(why).font(.caption).foregroundStyle(.secondary).multilineTextAlignment(.leading)
+                Text(why).font(.caption).foregroundStyle(Theme.secondaryText).multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true).frame(maxWidth: .infinity, alignment: .leading)
                     .accessibilityIdentifier("whyColour")
             }
             NotesView(notes: presentation.notes)
             SourceLine(text: presentation.source)
             if let onShowHistory {
-                Button("Details & report…", action: onShowHistory).buttonStyle(.link).font(.caption).focusable(false)
+                DetailsLink(action: onShowHistory)
             }
             Spacer(minLength: 0)
-            Button("Done", action: onClose).keyboardShortcut(.defaultAction).controlSize(.large)
+            Button("Done", action: onClose).keyboardShortcut(.defaultAction).controlSize(.large).primaryActionStyle()
         }
     }
 }
@@ -289,9 +303,11 @@ private struct WarningResult: View {
     let presentation: ResultPresentation
     let onClose: () -> Void
     let onShowHistory: (() -> Void)?
+    @Environment(\.colorScheme) private var scheme
 
     var body: some View {
         let color = Theme.color(for: presentation.tone)
+        let textColor = Theme.textColor(for: presentation.tone, scheme: scheme)
         VStack(spacing: 12) {
             Group {
                 if presentation.tone == .danger {
@@ -308,15 +324,15 @@ private struct WarningResult: View {
 
             Text(presentation.headline)
                 .font(.system(size: presentation.tone == .danger ? 23 : 20, weight: .bold))
-                .foregroundStyle(presentation.tone == .danger ? color : .primary)
+                .foregroundStyle(presentation.tone == .danger ? textColor : .primary)
                 .multilineTextAlignment(.center)
 
             if let score = presentation.riskScore {
                 VStack(spacing: 0) {
-                    Text("Risk Score").font(.caption).foregroundStyle(.secondary).textCase(.uppercase).tracking(1)
+                    Text("Risk Score").font(.caption).foregroundStyle(Theme.secondaryText).textCase(.uppercase).tracking(1)
                     HStack(alignment: .firstTextBaseline, spacing: 3) {
-                        Text("\(score)").font(.system(size: 30, weight: .bold, design: .rounded)).foregroundStyle(color).monospacedDigit()
-                        Text("/ 100").font(.callout).foregroundStyle(.secondary)
+                        Text("\(score)").font(.system(size: 30, weight: .bold, design: .rounded)).foregroundStyle(textColor).monospacedDigit()
+                        Text("/ 100").font(.callout).foregroundStyle(Theme.secondaryText)
                     }
                 }
                 .accessibilityElement(children: .combine)
@@ -328,7 +344,7 @@ private struct WarningResult: View {
 
             if !presentation.reasons.isEmpty {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("Why").font(.caption.weight(.semibold)).foregroundStyle(.secondary).textCase(.uppercase).tracking(1)
+                    Text("Why").font(.caption.weight(.semibold)).foregroundStyle(Theme.secondaryText).textCase(.uppercase).tracking(1)
                     ForEach(presentation.reasons, id: \.self) { reason in
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
                             Text("•").foregroundStyle(color)
@@ -351,19 +367,15 @@ private struct WarningResult: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             } else {
-                Text(presentation.detail).font(.callout).foregroundStyle(.secondary)
+                Text(presentation.detail).font(.callout).foregroundStyle(Theme.secondaryText)
             }
 
             SourceLine(text: presentation.source)
             if let onShowHistory {
-                Button("Details & report…", action: onShowHistory)
-                    .buttonStyle(.link)
-                    .font(.caption)
-                    .focusable(false)
-                    .accessibilityIdentifier("showInHistory")
+                DetailsLink(action: onShowHistory)
             }
             Spacer(minLength: 0)
-            Button("Dismiss", action: onClose).keyboardShortcut(.defaultAction).controlSize(.large)
+            Button("Dismiss", action: onClose).keyboardShortcut(.defaultAction).controlSize(.large).primaryActionStyle()
         }
     }
 }
@@ -385,18 +397,18 @@ private struct FailureResult: View {
             Text("Unable to assess").font(.caption.weight(.semibold)).foregroundStyle(.orange).textCase(.uppercase).tracking(1)
                 .accessibilityIdentifier("notAssessed")
             Text(failure.title).font(.system(size: 19, weight: .semibold)).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
-            Text(failure.message).font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+            Text(failure.message).font(.callout).foregroundStyle(Theme.secondaryText).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
             if failure.opensSystemSettings {
                 Text("After allowing access, quit and reopen ScamShield.").font(.caption).foregroundStyle(.tertiary)
             }
             Spacer(minLength: 0)
             HStack {
                 if failure.opensSystemSettings {
-                    Button("Open System Settings", action: onOpenSettings).keyboardShortcut(.defaultAction).controlSize(.large)
-                    Button("Close", action: onClose).controlSize(.large)
+                    Button("Open System Settings", action: onOpenSettings).keyboardShortcut(.defaultAction).controlSize(.large).primaryActionStyle()
+                    Button("Close", action: onClose).controlSize(.large).secondaryActionStyle()
                 } else {
-                    if failure.canRetry { Button("Try Again", action: onRetry).controlSize(.large) }
-                    Button("Close", action: onClose).keyboardShortcut(.defaultAction).controlSize(.large)
+                    if failure.canRetry { Button("Try Again", action: onRetry).controlSize(.large).secondaryActionStyle() }
+                    Button("Close", action: onClose).keyboardShortcut(.defaultAction).controlSize(.large).primaryActionStyle()
                 }
             }
         }
@@ -413,13 +425,38 @@ private struct FailureResult: View {
     }
 }
 
+/// "Details & report…" — the system link style on 14–25; on glass (26+) a link colour chosen for
+/// WCAG AA small-text contrast in light and dark mode (the system link colour measured 4.06:1).
+private struct DetailsLink: View {
+    let action: () -> Void
+    @Environment(\.colorScheme) private var scheme
+
+    var body: some View {
+        Group {
+            if GlassSupport.isAvailable {
+                Button(action: action) {
+                    Text("Details & report…").underline(false)
+                        .foregroundStyle(scheme == .dark ? Color(red: 0.45, green: 0.68, blue: 1.0) : Color(red: 0.0, green: 0.33, blue: 0.80))
+                }
+                .buttonStyle(.plain)
+                .onHover { inside in if inside { NSCursor.pointingHand.push() } else { NSCursor.pop() } }
+            } else {
+                Button("Details & report…", action: action).buttonStyle(.link)
+            }
+        }
+        .font(.caption)
+        .focusable(false)
+        .accessibilityIdentifier("showInHistory")
+    }
+}
+
 /// Limits of this check (e.g. ML model unavailable; which screen area the result is about).
 private struct NotesView: View {
     let notes: [String]
     var body: some View {
         if !notes.isEmpty {
             VStack(alignment: .leading, spacing: 2) {
-                ForEach(notes, id: \.self) { Label($0, systemImage: "info.circle").font(.caption).foregroundStyle(.secondary) }
+                ForEach(notes, id: \.self) { Label($0, systemImage: "info.circle").font(.caption).foregroundStyle(Theme.secondaryText) }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -434,7 +471,7 @@ private struct SourceLine: View {
         if let text {
             Text(text)
                 .font(.caption2)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.secondaryText)
                 .multilineTextAlignment(.center)
                 .accessibilityIdentifier("analysisSource")
         }
@@ -452,7 +489,7 @@ private struct StatusStack<Icon: View>: View {
             Group {
                 icon().frame(width: 70, height: 84)
                 Text(title).font(.system(size: 24, weight: .semibold, design: .rounded))
-                Text(subtitle).font(.callout).foregroundStyle(.secondary)
+                Text(subtitle).font(.callout).foregroundStyle(Theme.secondaryText)
             }
             .windowDraggable()
             Spacer(minLength: 0)
