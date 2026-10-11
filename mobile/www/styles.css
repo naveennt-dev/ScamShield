@@ -23,6 +23,9 @@ button:focus-visible, textarea:focus-visible, input:focus-visible, summary:focus
 button:disabled { opacity:.6; }
 .hint, .fine { color:var(--muted); font-size:14px; }
 .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:16px; border-top:6px solid var(--grey); }
+/* The result card receives focus programmatically (tabindex=-1) so screen readers land on it; it is
+   not a keyboard target, so no focus ring (Android WebView drew an orange outline around it). */
+.card:focus { outline: none; }
 .card.safe { border-top-color:var(--safe); } .card.caution { border-top-color:var(--caution); } .card.danger { border-top-color:var(--danger); }
 .verdict { display:flex; gap:12px; align-items:center; }
 .dot { width:18px; height:18px; border-radius:50%; background:var(--grey); flex:none; }

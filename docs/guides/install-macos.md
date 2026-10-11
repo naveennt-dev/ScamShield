@@ -1,13 +1,28 @@
 # Installing ScamShield on a Mac
 
-Requirements: a Mac with Apple silicon (M1 or newer) and macOS 14 or later. Nothing else — no
-Terminal, Node.js, Python or databases. (Intel Macs: not built yet.)
+Requirements: a Mac with Apple silicon (M1 or newer) and macOS 14 or later. Nothing else to install —
+no Node.js, Python or databases. (Intel Macs: not built yet.)
 
-1. Open `ScamShield-<version>.dmg` and drag **ScamShield** onto **Applications**.
+There is no published download yet. When there is, it will be on the project's
+[Releases page](https://github.com/naveennt-dev/ScamShield/releases) together with its SHA-256
+checksum. Download only from there.
+
+## Verify your download
+
+Open **Terminal** and run `shasum -a 256 ` followed by a space, then drag the downloaded file into the
+window and press Return. The long code it prints must match the checksum on the Releases page
+**exactly**. If it doesn't, delete the file and don't open it. (Windows: `Get-FileHash <file>` in
+PowerShell; Linux: `sha256sum <file>`.)
+
+## Install
+
+1. Open the DMG and drag **ScamShield** onto **Applications**.
 2. Open ScamShield from Applications. A shield appears in the menu bar.
-   - This preview is **not notarized by Apple** yet. If macOS says it can't verify the developer,
-     open **System Settings → Privacy & Security** and click **Open Anyway** next to ScamShield.
-     Only do this for a copy whose SHA-256 matches the published checksum.
+   - This preview is **not notarized by Apple** yet, so macOS shows that it can't verify the
+     developer. **Only for a copy whose checksum you verified above:** open **System Settings →
+     Privacy & Security**, scroll down and click **Open Anyway** next to ScamShield. Don't do this
+     for apps from unknown sources in general — notarization is Apple's malware check, and this is
+     an exception for a verified copy of this specific app.
 3. Choose how scans are analysed: **On this device + AI second opinion** or **On this device only**.
    You can change it later in Settings → Analysis.
 4. Scan: menu → **Scan Screen**, **Select Region** or **Scan Link…**. The first screen scan asks for

@@ -20,6 +20,15 @@ fixes. Releases are tagged `vX.Y.Z`; nothing is released until a tag and a GitHu
 
 ### Android (debug build only)
 - Capacitor app running the same engine on the device; share-sheet checking; no network permission.
+- Tested on an Android 15 emulator (share, paste, link, dark mode); version set to 0.1.0; result card
+  no longer shows the WebView focus ring.
+
+### Documentation and project
+- README rewritten as a product overview with real screenshots, an architecture diagram and an
+  accurate platform table; technical setup moved to `docs/development.md`.
+- New user guide (scanning, results, privacy, offline/online, troubleshooting, uninstall); install
+  guides with checksum verification; downloads page links and verified build details.
+- CI: the macOS job runs on `macos-26` (Xcode 26 SDK, needed for the Liquid Glass APIs).
 
 ### Licence
 - Apache-2.0, with a separate trademark policy for the ScamShield name and logo.

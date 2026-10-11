@@ -178,9 +178,22 @@ final class UICapture {
 }
 
 private struct CaptureBackdrop: View {
+    /// SCAMSHIELD_CAPTURE_BACKDROP=calm: a soft wallpaper-like gradient for documentation screenshots
+    /// (default: the busy, high-contrast backdrop used for contrast testing).
+    private let calm = ProcessInfo.processInfo.environment["SCAMSHIELD_CAPTURE_BACKDROP"] == "calm"
     private let colors: [Color] = [.red, .orange, .yellow, .green, .teal, .blue, .indigo, .purple, .pink, .white, .black]
 
     var body: some View {
+        if calm {
+            LinearGradient(colors: [Color(red: 0.36, green: 0.55, blue: 0.86), Color(red: 0.62, green: 0.48, blue: 0.82), Color(red: 0.93, green: 0.62, blue: 0.62)],
+                           startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+        } else {
+            busy
+        }
+    }
+
+    private var busy: some View {
         GeometryReader { geo in
             ZStack {
                 HStack(spacing: 0) {
