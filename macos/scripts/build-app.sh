@@ -45,12 +45,35 @@ for s in 16 32 128 256 512; do
 done
 iconutil -c icns "$ICONSET" -o "$APP/Contents/Resources/AppIcon.icns"
 
+# On-device engine (production builds): the app starts it itself — no Terminal, no developer tools.
+if [[ "$CONFIG" == "production" && "${SKIP_ENGINE:-0}" != 1 ]]; then
+  if [[ ! -x ../build/engine/node || "${REBUILD_ENGINE:-0}" == 1 ]]; then
+    echo "▸ building the engine"
+    ../../scripts/build-engine.sh   # writes macos/build/engine
+  fi
+  echo "▸ embedding the engine"
+  mkdir -p "$APP/Contents/Resources/engine"
+  rsync -a --delete ../build/engine/ "$APP/Contents/Resources/engine/"
+fi
+
 # Signing: a stable identity (SCAMSHIELD_SIGN_IDENTITY, or "ScamShield Local Signing" created by
 # macos/scripts/create-signing-identity.sh) keeps the Screen Recording permission across rebuilds;
 # otherwise ad-hoc (macOS then asks for the permission again after each rebuild).
 IDENTITY="${SCAMSHIELD_SIGN_IDENTITY:-}"
 if [[ -z "$IDENTITY" ]] && security find-identity -p codesigning 2>/dev/null | grep -q '"ScamShield Local Signing"'; then
   IDENTITY="ScamShield Local Signing"
+fi
+SIGN_ID="${IDENTITY:--}"
+# Nested code first (inside-out): every Mach-O file of the embedded engine, with the hardened
+# runtime; the Node.js runtime additionally gets Engine.entitlements (V8 JIT only).
+if [[ -d "$APP/Contents/Resources/engine" ]]; then
+  echo "▸ signing the embedded engine's native code"
+  while IFS= read -r f; do
+    if file -b "$f" | grep -q "Mach-O"; then
+      ENT=(); [[ "$f" == "$APP/Contents/Resources/engine/node" ]] && ENT=(--entitlements Engine.entitlements)
+      codesign --force --sign "$SIGN_ID" ${SCAMSHIELD_SIGN_KEYCHAIN:+--keychain "$SCAMSHIELD_SIGN_KEYCHAIN"} --options runtime --timestamp=none ${ENT[@]+"${ENT[@]}"} "$f"
+    fi
+  done < <(find "$APP/Contents/Resources/engine" -type f \( -perm -u+x -o -name "*.node" -o -name "*.dylib" \))
 fi
 if [[ -n "$IDENTITY" ]]; then
   echo "▸ code signing with \"$IDENTITY\" (stable identity)"

@@ -37,7 +37,9 @@ export async function GET(req: Request) {
 
   const store = getRateLimitStore();
   checks.rateLimitStore =
-    store instanceof RedisRateLimitStore ? ((await store.ping()) ? "ok" : "down") : env.NODE_ENV === "production" ? "degraded" : "ok";
+    store instanceof RedisRateLimitStore
+      ? (await store.ping()) ? "ok" : "down"
+      : env.NODE_ENV === "production" && env.SCAMSHIELD_EDITION !== "desktop" ? "degraded" : "ok"; // one on-device process: in-memory limits are correct
 
   // "opt_in": remote analysis is configured but runs ONLY for requests that explicitly ask for it
   // (analysisMode "remote-assisted"). The Mac app's local-only gate relies on this contract.
@@ -65,6 +67,7 @@ export async function GET(req: Request) {
         checks,
         mlModel: ml ? { ...ml.info, seed: ml.isSeed, backend: env.ML_BACKEND } : null,
         appVersion: env.APP_VERSION,
+        edition: env.SCAMSHIELD_EDITION,
       },
       meta: { requestId, processingTimeMs: Date.now() - startedAt, version: API_VERSION },
     },

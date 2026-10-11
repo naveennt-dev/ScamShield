@@ -1,4 +1,5 @@
 import Foundation
+import ServiceManagement
 import Observation
 
 public enum ConnectionStatus: Equatable, Sendable {
@@ -126,6 +127,49 @@ public final class SettingsStore {
     public private(set) var lastChecked: Date?
     /// Screen Recording permission as last seen by the app ("granted" / "not granted"), for Settings.
     public var screenRecordingStatus: String?
+    /// Keep the floating scanner above other windows (default on — the original behaviour).
+    public var scannerAlwaysOnTop: Bool {
+        get { access(keyPath: \.scannerAlwaysOnTop); return defaults.object(forKey: "scannerAlwaysOnTop") as? Bool ?? true }
+        set { withMutation(keyPath: \.scannerAlwaysOnTop) { defaults.set(newValue, forKey: "scannerAlwaysOnTop") }; onScannerLevelChanged?(newValue) }
+    }
+    @ObservationIgnored public var onScannerLevelChanged: ((Bool) -> Void)?
+
+    /// Open ScamShield automatically when you log in (macOS login items; off by default).
+    public private(set) var launchAtLogin: Bool = SMAppService.mainApp.status == .enabled
+    public private(set) var launchAtLoginNote: String?
+
+    public func setLaunchAtLogin(_ on: Bool) {
+        do {
+            if on { try SMAppService.mainApp.register() } else { try SMAppService.mainApp.unregister() }
+            launchAtLoginNote = SMAppService.mainApp.status == .requiresApproval
+                ? "Allow ScamShield in System Settings → General → Login Items."
+                : nil
+        } catch {
+            launchAtLoginNote = "Couldn't change the login item (\(error.localizedDescription))."
+        }
+        launchAtLogin = SMAppService.mainApp.status == .enabled
+    }
+
+    /// The bundled engine's state, as shown in Settings (nil = not managed by this app).
+    public var engineStatus: String?
+    public var engineFailed = false
+    @ObservationIgnored public var retryEngine: (() -> Void)?
+    /// Optional AI-service key (Keychain only). Changing it restarts the engine to apply it.
+    public private(set) var aiKeyConfigured = AIKeyStore.isSet
+    @ObservationIgnored public var onAIKeyChanged: (() -> Void)?
+
+    public func saveAIKey(_ key: String) -> Bool {
+        let ok = AIKeyStore.save(key)
+        aiKeyConfigured = AIKeyStore.isSet
+        if ok { onAIKeyChanged?() }
+        return ok
+    }
+
+    public func removeAIKey() {
+        AIKeyStore.delete()
+        aiKeyConfigured = false
+        onAIKeyChanged?()
+    }
     /// "Inspect page behaviour" in Scan Link (isolated browser). Off by default (release audit: the
     /// isolation is not a VM). On = the button is offered; each inspection still needs its own click.
     public var linkInspectionEnabled: Bool {
@@ -135,9 +179,15 @@ public final class SettingsStore {
     static let linkInspectionKey = "linkInspectionEnabled"
     @ObservationIgnored public var now: () -> Date = Date.init
 
+    /// True when this app manages its own bundled engine (installed app): messages then never send
+    /// people to Terminal. False in developer builds that use scripts/scamshield.sh.
+    nonisolated(unsafe) public static var managedEngine = false
+
     /// Accurate, actionable connection errors (the old text said "isn't running" even for timeouts).
     public static func describe(_ e: ScamShieldAPIError, url: String) -> String {
         switch e {
+        case .backendUnreachable where managedEngine: return "ScamShield's analysis engine isn't answering. Click Retry below, or quit and reopen ScamShield."
+        case .timedOut where managedEngine: return "ScamShield's analysis engine is running but didn't answer in time. Try again in a moment."
         case .backendUnreachable: return "Nothing is answering at \(url). Start the local services with: scripts/scamshield.sh start"
         case .timedOut: return "The service at \(url) is running but didn't answer in time. Try again; if it persists, run scripts/scamshield.sh restart"
         case .invalidResponse: return "Something answered at \(url), but it isn't the ScamShield service (unexpected response). Check the Backend URL and port."

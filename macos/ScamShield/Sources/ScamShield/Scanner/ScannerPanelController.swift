@@ -41,10 +41,13 @@ final class ScannerPanelController: NSObject, NSWindowDelegate {
             defer: true
         )
         super.init()
+        if let o = UserDefaults.standard.array(forKey: Self.originKey) as? [Double], o.count == 2 {
+            userOrigin = NSPoint(x: o[0], y: o[1])
+        }
         panel.isFloatingPanel = true
         // Ordinary utility-panel level: above document windows, below menus, Spotlight, alerts
         // and the menu bar (was .statusBar, which sat on top of everything).
-        panel.level = .floating
+        panel.level = state.settings.scannerAlwaysOnTop ? .floating : .normal
         // Opens on the Space the user is on instead of following them to every Space.
         panel.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary, .transient]
         panel.isOpaque = false
@@ -88,7 +91,16 @@ final class ScannerPanelController: NSObject, NSWindowDelegate {
     // MARK: Placement
 
     func windowDidMove(_ notification: Notification) {
-        if !positioning { userOrigin = panel.frame.origin }
+        guard !positioning else { return }
+        userOrigin = panel.frame.origin
+        // Remembered across launches (re-validated against the current screens when shown).
+        UserDefaults.standard.set([panel.frame.origin.x, panel.frame.origin.y], forKey: Self.originKey)
+    }
+
+    static let originKey = "scannerOrigin"
+
+    func setAlwaysOnTop(_ on: Bool) {
+        panel.level = on ? .floating : .normal
     }
 
     private func place() {

@@ -17,6 +17,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // The desktop apps bundle a self-contained server ("ScamShield Engine"): scripts/build-engine.sh.
+  ...(process.env.SCAMSHIELD_STANDALONE === "1" ? { output: "standalone" as const } : {}),
   poweredByHeader: false,
   serverExternalPackages: ["tesseract.js", "ioredis"],
   outputFileTracingIncludes: {
