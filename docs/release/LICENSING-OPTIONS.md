@@ -1,4 +1,7 @@
-# Licence and trademark options — for the owner's decision (2026-10-11)
+# Licence and trademark options (2026-10-11)
+
+**Decision (2026-10-12, owner): Apache-2.0** for the code (`LICENSE`, `NOTICE`), plus the brand
+policy in `TRADEMARKS.md`. The comparison below is kept for reference.
 
 Not legal advice. No licence has been added; nothing has been published. ScamShield has no
 registered trademark that we know of — none is claimed here.
