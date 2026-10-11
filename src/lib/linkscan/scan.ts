@@ -64,6 +64,7 @@ const STATIC_FLAG_CATEGORY: Record<string, LinkCategory> = {
   "host.brand_impersonation": "phishing",
   "host.typosquat": "phishing",
   "host.homograph": "phishing",
+  "host.deceptive_subdomain": "phishing",
   "host.punycode": "phishing",
   "url.userinfo": "phishing",
   "path.sensitive_keywords": "phishing",
@@ -215,6 +216,8 @@ export async function scanLink(input: LinkScanInput, deps: LinkScanDeps = {}): P
         extraUrls: [c.url, ...(doc && doc.finalUrl !== c.url ? [doc.finalUrl] : [])],
         extraSignals: signals,
         followRedirects: false,
+        // The message model only sees real page text; on a bare address its score is meaningless.
+        mlApplicable: pageText.length > 0,
       },
       deps.pipeline ?? {},
     );
@@ -222,7 +225,7 @@ export async function scanLink(input: LinkScanInput, deps: LinkScanDeps = {}): P
     // Stored/displayed forms of the analysed URLs never carry query values.
     analysis.urls = analysis.urls.map((u) => ({ ...u, url: redactUrl(u.url).url, finalUrl: u.finalUrl ? redactUrl(u.finalUrl).url : u.finalUrl }));
     const ml = analysis.signals.find((s) => s.source === "ml");
-    cover("ml", "Local ML model", ml?.available ? "done" : "unavailable", ml?.note ?? null);
+    cover("ml", "Local ML model", ml?.available ? "done" : pageText ? "unavailable" : "not_applicable", ml?.note ?? (pageText ? null : "Used on page text only — not on a web address alone."));
     const ra = analysis.remoteAnalysis;
     cover("ai", "AI second opinion", ra.used ? "done" : !input.allowAi ? "skipped" : !input.networkAllowed ? "skipped" : "failed", ra.used ? "Used as a second opinion only — it can raise but never lower the result." : ra.reason ?? ra.status);
     if (ra.used) {

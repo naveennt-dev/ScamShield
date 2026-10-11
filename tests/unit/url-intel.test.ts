@@ -33,7 +33,9 @@ describe("URL intelligence: domains", () => {
       expect(f.registrableDomain).toBe("attacker.test");
       expect(normalizeDomainKey(u)).toBe("attacker.test");
     }
-    expect(analyzeUrlStatic("https://www.sbi.co.in.secure-login.attacker.test/kyc").flags.some((x) => x.id === "host.brand_impersonation")).toBe(true);
+    // Reported as the more specific "deceptive subdomain" (an official domain in front of the real
+    // site) since the look-alike tiers were added — and it must be high severity.
+    expect(analyzeUrlStatic("https://www.sbi.co.in.secure-login.attacker.test/kyc").flags.some((x) => ["host.deceptive_subdomain", "host.brand_impersonation"].includes(x.id) && x.severity === "high")).toBe(true);
   });
 
   it("Unicode homograph and punycode", () => {
