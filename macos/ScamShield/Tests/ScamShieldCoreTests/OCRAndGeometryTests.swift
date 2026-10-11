@@ -1,4 +1,5 @@
 import CoreGraphics
+import CoreText
 import Foundation
 import Testing
 @testable import ScamShieldCore
@@ -8,12 +9,38 @@ private func ocr(_ text: String, width: Int = 1400, height: Int = 700, fontSize:
     return try await OCRService().recognizeText(in: CapturedImage(cgImage: image, target: nil))
 }
 
+/// What the OCR environment provides. GitHub's macOS runners are virtual machines whose Vision
+/// installation can differ from a physical Mac; these tell "not available here" apart from a
+/// recognition regression.
+private enum OCREnvironment {
+    /// Vision lists Hindi among its recognition languages (revision 3).
+    static let hindiRecognition = OCRService.supportedLanguages().contains("hi-IN")
+    /// The Devanagari font the Hindi fixtures are rendered with is installed.
+    static let devanagariFont: Bool = {
+        let font = CTFontCreateWithName("Kohinoor Devanagari" as CFString, 34, nil)
+        return (CTFontCopyFamilyName(font) as String) == "Kohinoor Devanagari"
+    }()
+}
+
+/// Normalises only the variations Vision legitimately produces in numbers — never digits:
+/// "4, 999.00" / "4,999. 00" → "4,999.00"; "24 × 7", "24X7" → "24x7". A comma is joined only
+/// before a thousands group (exactly three digits), so "500, 60" stays two numbers.
+private func normalizedNumbers(_ text: String) -> String {
+    var s = text
+    s = s.replacingOccurrences(of: #"(\d)\s*,\s*(\d{3})(?!\d)"#, with: "$1,$2", options: .regularExpression)
+    s = s.replacingOccurrences(of: #"(\d)\s*\.\s*(\d)"#, with: "$1.$2", options: .regularExpression)
+    s = s.replacingOccurrences(of: #"(\d)\s*[x×X]\s*(\d)"#, with: "$1x$2", options: .regularExpression)
+    return s
+}
+
 /// Real Apple Vision OCR on rendered images (no screen access needed).
 @Suite("OCR (Apple Vision)", .serialized)
 struct OCRTests {
     @Test("Vision supports the configured languages on this Mac")
     func languages() {
         let langs = OCRService.recognitionLanguages()
+        // Diagnostic for CI logs: what this machine's Vision offers.
+        print("OCR environment: recognition languages \(langs); Vision supports hi-IN: \(OCREnvironment.hindiRecognition); Kohinoor Devanagari installed: \(OCREnvironment.devanagariFont)")
         #expect(langs.contains("en-US"))
         // Hindi is used when the installed Vision model supports it (revision 3 does on macOS 13+).
         #expect(langs.contains("hi-IN") == OCRService.supportedLanguages().contains("hi-IN"))
@@ -40,17 +67,41 @@ struct OCRTests {
 
     @Test func numbersAndPunctuation() async throws {
         let r = try await ocr("OTP 482913. Pay Rs 4,999.00 now! Call +91 98765 43210 (24x7).", height: 300)
-        for token in ["482913", "4,999.00", "98765", "43210", "(24x7)"] { #expect(r.text.contains(token), "missing \(token) in \(r.text)") }
+        let text = normalizedNumbers(r.text)
+        // Digits must be exact (OTP, amount, phone); only spacing/"×" variations are normalised, and
+        // the parentheses around 24x7 aren't required.
+        for token in ["482913", "4,999.00", "98765", "43210", "24x7"] { #expect(text.contains(token), "missing \(token) in \(r.text)") }
     }
 
-    @Test func hindi() async throws {
-        try #require(OCRService.supportedLanguages().contains("hi-IN"))
+    @Test("number normalisation only fixes spacing and ×, never digits or separate numbers")
+    func numberNormalisation() {
+        let digits = { (s: String) in s.filter(\.isNumber) }
+        // The OCR variations it exists for.
+        #expect(normalizedNumbers("Rs 4, 999. 00 (24 × 7) 24X7") == "Rs 4,999.00 (24x7) 24x7")
+        // It never adds, drops or reorders a digit, including on inputs it does rewrite.
+        for sample in ["Rs 4, 999. 00", "Rs 1 ,250 . 50", "24 × 7", "12 x 3", "+91 98765 43210", "OTP 482913. Pay"] {
+            #expect(digits(normalizedNumbers(sample)) == digits(sample), "digits changed for \(sample)")
+        }
+        // A different amount stays a different amount: a misread digit can't pass the amount check.
+        #expect(normalizedNumbers("Rs 4, 990. 00") == "Rs 4,990.00")
+        #expect(!normalizedNumbers("Rs 4, 990. 00").contains("4,999.00"))
+        // Separate numbers stay separate (no thousands group / no digits after a full stop).
+        #expect(normalizedNumbers("98765 43210") == "98765 43210")
+        #expect(normalizedNumbers("Rs 500, 60 and 7") == "Rs 500, 60 and 7")
+        #expect(normalizedNumbers("OTP 482913. Pay") == "OTP 482913. Pay")
+    }
+
+    @Test(.enabled(if: OCREnvironment.hindiRecognition, "Hindi (hi-IN) text recognition is not available in this macOS Vision installation"),
+          .enabled(if: OCREnvironment.devanagariFont, "The Kohinoor Devanagari font used to render the Hindi fixture is not installed"))
+    func hindi() async throws {
         let r = try await ocr("आपका खाता बंद कर दिया जाएगा", height: 300, font: "Kohinoor Devanagari")
         #expect(r.text.contains("खाता"), "got: \(r.text)")
     }
 
-    @Test func mixedEnglishHindi() async throws {
-        try #require(OCRService.supportedLanguages().contains("hi-IN"))
+    /// Runs with or without Hindi recognition: the English parts (KYC, the suspicious link) must be read
+    /// even when the Devanagari words can't be — a failure here is a real OCR regression.
+    @Test(.enabled(if: OCREnvironment.devanagariFont, "The Kohinoor Devanagari font used to render the mixed-script fixture is not installed"))
+    func mixedEnglishHindi() async throws {
         let r = try await ocr("Dear customer, आपका KYC pending है\nUpdate at https://kyc-help.xyz", height: 360, font: "Kohinoor Devanagari")
         #expect(r.text.contains("KYC"))
         #expect(r.text.contains("https://kyc-help.xyz"), "got: \(r.text)")
