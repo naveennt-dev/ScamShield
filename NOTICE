@@ -4,4 +4,8 @@ Copyright 2026 The ScamShield authors
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 Third-party components and their licences are listed in docs/release/THIRD_PARTY_NOTICES.md.
 
+ml/datasets/processed/test.jsonl includes messages from the SMS Spam Collection by T. Almeida and
+J. Gómez Hidalgo (UCI Machine Learning Repository, https://doi.org/10.24432/C5CC84), licensed under
+CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); changes are described in ml/datasets/README.md.
+
 The ScamShield name and logo are not licensed under the Apache License; see TRADEMARKS.md.
