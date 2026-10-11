@@ -1,0 +1,243 @@
+{
+  "model": {
+    "name": "scam-tfidf-logreg",
+    "version": "1.1.0",
+    "buildId": "1.1.0+20261007.906379c2",
+    "createdAt": "2026-10-07T19:00:22.911084+00:00",
+    "tokenizerVersion": "v2",
+    "labels": [
+      "safe",
+      "scam",
+      "suspicious"
+    ],
+    "categories": [
+      "banking",
+      "credential_theft",
+      "delivery",
+      "government_impersonation",
+      "investment",
+      "job",
+      "kyc",
+      "loan",
+      "lottery",
+      "malware",
+      "other",
+      "phishing",
+      "romance",
+      "tech_support",
+      "upi"
+    ],
+    "probabilityType": "calibrated-sigmoid-on-validation",
+    "trainingData": {
+      "kind": "mixed",
+      "rows": 3771,
+      "dataSha256": "906379c2aebe3b16bd15ceb58137f4cbed493841920830c0a89f1219f8d456c0",
+      "sources": [
+        "synthetic-handwritten-v1",
+        "synthetic-handwritten-v2",
+        "synthetic-handwritten-v3",
+        "uci-sms-ham",
+        "uci-sms-spam"
+      ]
+    },
+    "files": {
+      "joblib": {
+        "path": "scam_classifier.joblib",
+        "sha256": "2a08203364a28a121adc0a6ca91c4f062162b4a0bc5156c840969c2d9bfd7105"
+      },
+      "json": {
+        "path": "scam_classifier.json",
+        "sha256": "1bb7b0ea2f3d6cb0eeefbe174f24991c8054493246174792c37524d896debd1d"
+      }
+    }
+  },
+  "n": 755,
+  "accuracy": 0.9668874172185431,
+  "macro": {
+    "precision": 0.8819454817424904,
+    "recall": 0.8884544572553246,
+    "f1": 0.8828006088280062
+  },
+  "perClass": {
+    "safe": {
+      "precision": 0.9757942511346445,
+      "recall": 0.9877488514548239,
+      "f1": 0.9817351598173516,
+      "support": 653
+    },
+    "suspicious": {
+      "precision": 0.9367088607594937,
+      "recall": 0.8314606741573034,
+      "f1": 0.8809523809523809,
+      "support": 89
+    },
+    "scam": {
+      "precision": 0.7333333333333333,
+      "recall": 0.8461538461538461,
+      "f1": 0.7857142857142857,
+      "support": 13
+    }
+  },
+  "confusionMatrix": {
+    "labels": [
+      "safe",
+      "suspicious",
+      "scam"
+    ],
+    "matrix": [
+      [
+        645,
+        5,
+        3
+      ],
+      [
+        14,
+        74,
+        1
+      ],
+      [
+        2,
+        0,
+        11
+      ]
+    ]
+  },
+  "security": {
+    "scamMissedAsSafeRate": 0.15384615384615385,
+    "falseNegativeRate": 0.15384615384615385,
+    "falsePositiveRate": 0.01225114854517611,
+    "scamMissedCount": 2
+  },
+  "rocAucOvrMacro": 0.9606599429433565,
+  "rocAucScamVsRest": 0.9195521459672404,
+  "falseNegatives": [
+    {
+      "text": "आपके फोन पर आया ओटीपी तुरंत बताइए, नहीं तो आपका खाता ब्लॉक हो जाएगा।",
+      "true": "scam",
+      "pred": "safe",
+      "language": "hi"
+    },
+    {
+      "text": "घर बैठे रोज़ 3000 रुपये कमाएं। रजिस्ट्रेशन फीस केवल 500 रुपये।",
+      "true": "scam",
+      "pred": "safe",
+      "language": "hi"
+    }
+  ],
+  "falsePositives": [
+    {
+      "text": "Dear Customer, your SBI Credit Card statement is ready. Total due Rs 8,212. Pay by 15 Oct via the SBI Card app.",
+      "true": "safe",
+      "pred": "scam",
+      "language": "en"
+    },
+    {
+      "text": "Your DigiLocker account was accessed from a new device. If this was you, no action is needed.",
+      "true": "safe",
+      "pred": "suspicious",
+      "language": "en"
+    },
+    {
+      "text": "आपके खाते में ₹15,000 जमा किए गए हैं। उपलब्ध शेष राशि ₹42,310 है।",
+      "true": "safe",
+      "pred": "scam",
+      "language": "hi"
+    },
+    {
+      "text": "Save yourself the stress. If the person has a dorm account, just send your account details and the money will be sent to you.",
+      "true": "safe",
+      "pred": "scam",
+      "language": "en"
+    },
+    {
+      "text": "\"CAN I PLEASE COME UP NOW IMIN TOWN.DONTMATTER IF URGOIN OUTL8R,JUST REALLYNEED 2DOCD.PLEASE DONTPLEASE DONTIGNORE MYCALLS,U NO THECD ISV.IMPORTANT TOME 4 2MORO\"",
+      "true": "safe",
+      "pred": "suspicious",
+      "language": "en"
+    },
+    {
+      "text": "Hi, Mobile no. &lt;#&gt; has added you in their contact list on www.fullonsms.com It s a great place to send free sms to people For more visit fullonsms.com",
+      "true": "safe",
+      "pred": "suspicious",
+      "language": "en"
+    },
+    {
+      "text": "Check mail.i have mailed varma and kept copy to you regarding membership.take care.insha allah.",
+      "true": "safe",
+      "pred": "suspicious",
+      "language": "en"
+    },
+    {
+      "text": "My mobile number.pls sms ur mail id.convey regards to achan,amma.Rakhesh.Qatar",
+      "true": "safe",
+      "pred": "suspicious",
+      "language": "en"
+    }
+  ],
+  "counts": {
+    "falseNegativesScam": 2,
+    "scamMissedAsSafe": 2,
+    "falsePositivesSafe": 8,
+    "testRows": 755
+  },
+  "bySource": {
+    "synthetic-handwritten": {
+      "rows": 32,
+      "accuracy": 0.7188,
+      "predicted": {
+        "safe": 15,
+        "suspicious": 4,
+        "scam": 13
+      },
+      "true": {
+        "safe": 12,
+        "suspicious": 7,
+        "scam": 13
+      }
+    },
+    "uci-sms-ham": {
+      "rows": 641,
+      "accuracy": 0.9922,
+      "predicted": {
+        "safe": 636,
+        "suspicious": 4,
+        "scam": 1
+      },
+      "true": {
+        "safe": 641,
+        "suspicious": 0,
+        "scam": 0
+      }
+    },
+    "uci-sms-spam": {
+      "rows": 82,
+      "accuracy": 0.8659,
+      "predicted": {
+        "safe": 10,
+        "suspicious": 71,
+        "scam": 1
+      },
+      "true": {
+        "safe": 0,
+        "suspicious": 82,
+        "scam": 0
+      }
+    }
+  },
+  "calibration": {
+    "served": "calibrated-sigmoid-on-validation",
+    "servedStats": {
+      "brier": 0.0623,
+      "ece": 0.0221,
+      "meanConfidence": 0.9448,
+      "accuracy": 0.9669
+    },
+    "rawStats": {
+      "brier": 0.3577,
+      "ece": 0.4297,
+      "meanConfidence": 0.5226,
+      "accuracy": 0.9523
+    },
+    "note": "755 test rows — calibration estimates are very noisy at this size."
+  }
+}

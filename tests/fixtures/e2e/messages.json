@@ -1,0 +1,9 @@
+[
+  {"id": "harmless-personal", "expect": "safe", "text": "Hey! Are we still meeting for dinner on Saturday at 8? I booked a table at the new place near the station. Let me know if you want to change the time."},
+  {"id": "bank-notification", "expect": "safe", "text": "Rs.2,450.00 debited from A/c XX4521 on 03-10-26 to VPA zomato@icici. Not you? Call 18002586161 to report. -HDFC Bank"},
+  {"id": "kyc-request", "expect": "warn", "text": "Dear customer, your SBI account KYC has expired and your account will be blocked today. Please update your KYC immediately by clicking the link below and sharing the OTP sent to your registered mobile number: http://sbi-kyc-verify.top/update"},
+  {"id": "upi-payment", "expect": "warn", "text": "Congratulations! Rs 5,000 cashback has been credited to your account. To receive the money, scan the QR code and enter your UPI PIN in the next 10 minutes or the offer will expire."},
+  {"id": "lookalike-phishing", "expect": "warn", "text": "Amazon: Your order has been suspended due to a payment failure. Verify your card details within 24 hours to avoid cancellation: https://amaz0n-secure-verify.com/login"},
+  {"id": "hinglish-scam", "expect": "warn", "text": "Sir aapka bijli connection aaj raat 9:30 baje kaat diya jayega kyunki pichle mahine ka bill update nahi hua hai. Turant is number par call karein aur OTP batayein: 9876543210"},
+  {"id": "educational", "expect": "safe", "text": "Reminder from the bank: we will never ask you to share your OTP, PIN or password. If anyone calls asking for your OTP, hang up and report it at cybercrime.gov.in."}
+]

@@ -1,0 +1,438 @@
+{
+  "modelBuildId": "1.1.0+20261007.906379c2",
+  "cases": [
+    {
+      "text": "123456 is your OTP for login. Do not share it with anyone.",
+      "tokens": [
+        "numtoken",
+        "is",
+        "your",
+        "otp",
+        "for",
+        "login",
+        "do",
+        "not",
+        "share",
+        "it",
+        "with",
+        "anyone"
+      ],
+      "labelProba": {
+        "safe": 0.9858996115645882,
+        "scam": 0.014023812771417024,
+        "suspicious": 7.657566399485952e-05
+      },
+      "categoryProba": {
+        "banking": 0.0646807243800304,
+        "credential_theft": 0.09558948766147286,
+        "delivery": 0.06532071110703239,
+        "government_impersonation": 0.07352650445025401,
+        "investment": 0.06429161397692379,
+        "job": 0.06527433437274031,
+        "kyc": 0.05954745538057746,
+        "loan": 0.06435920185436574,
+        "lottery": 0.06859107907316438,
+        "malware": 0.056256929746511836,
+        "other": 0.06480782680032039,
+        "phishing": 0.0593137630790696,
+        "romance": 0.06412793173862866,
+        "tech_support": 0.07767869294707533,
+        "upi": 0.05663374343183294
+      }
+    },
+    {
+      "text": "Dear SBI customer your KYC has expired, update now at http://sbi-kyc.xyz/login or account will be blocked",
+      "tokens": [
+        "dear",
+        "sbi",
+        "customer",
+        "your",
+        "kyc",
+        "has",
+        "expired",
+        "update",
+        "now",
+        "at",
+        "urltoken",
+        "sbi",
+        "kyc",
+        "tld_xyz",
+        "or",
+        "account",
+        "will",
+        "be",
+        "blocked"
+      ],
+      "labelProba": {
+        "safe": 2.774245787925517e-05,
+        "scam": 0.9999640640183383,
+        "suspicious": 8.193523782557269e-06
+      },
+      "categoryProba": {
+        "banking": 0.0708210173463085,
+        "credential_theft": 0.06562078680796754,
+        "delivery": 0.049998444452159826,
+        "government_impersonation": 0.05145363682866617,
+        "investment": 0.04437726124926921,
+        "job": 0.04354396682101563,
+        "kyc": 0.28724357664354183,
+        "loan": 0.0471558785975594,
+        "lottery": 0.04464368343847065,
+        "malware": 0.055731808700066686,
+        "other": 0.04571201597484999,
+        "phishing": 0.061336460774178536,
+        "romance": 0.047284079509101726,
+        "tech_support": 0.04136378624835944,
+        "upi": 0.04371359660848488
+      }
+    },
+    {
+      "text": "Your account will be blocked! Pay ₹499 now: https://fake-example.com",
+      "tokens": [
+        "your",
+        "account",
+        "will",
+        "be",
+        "blocked",
+        "pay",
+        "moneytoken",
+        "now",
+        "urltoken",
+        "fake",
+        "example",
+        "tld_com"
+      ],
+      "labelProba": {
+        "safe": 1.0002437067045033e-06,
+        "scam": 0.9796272577055033,
+        "suspicious": 0.020371742050790023
+      },
+      "categoryProba": {
+        "banking": 0.07187517151046974,
+        "credential_theft": 0.08129978557669901,
+        "delivery": 0.0654244550563572,
+        "government_impersonation": 0.06731522611012634,
+        "investment": 0.052234312107527506,
+        "job": 0.06143857112414546,
+        "kyc": 0.10195519964922226,
+        "loan": 0.07413084603127364,
+        "lottery": 0.06025894437051938,
+        "malware": 0.0536204157702531,
+        "other": 0.05213680365363124,
+        "phishing": 0.08199172317972749,
+        "romance": 0.05809366643334839,
+        "tech_support": 0.04914815550335052,
+        "upi": 0.06907672392334872
+      }
+    },
+    {
+      "text": "Congratulations you have won Rs 25,00,000 in lucky draw, call +91 98765 43210",
+      "tokens": [
+        "congratulations",
+        "you",
+        "have",
+        "won",
+        "moneytoken",
+        "in",
+        "lucky",
+        "draw",
+        "call",
+        "phonetoken"
+      ],
+      "labelProba": {
+        "safe": 0.0018253694810293243,
+        "scam": 0.904635916569975,
+        "suspicious": 0.09353871394899575
+      },
+      "categoryProba": {
+        "banking": 0.0653145417578112,
+        "credential_theft": 0.062405881969043495,
+        "delivery": 0.057778651502825996,
+        "government_impersonation": 0.07169882747920568,
+        "investment": 0.05967526465810094,
+        "job": 0.0877189184414419,
+        "kyc": 0.05003988558625003,
+        "loan": 0.06122536658068139,
+        "lottery": 0.16082477998285155,
+        "malware": 0.05363143723032987,
+        "other": 0.05059186894484017,
+        "phishing": 0.05230519746646925,
+        "romance": 0.05802094402579925,
+        "tech_support": 0.05113356454444071,
+        "upi": 0.057634869829908564
+      }
+    },
+    {
+      "text": "Earn 5% daily, mail us at invest@profit-club.io or visit bit.ly/x1",
+      "tokens": [
+        "earn",
+        "pcttoken",
+        "daily",
+        "mail",
+        "us",
+        "at",
+        "emailtoken",
+        "or",
+        "visit",
+        "urltoken",
+        "bit",
+        "tld_ly",
+        "shortlink"
+      ],
+      "labelProba": {
+        "safe": 7.028593967319845e-05,
+        "scam": 0.016757515254639796,
+        "suspicious": 0.983172198805687
+      },
+      "categoryProba": {
+        "banking": 0.07600754889033019,
+        "credential_theft": 0.059224208322734485,
+        "delivery": 0.06454956065475537,
+        "government_impersonation": 0.06176536051020443,
+        "investment": 0.109000884651528,
+        "job": 0.07450137697481815,
+        "kyc": 0.06253400842093443,
+        "loan": 0.10518599222078293,
+        "lottery": 0.060579858913705445,
+        "malware": 0.05790695041512591,
+        "other": 0.050068666801332234,
+        "phishing": 0.060136207172223344,
+        "romance": 0.057570519811206075,
+        "tech_support": 0.05168268899119838,
+        "upi": 0.04928616724912071
+      }
+    },
+    {
+      "text": "Hey are we still meeting for lunch tomorrow?",
+      "tokens": [
+        "hey",
+        "are",
+        "we",
+        "still",
+        "meeting",
+        "for",
+        "lunch",
+        "tomorrow"
+      ],
+      "labelProba": {
+        "safe": 0.9945038921022294,
+        "scam": 6.90560824356625e-05,
+        "suspicious": 0.005427051815334828
+      },
+      "categoryProba": {
+        "banking": 0.06911137475548843,
+        "credential_theft": 0.0661927669066659,
+        "delivery": 0.06941742186046486,
+        "government_impersonation": 0.07210574590923417,
+        "investment": 0.06813024752148168,
+        "job": 0.0773585351956048,
+        "kyc": 0.06048985240556599,
+        "loan": 0.06874060223575036,
+        "lottery": 0.07015517830842763,
+        "malware": 0.06329345074108494,
+        "other": 0.06263245109853846,
+        "phishing": 0.06258370904698625,
+        "romance": 0.07079257316924005,
+        "tech_support": 0.06325912392934893,
+        "upi": 0.0557369669161176
+      }
+    },
+    {
+      "text": "Apka KYC expire ho gya hai, abhi verify kro",
+      "tokens": [
+        "apka",
+        "kyc",
+        "expire",
+        "ho",
+        "gya",
+        "hai",
+        "abhi",
+        "verify",
+        "kro"
+      ],
+      "labelProba": {
+        "safe": 0.1717142186078746,
+        "scam": 0.8282143091354833,
+        "suspicious": 7.147225664207101e-05
+      },
+      "categoryProba": {
+        "banking": 0.07212726629419636,
+        "credential_theft": 0.06775394191894608,
+        "delivery": 0.06475977372939364,
+        "government_impersonation": 0.07096391064227202,
+        "investment": 0.06078986297649978,
+        "job": 0.06069587437754085,
+        "kyc": 0.13697774124636317,
+        "loan": 0.06314464905866925,
+        "lottery": 0.062496810844018626,
+        "malware": 0.06760906238186912,
+        "other": 0.05284469464502743,
+        "phishing": 0.05372507829922073,
+        "romance": 0.05850028780633023,
+        "tech_support": 0.05772474688757069,
+        "upi": 0.04988629889208208
+      }
+    },
+    {
+      "text": "आपका KYC expire हो गया है, तुरंत अपडेट करें",
+      "tokens": [
+        "आपका",
+        "kyc",
+        "expire",
+        "हो",
+        "गया",
+        "है",
+        "तुरंत",
+        "अपडेट",
+        "करें"
+      ],
+      "labelProba": {
+        "safe": 0.41035305850878234,
+        "scam": 0.5893177847475042,
+        "suspicious": 0.0003291567437134474
+      },
+      "categoryProba": {
+        "banking": 0.065819563439573,
+        "credential_theft": 0.05732710859234845,
+        "delivery": 0.05829200233367928,
+        "government_impersonation": 0.07322025534178948,
+        "investment": 0.06010703164089165,
+        "job": 0.06052536808506942,
+        "kyc": 0.14303470561894768,
+        "loan": 0.05756993697021287,
+        "lottery": 0.09251234466623064,
+        "malware": 0.06377877586272762,
+        "other": 0.05121686556851066,
+        "phishing": 0.05434239317051085,
+        "romance": 0.058534023933520585,
+        "tech_support": 0.0540611594297151,
+        "upi": 0.04965846534627267
+      }
+    },
+    {
+      "text": "प्रिय ग्राहक, आपका खाता बंद कर दिया जाएगा",
+      "tokens": [
+        "प्रिय",
+        "ग्राहक",
+        "आपका",
+        "खाता",
+        "बंद",
+        "कर",
+        "दिया",
+        "जाएगा"
+      ],
+      "labelProba": {
+        "safe": 0.9900467654225569,
+        "scam": 0.008880696659881424,
+        "suspicious": 0.0010725379175617416
+      },
+      "categoryProba": {
+        "banking": 0.0633936031540166,
+        "credential_theft": 0.06560301068292214,
+        "delivery": 0.06618121510579437,
+        "government_impersonation": 0.0773490258898832,
+        "investment": 0.06752186502578396,
+        "job": 0.06819580270592283,
+        "kyc": 0.08704858497342023,
+        "loan": 0.06485268497946299,
+        "lottery": 0.07613431722763211,
+        "malware": 0.062351499409861066,
+        "other": 0.057169016172948596,
+        "phishing": 0.061844171212800454,
+        "romance": 0.06595657380924834,
+        "tech_support": 0.060771329221516755,
+        "upi": 0.055627300428786414
+      }
+    },
+    {
+      "text": "Your acc0unt is susp3nded. Verlfy at secure-login.top",
+      "tokens": [
+        "your",
+        "acc",
+        "numtoken",
+        "unt",
+        "is",
+        "susp",
+        "numtoken",
+        "nded",
+        "verlfy",
+        "at",
+        "urltoken",
+        "secure",
+        "login",
+        "tld_top"
+      ],
+      "labelProba": {
+        "safe": 0.005609655485102227,
+        "scam": 0.9617867230283464,
+        "suspicious": 0.03260362148655138
+      },
+      "categoryProba": {
+        "banking": 0.06796462902276666,
+        "credential_theft": 0.07932500018706427,
+        "delivery": 0.07391142695854332,
+        "government_impersonation": 0.06899318197265054,
+        "investment": 0.06086818066860111,
+        "job": 0.059966166673008824,
+        "kyc": 0.07490946797836369,
+        "loan": 0.0693128208508529,
+        "lottery": 0.06784555059335372,
+        "malware": 0.065891800469565,
+        "other": 0.05982940949978649,
+        "phishing": 0.07094627503032407,
+        "romance": 0.05773297603846981,
+        "tech_support": 0.06750859160685783,
+        "upi": 0.0549945224497918
+      }
+    },
+    {
+      "text": "",
+      "tokens": [],
+      "labelProba": {
+        "safe": 0.9864739010677945,
+        "scam": 0.002143232697290787,
+        "suspicious": 0.011382866234914676
+      },
+      "categoryProba": null
+    },
+    {
+      "text": "Ünïcödé ｆｕｌｌｗｉｄｔｈ ＯＴＰ १२३ 123 text with zero​width and www.example.co.uk/a?b=1",
+      "tokens": [
+        "ünïcödé",
+        "fullwidth",
+        "otp",
+        "numtoken",
+        "text",
+        "with",
+        "zerowidth",
+        "and",
+        "urltoken",
+        "example",
+        "co",
+        "tld_uk"
+      ],
+      "labelProba": {
+        "safe": 0.22454551682556614,
+        "scam": 0.13722521652114403,
+        "suspicious": 0.6382292666532898
+      },
+      "categoryProba": {
+        "banking": 0.06517438261515084,
+        "credential_theft": 0.08870303850008669,
+        "delivery": 0.06942141609903582,
+        "government_impersonation": 0.06995293366587436,
+        "investment": 0.06852519198933424,
+        "job": 0.06552979012503438,
+        "kyc": 0.07378485665101261,
+        "loan": 0.07360903655991294,
+        "lottery": 0.06990208282274417,
+        "malware": 0.06002182343300764,
+        "other": 0.06029351384466391,
+        "phishing": 0.0600233309984795,
+        "romance": 0.06177517228545246,
+        "tech_support": 0.06047047579234783,
+        "upi": 0.05281295461786262
+      }
+    }
+  ]
+}
