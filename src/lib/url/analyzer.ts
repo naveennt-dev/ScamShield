@@ -71,47 +71,68 @@ export function isOfficialBrandHost(hostname: string): boolean {
   return Boolean(info.domain && (OFFICIAL_DOMAINS.has(info.domain) || OFFICIAL_DOMAINS.has(hostname)));
 }
 
-function brandFlags(hostname: string, registrable: string | null, labelPart: string): UrlFlag[] {
-  const flags: UrlFlag[] = [];
-  if (isOfficialBrandHost(hostname)) return flags;
+/**
+ * Brand look-alike analysis, in evidence tiers (official domains are never flagged):
+ *  1. deceptive subdomain — an official domain written at the front of a DIFFERENT real website
+ *     ("paypal.com-account-verify.xyz", "sbi.co.in.kyc-update.top")                    → strong
+ *  2. character-substitution typosquat of a brand ("amaz0n", "paypa1", "linkedln")       → strong
+ *  3. brand name + credential/billing words (login, verify, kyc, refund, account…)       → strong
+ *     brand name + softer words (support, sale, reward, track…) or a risky ending        → medium
+ *     (both together                                                                     → strong)
+ *  4. brand name alone (a blog, a restaurant, a fan site)                                → informational
+ * Homographs (punycode imitating a brand) are handled by the caller and are strong.
+ */
+const OFFICIAL_DOMAIN_LIST = [...OFFICIAL_DOMAINS].filter((d) => d.includes(".") && d.length >= 5);
+const CREDENTIAL_WORDS = ["login", "signin", "logon", "verify", "verification", "validate", "kyc", "ekyc", "password", "passcode", "otp", "unlock", "unblock", "suspend", "suspended", "locked", "blocked", "account", "billing", "payment", "refund", "secure", "security", "netbanking", "recovery", "appeal", "copyright", "update", "reactivate", "confirm", "wallet", "renewal", "renew", "subscription"];
+const SOFT_WORDS = ["support", "help", "helpdesk", "care", "service", "services", "team", "sale", "offer", "offers", "free", "premium", "reward", "rewards", "bonus", "cashback", "gift", "prize", "claim", "track", "parcel", "customs", "redelivery", "pay", "fee", "deal", "deals", "winner", "lucky"];
 
-  const tokens = labelPart.split(/[-.]/).filter(Boolean);
-  for (const brand of Object.keys(BRAND_DOMAINS)) {
-    const hit = tokens.some((t) => t === brand || (brand.length >= 4 && t.includes(brand)));
-    if (hit) {
-      flags.push({
-        id: "host.brand_impersonation",
-        severity: "high",
-        weight: 0.55,
-        detail: `Uses the name "${brand}" but is not an official ${brand} domain (${registrable ?? hostname})`,
-      });
-      return flags;
+function brandFlags(hostname: string, registrable: string | null, labelPart: string, tld: string): UrlFlag[] {
+  if (isOfficialBrandHost(hostname)) return [];
+  const site = registrable ?? hostname;
+
+  // 1. Deceptive subdomain: "<official domain>." or "<official domain>-" before the real site.
+  for (const d of OFFICIAL_DOMAIN_LIST) {
+    if (registrable === d) continue;
+    const at = hostname.indexOf(d);
+    const before = at === 0 || hostname[at - 1] === ".";
+    const after = hostname[at + d.length] === "." || hostname[at + d.length] === "-";
+    if (at >= 0 && before && after && !hostname.endsWith(`.${d}`)) {
+      return [{ id: "host.deceptive_subdomain", severity: "high", weight: 0.85, detail: `Starts with "${d}" to look official, but the real website is ${site}` }];
     }
   }
 
+  const tokens = labelPart.split(/[-.]/).filter(Boolean);
+
+  // 2. Character-substitution typosquat of a brand, on the whole name or any part of it.
   const main = parseDomain(hostname).domainWithoutSuffix ?? "";
-  if (main) {
-    // The whole name AND each hyphen/dot-separated part ("paypa1-secure-login" → "paypa1").
-    const parts = [main, ...labelPart.split(/[-.]/).filter((t) => t.length >= 4 && t !== main)];
-    outer: for (const part of parts) {
-      const skeleton = deskeleton(part);
-      for (const [label, brand] of OFFICIAL_LABELS) {
-        if (part === label) continue;
-        if (skeleton === label || (label.length >= 5 && part.length >= 5 && levenshtein(part, label) === 1)) {
-          flags.push({
-            id: "host.typosquat",
-            severity: "high",
-            weight: 0.6,
-            detail: part === main
-              ? `"${registrable}" looks like a misspelling of an official ${brand} domain`
-              : `"${part}" in ${registrable ?? hostname} looks like a misspelling of ${brand}`,
-          });
-          break outer;
-        }
+  for (const part of [main, ...tokens.filter((t) => t.length >= 4 && t !== main)]) {
+    if (!part) continue;
+    const skeleton = deskeleton(part);
+    for (const [label, brand] of OFFICIAL_LABELS) {
+      if (part === label || part.includes(label)) continue;
+      if (skeleton === label || (label.length >= 5 && part.length >= 5 && levenshtein(part, label) === 1)) {
+        return [{ id: "host.typosquat", severity: "high", weight: 0.85, detail: `"${part}" in ${site} imitates ${brand} by changing a character` }];
       }
     }
   }
-  return flags;
+
+  // 3/4. Brand name in the website's name.
+  const brand = Object.keys(BRAND_DOMAINS).find((b) =>
+    tokens.some((t) => t === b || (t.includes(b) && (b.length >= 4 || t.startsWith(b) || t.endsWith(b)))),
+  );
+  if (!brand) return [];
+  const has = (list: string[]) => list.filter((w) => tokens.includes(w) || tokens.some((t) => t !== brand && t.length > w.length && t.includes(w) && t.replace(brand, "").includes(w)));
+  const cred = has(CREDENTIAL_WORDS);
+  const soft = has(SOFT_WORDS);
+  const riskyEnding = SUSPICIOUS_TLDS.has(tld) || WATCH_TLDS.has(tld);
+  if (cred.length || (soft.length && riskyEnding)) {
+    const why = [...cred, ...soft].slice(0, 3).map((w) => `"${w}"`).join(", ");
+    return [{ id: "host.brand_impersonation", severity: "high", weight: 0.75, detail: `Uses the name "${brand}" with ${why}${riskyEnding ? ` and a ".${tld}" ending` : ""}, but is not an official ${brand} website (${site})` }];
+  }
+  if (soft.length || riskyEnding) {
+    return [{ id: "host.brand_impersonation", severity: "medium", weight: 0.35, detail: `Uses the name "${brand}"${soft.length ? ` with "${soft[0]}"` : ` and a ".${tld}" ending`}, but is not an official ${brand} website (${site})` }];
+  }
+  return [{ id: "host.brand_mention", severity: "low", weight: 0.05, detail: `Mentions "${brand}" in its name but is not ${brand}'s website — not a warning by itself` }];
 }
 
 function noisyOr(weights: number[]): number {
@@ -205,11 +226,11 @@ export function analyzeUrlStatic(
       const foldedInfo = parseDomain(folded);
       const foldedLabels = foldedInfo.publicSuffix ? folded.slice(0, -(foldedInfo.publicSuffix.length + 1)) : folded;
       const homographFlags: UrlFlag[] = isOfficialBrandHost(folded)
-        ? [{ id: "host.homograph", severity: "high", weight: 0.7, detail: `imitates the official site ${folded}` }]
-        : brandFlags(folded, foldedInfo.domain ?? folded, foldedLabels);
-      flags.push(...homographFlags.map((f) => ({ ...f, id: "host.homograph", weight: 0.7, detail: `Look-alike of a real brand: ${f.detail}` })));
+        ? [{ id: "host.homograph", severity: "high", weight: 0.85, detail: `imitates the official site ${folded}` }]
+        : brandFlags(folded, foldedInfo.domain ?? folded, foldedLabels, foldedInfo.publicSuffix?.split(".").pop() ?? "");
+      flags.push(...homographFlags.filter((f) => f.severity !== "low").map((f) => ({ ...f, id: "host.homograph", severity: "high" as const, weight: 0.85, detail: `Look-alike of a real brand: ${f.detail}` })));
     } else {
-      flags.push(...brandFlags(hostname, registrable, labelPart));
+      flags.push(...brandFlags(hostname, registrable, labelPart, info.publicSuffix?.split(".").pop() ?? ""));
     }
 
     if (URL_SHORTENERS.has(hostname) || (registrable && URL_SHORTENERS.has(registrable))) {

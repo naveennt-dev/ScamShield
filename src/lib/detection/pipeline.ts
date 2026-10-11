@@ -61,6 +61,12 @@ export interface PipelineInput {
    * page's text locally but send the AI only the website address and the list of findings.
    */
   remoteText?: string;
+  /**
+   * false = the input is only a web address (no message or page text). The ML model is trained on
+   * messages and gives meaningless scores for a bare URL string, so it is not used — that is "not
+   * applicable", not a failed detector.
+   */
+  mlApplicable?: boolean;
   followRedirects?: boolean;
 }
 
@@ -130,7 +136,9 @@ export async function runPipeline(input: PipelineInput, deps: PipelineDeps = {})
   let ml: MlPrediction | null = null;
   let mlNote: string | undefined;
   const engine = deps.ml === undefined ? createMlEngine() : deps.ml;
-  if (env.ML_ENABLED && engine) {
+  if (input.mlApplicable === false) {
+    mlNote = "not used for a web address alone (the model reads messages and page text)";
+  } else if (env.ML_ENABLED && engine) {
     const tMl = Date.now();
     const outcome = await engine.predict(pre.normalized, input.requestId);
     ml = outcome.prediction;
@@ -350,7 +358,7 @@ export async function runPipeline(input: PipelineInput, deps: PipelineDeps = {})
   // produce that verdict actually ran. A failed detector never silently becomes green.
   const gaps: string[] = [];
   if (rules.failedRules > 0) gaps.push(`${rules.failedRules} safety rule(s) failed to run`);
-  if (!ml && !llm) gaps.push(env.ML_ENABLED ? "the local ML model was unavailable and no AI second opinion was available" : "the local ML model is disabled and no AI second opinion was available");
+  if (!ml && !llm && input.mlApplicable !== false) gaps.push(env.ML_ENABLED ? "the local ML model was unavailable and no AI second opinion was available" : "the local ML model is disabled and no AI second opinion was available");
   result.assessment = result.riskLevel === "safe" && gaps.length > 0 ? { status: "insufficient", reasons: gaps } : { status: "complete", reasons: [] };
   if (result.assessment.status === "insufficient") {
     result.warnings = [...new Set([...result.warnings, `Unable to assess reliably: ${gaps.join("; ")}. This is not a safe verdict.`])];
