@@ -8,7 +8,7 @@ environment and must accompany a binary distribution.
 
 | Component | Licence | Obligation |
 |---|---|---|
-| `@img/sharp-libvips-darwin-arm64` 1.3.4, `@img/sharp-wasm32` 0.35.5 (libvips, via Next.js image optimisation) | LGPL-3.0-or-later (libvips) | Dynamically linked; ship its licence text and allow replacement of the library; provide or point to its source. |
+| `@img/sharp-libvips-darwin-arm64` 1.3.4, `@img/sharp-wasm32` 0.35.5 (libvips, via Next.js image optimisation) | LGPL-3.0-or-later (libvips) | Dynamically linked and replaceable. The LGPL/GPL texts, the package README and `versions.json` ship in the app at `Contents/Resources/engine/licenses/`; source: https://github.com/libvips/libvips, build scripts: https://github.com/lovell/sharp-libvips. |
 | `caniuse-lite` 1.0.30001706 (browser support data, build tooling) | CC-BY-4.0 | Attribution: "caniuse-lite — data from caniuse.com, CC BY 4.0". |
 | UCI SMS Spam Collection (training data for the ML model) | CC BY 4.0 | Attribution: T. A. Almeida, J. M. Gómez Hidalgo, "SMS Spam Collection", UCI Machine Learning Repository. |
 

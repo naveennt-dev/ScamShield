@@ -149,4 +149,5 @@ migrations, cron, observability, release checklist).
 
 ## License
 
-MIT License © 2025 ScamShield Team
+Apache License 2.0 — see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE). The ScamShield name and logo
+are not covered by the licence; see [`TRADEMARKS.md`](TRADEMARKS.md).

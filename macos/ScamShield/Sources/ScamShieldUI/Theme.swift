@@ -30,7 +30,7 @@ enum Theme {
         case (.safe, .dark): return Color(red: 0.45, green: 0.88, blue: 0.62)
         case (.safe, _): return Color(red: 0.05, green: 0.48, blue: 0.27)
         case (.caution, .dark): return Color(red: 1.00, green: 0.72, blue: 0.25)
-        case (.caution, _): return Color(red: 0.55, green: 0.30, blue: 0.00)
+        case (.caution, _): return Color(red: 0.50, green: 0.27, blue: 0.00)
         case (.danger, .dark): return Color(red: 1.00, green: 0.45, blue: 0.42)
         case (.danger, _): return Color(red: 0.76, green: 0.11, blue: 0.11)
         }

@@ -53,6 +53,15 @@ install -m 0755 "$CACHE/node-v${NODE_VERSION}-darwin-${ARCH}/bin/node" "$OUT/nod
 install -m 0644 "$CACHE/node-v${NODE_VERSION}-darwin-${ARCH}/LICENSE" "$OUT/NODE-LICENSE"
 find "$OUT" -name ".env*" -print -delete | sed 's/^/  removed /'
 
+# Licence texts the engine must carry (Next.js's file tracing drops them): libvips is LGPL-3.0.
+mkdir -p "$OUT/licenses"
+cp docs/release/licenses/lgpl-3.0.txt docs/release/licenses/gpl-3.0.txt docs/release/licenses/README.md "$OUT/licenses/"
+cp node_modules/@img/sharp-libvips-darwin-"$ARCH"/README.md "$OUT/licenses/sharp-libvips-README.md"
+cp node_modules/@img/sharp-libvips-darwin-"$ARCH"/versions.json "$OUT/licenses/sharp-libvips-versions.json"
+cp node_modules/@img/sharp-darwin-"$ARCH"/LICENSE "$OUT/licenses/sharp-LICENSE"
+cp LICENSE "$OUT/licenses/ScamShield-LICENSE"; cp NOTICE "$OUT/licenses/ScamShield-NOTICE"
+cp docs/release/THIRD_PARTY_NOTICES.md "$OUT/licenses/THIRD_PARTY_NOTICES.md"
+
 # Next.js writes the absolute build folder (which contains the builder's user name) into its
 # manifests. Replace it with a neutral root — the same string everywhere, so manifest keys stay
 # consistent — and refuse to ship any remaining copy. The smoke test below proves it still runs.
