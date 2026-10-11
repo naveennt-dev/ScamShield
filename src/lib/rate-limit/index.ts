@@ -85,7 +85,8 @@ export function getRateLimitStore(): RateLimitStore {
   if (env.REDIS_URL) {
     store = new RedisRateLimitStore(env.REDIS_URL);
   } else {
-    if (env.NODE_ENV === "production" && !warned) {
+    // The desktop engine serves one device: an in-memory store is the intended design there.
+    if (env.NODE_ENV === "production" && env.SCAMSHIELD_EDITION !== "desktop" && !warned) {
       warned = true;
       logger.error("rate_limit_memory_store_in_production", {
         message: "REDIS_URL is not set: rate limits are per-instance only. Configure Redis for production.",

@@ -53,6 +53,25 @@ install -m 0755 "$CACHE/node-v${NODE_VERSION}-darwin-${ARCH}/bin/node" "$OUT/nod
 install -m 0644 "$CACHE/node-v${NODE_VERSION}-darwin-${ARCH}/LICENSE" "$OUT/NODE-LICENSE"
 find "$OUT" -name ".env*" -print -delete | sed 's/^/  removed /'
 
+# Next.js writes the absolute build folder (which contains the builder's user name) into its
+# manifests. Replace it with a neutral root — the same string everywhere, so manifest keys stay
+# consistent — and refuse to ship any remaining copy. The smoke test below proves it still runs.
+echo "▸ Removing the build machine's folder path"
+ROOT_ABS="$(pwd -P)"
+ROOT_ENC="${ROOT_ABS//\//%2F}"   # also appears URL-encoded in loader strings
+HOME_ENC="${HOME//\//%2F}"
+for pat in "$ROOT_ABS" "$ROOT_ENC"; do
+  grep -rlIF -- "$pat" "$OUT/app" | while IFS= read -r f; do
+    ROOT_ABS="$ROOT_ABS" ROOT_ENC="$ROOT_ENC" perl -pi -e 's/\Q$ENV{ROOT_ABS}\E/\/scamshield/g; s/\Q$ENV{ROOT_ENC}\E/%2Fscamshield/g' "$f"
+  done
+done
+for pat in "$HOME" "$HOME_ENC"; do
+  if grep -rqF -- "$pat" "$OUT"; then
+    echo "✗ the build machine's home folder is still present in:"; grep -rlF -- "$pat" "$OUT" | head -5; exit 1
+  fi
+done
+echo "  ✓ no build-machine paths"
+
 echo "▸ Secret gate"
 python3 - "$OUT" <<'PY'
 import os, re, sys
@@ -82,8 +101,10 @@ PY
 echo "▸ Smoke test (no .env, no database, no Redis, no Python)"
 SMOKE_LOG="$(cd "$OUT/.." && pwd)/engine-smoke.log"
 PORT_TEST=$(python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1])')
-( cd "$OUT/app" && env -i PATH=/usr/bin:/bin HOME="$HOME" NODE_ENV=production HOSTNAME=127.0.0.1 PORT=$PORT_TEST \
-    SCAMSHIELD_EDITION=desktop ML_BACKEND=embedded LOCAL_CLIENT_RATE_TIER=true LLM_ENABLED=false BETTER_AUTH_SECRET="$(openssl rand -hex 32)" \
+# `exec` makes $PID the server itself (killing only the subshell used to orphan it); the parent-PID
+# watch also stops it if this script dies.
+( cd "$OUT/app" && exec env -i PATH=/usr/bin:/bin HOME="$HOME" NODE_ENV=production HOSTNAME=127.0.0.1 PORT=$PORT_TEST \
+    SCAMSHIELD_EDITION=desktop SCAMSHIELD_PARENT_PID=$$ ML_BACKEND=embedded LOCAL_CLIENT_RATE_TIER=true LLM_ENABLED=false BETTER_AUTH_SECRET="$(openssl rand -hex 32)" \
     BETTER_AUTH_URL="http://127.0.0.1:$PORT_TEST" "../node" server.js >"$SMOKE_LOG" 2>&1 ) &
 PID=$!
 trap 'kill $PID 2>/dev/null || true' EXIT
