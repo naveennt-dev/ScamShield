@@ -1,0 +1,375 @@
+{
+  "model": {
+    "name": "scam-tfidf-logreg",
+    "version": "1.1.0",
+    "buildId": "1.1.0+20261007.906379c2",
+    "probabilityType": "calibrated-sigmoid-on-validation"
+  },
+  "engine": "rules + ML (embedded) + static URL analysis; LLM disabled; no network",
+  "msPerMessage": 0.64,
+  "testSplit": {
+    "synthetic": {
+      "rows": 32,
+      "system": {
+        "accuracy": 0.6875,
+        "scamRecall": 0.7692,
+        "scamMissedAsSafe": 0,
+        "safeFalsePositiveRate": 0.0833,
+        "confusion": {
+          "safe": {
+            "safe": 11,
+            "suspicious": 1,
+            "scam": 0
+          },
+          "suspicious": {
+            "safe": 6,
+            "suspicious": 1,
+            "scam": 0
+          },
+          "scam": {
+            "safe": 0,
+            "suspicious": 3,
+            "scam": 10
+          }
+        }
+      },
+      "mlOnly": {
+        "accuracy": 0.7188,
+        "scamRecall": 0.8462,
+        "scamMissedAsSafe": 2,
+        "safeFalsePositiveRate": 0.25,
+        "confusion": {
+          "safe": {
+            "safe": 9,
+            "suspicious": 1,
+            "scam": 2
+          },
+          "suspicious": {
+            "safe": 4,
+            "suspicious": 3,
+            "scam": 0
+          },
+          "scam": {
+            "safe": 2,
+            "suspicious": 0,
+            "scam": 11
+          }
+        }
+      }
+    },
+    "uci-sms-ham": {
+      "rows": 641,
+      "system": {
+        "accuracy": 0.9953,
+        "scamRecall": null,
+        "scamMissedAsSafe": 0,
+        "safeFalsePositiveRate": 0.0047,
+        "confusion": {
+          "safe": {
+            "safe": 638,
+            "suspicious": 3,
+            "scam": 0
+          }
+        }
+      },
+      "mlOnly": {
+        "accuracy": 0.9922,
+        "scamRecall": null,
+        "scamMissedAsSafe": 0,
+        "safeFalsePositiveRate": 0.0078,
+        "confusion": {
+          "safe": {
+            "safe": 636,
+            "suspicious": 4,
+            "scam": 1
+          }
+        }
+      }
+    },
+    "uci-sms-spam": {
+      "rows": 82,
+      "system": {
+        "accuracy": 0.5732,
+        "scamRecall": null,
+        "scamMissedAsSafe": 0,
+        "safeFalsePositiveRate": null,
+        "confusion": {
+          "suspicious": {
+            "safe": 35,
+            "suspicious": 47,
+            "scam": 0
+          }
+        }
+      },
+      "mlOnly": {
+        "accuracy": 0.8659,
+        "scamRecall": null,
+        "scamMissedAsSafe": 0,
+        "safeFalsePositiveRate": null,
+        "confusion": {
+          "suspicious": {
+            "safe": 10,
+            "suspicious": 71,
+            "scam": 1
+          }
+        }
+      }
+    }
+  },
+  "scenarios": {
+    "passed": 25,
+    "total": 25,
+    "results": [
+      {
+        "group": "safe",
+        "name": "normal conversation",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 1,
+        "ml": "safe",
+        "pass": true
+      },
+      {
+        "group": "safe",
+        "name": "genuine delivery notification",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 0,
+        "ml": "safe",
+        "pass": true
+      },
+      {
+        "group": "safe",
+        "name": "genuine bank notification",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 14,
+        "ml": "safe",
+        "pass": true
+      },
+      {
+        "group": "safe",
+        "name": "OTP notification without request",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 1,
+        "ml": "safe",
+        "pass": true
+      },
+      {
+        "group": "safe",
+        "name": "normal job communication",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 2,
+        "ml": "safe",
+        "pass": true
+      },
+      {
+        "group": "safe",
+        "name": "Hindi OTP notice",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 11,
+        "ml": "safe",
+        "pass": true
+      },
+      {
+        "group": "safe",
+        "name": "Hinglish chat",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 0,
+        "ml": "safe",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "KYC scam",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 89,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "UPI scam",
+        "expect": "scam",
+        "system": "scam",
+        "level": "high",
+        "score": 80,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "fake refund",
+        "expect": "scam",
+        "system": "scam",
+        "level": "high",
+        "score": 81,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "fake job",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 87,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "lottery",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 85,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "investment",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 90,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "fake delivery",
+        "expect": "scam",
+        "system": "scam",
+        "level": "high",
+        "score": 82,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "fake government message",
+        "expect": "scam",
+        "system": "scam",
+        "level": "high",
+        "score": 80,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "scam",
+        "name": "fake bank alert",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 90,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "mixed Hindi/English",
+        "expect": "scam",
+        "system": "scam",
+        "level": "high",
+        "score": 78,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "Hinglish OTP request",
+        "expect": "scam",
+        "system": "scam",
+        "level": "high",
+        "score": 77,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "spelling variations",
+        "expect": "not-safe",
+        "system": "scam",
+        "level": "high",
+        "score": 68,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "unicode tricks",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 88,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "URL obfuscation",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 86,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "excessive whitespace",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 87,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "urgency manipulation",
+        "expect": "not-safe",
+        "system": "scam",
+        "level": "high",
+        "score": 83,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "prompt-injection-like text",
+        "expect": "scam",
+        "system": "scam",
+        "level": "critical",
+        "score": 91,
+        "ml": "scam",
+        "pass": true
+      },
+      {
+        "group": "adversarial",
+        "name": "safe message with scary words",
+        "expect": "safe",
+        "system": "safe",
+        "level": "safe",
+        "score": 1,
+        "ml": "safe",
+        "pass": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "ScamShield Link Guard",
+  "version": "1.0.0",
+  "description": "Warns before you open scam, phishing or malware links. Checks run on the ScamShield service on this device.",
+  "permissions": ["webNavigation", "storage", "tabs"],
+  "host_permissions": ["http://127.0.0.1:3000/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "ScamShield Link Guard", "default_popup": "popup.html" },
+  "incognito": "not_allowed",
+  "minimum_chrome_version": "116"
+}

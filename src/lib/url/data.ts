@@ -1,0 +1,180 @@
+/**
+ * Curated static lists used by the URL analyzer. These are heuristics, not reputation data:
+ * they raise or lower suspicion but never act as an allow/deny list on their own.
+ * Keep entries lower-case registrable domains.
+ */
+
+/** Brand keyword → official registrable domains. */
+export const BRAND_DOMAINS: Record<string, string[]> = {
+  sbi: ["sbi.co.in", "onlinesbi.sbi", "sbi.bank.in", "onlinesbi.com", "sbicard.com", "sbilife.co.in", "bank.sbi", "sbi"],
+  hdfc: ["hdfcbank.com", "hdfc.com", "hdfcbank.bank.in", "hdfclife.com", "hdfcergo.com"],
+  icici: ["icicibank.com", "icici.bank.in", "icicidirect.com", "iciciprulife.com", "icicilombard.com"],
+  axis: ["axisbank.com", "axis.bank.in", "axisbank.co.in"],
+  kotak: ["kotak.com", "kotak.bank.in", "kotaksecurities.com"],
+  pnb: ["pnbindia.in", "pnb.bank.in", "netpnb.com"],
+  paytm: ["paytm.com", "paytm.in", "paytmbank.com", "paytmmoney.com"],
+  phonepe: ["phonepe.com"],
+  gpay: ["pay.google.com", "google.com"],
+  npci: ["npci.org.in", "bhimupi.org.in"],
+  amazon: ["amazon.in", "amazon.com", "amazon.co.uk", "amazonpay.in", "amazon.de", "aws.amazon.com"],
+  flipkart: ["flipkart.com"],
+  paypal: ["paypal.com", "paypal.me"],
+  apple: ["apple.com", "icloud.com"],
+  microsoft: ["microsoft.com", "live.com", "office.com", "outlook.com", "microsoftonline.com"],
+  netflix: ["netflix.com"],
+  whatsapp: ["whatsapp.com", "wa.me"],
+  instagram: ["instagram.com"],
+  facebook: ["facebook.com", "fb.com", "meta.com"],
+  google: ["google.com", "google.co.in", "goo.gl", "g.co", "youtube.com", "gmail.com"],
+  irctc: ["irctc.co.in"],
+  indiapost: ["indiapost.gov.in"],
+  uidai: ["uidai.gov.in", "myaadhaar.uidai.gov.in"],
+  aadhaar: ["uidai.gov.in"],
+  incometax: ["incometax.gov.in", "incometaxindia.gov.in"],
+  epfo: ["epfindia.gov.in", "epfo.gov.in"],
+  rbi: ["rbi.org.in"],
+  fedex: ["fedex.com"],
+  dhl: ["dhl.com", "dhl.co.in"],
+  bluedart: ["bluedart.com"],
+  delhivery: ["delhivery.com"],
+  airtel: ["airtel.in", "airtel.com"],
+  jio: ["jio.com"],
+};
+
+/** Domains under which any subdomain/path is government-operated (India). */
+export const TRUSTED_SUFFIXES = ["gov.in", "nic.in", "bank.in"];
+
+export const URL_SHORTENERS = new Set([
+  "bit.ly",
+  "bitly.com",
+  "tinyurl.com",
+  "t.co",
+  "goo.gl",
+  "ow.ly",
+  "is.gd",
+  "v.gd",
+  "cutt.ly",
+  "rb.gy",
+  "shorturl.at",
+  "rebrand.ly",
+  "t.ly",
+  "s.id",
+  "tiny.cc",
+  "bit.do",
+  "shorte.st",
+  "adf.ly",
+  "buff.ly",
+  "short.gy",
+  "tinu.be",
+  "urlz.fr",
+  "qrco.de",
+  "lnkd.in",
+  "surl.li",
+  "u.to",
+  "clck.ru",
+  "shrtco.de",
+  "1url.com",
+]);
+
+export const FREE_HOSTING_SUFFIXES = [
+  "ngrok.io",
+  "ngrok-free.app",
+  "ngrok.app",
+  "trycloudflare.com",
+  "000webhostapp.com",
+  "weebly.com",
+  "wixsite.com",
+  "blogspot.com",
+  "web.app",
+  "firebaseapp.com",
+  "netlify.app",
+  "vercel.app",
+  "pages.dev",
+  "workers.dev",
+  "github.io",
+  "glitch.me",
+  "repl.co",
+  "replit.app",
+  "herokuapp.com",
+  "onrender.com",
+  "duckdns.org",
+  "ddns.net",
+  "no-ip.org",
+  "hopto.org",
+  "godaddysites.com",
+  "square.site",
+  "carrd.co",
+  "webflow.io",
+  "framer.app",
+  "sites.google.com",
+  "forms.gle",
+  "typedream.app",
+  "ipfs.io",
+  "r2.dev",
+  "azurewebsites.net",
+  "appspot.com",
+];
+
+export const SUSPICIOUS_TLDS = new Set([
+  "xyz",
+  "top",
+  "tk",
+  "ml",
+  "ga",
+  "cf",
+  "gq",
+  "icu",
+  "buzz",
+  "click",
+  "link",
+  "rest",
+  "fit",
+  "work",
+  "support",
+  "cyou",
+  "monster",
+  "sbs",
+  "bond",
+  "cfd",
+  "quest",
+  "loan",
+  "win",
+  "bid",
+  "zip",
+  "mov",
+  "country",
+  "kim",
+  "men",
+  "party",
+  "gdn",
+  "lol",
+  "beauty",
+  "hair",
+  "autos",
+  "boats",
+  "makeup",
+  "skin",
+]);
+
+/** Common, mostly-legitimate TLDs that are nonetheless over-represented in scam campaigns. */
+export const WATCH_TLDS = new Set(["shop", "online", "site", "store", "live", "vip", "info", "pro", "cc", "ws", "su"]);
+
+/**
+ * Words phishing/scam links use to look official or to bait, matched as WHOLE words only. Ordinary
+ * words every real website uses (account, update, payment, track, secure, invoice…) are not here.
+ */
+export const LINK_WORD_GROUPS: Array<{ kind: "credential" | "bait" | "delivery"; words: string[]; why: string }> = [
+  {
+    kind: "credential",
+    words: ["login", "signin", "logon", "verify", "verification", "validate", "kyc", "ekyc", "rekyc", "password", "passcode", "otp", "unlock", "unblock", "suspend", "suspended", "blocked", "reactivate", "aadhaar", "aadhar", "pancard", "netbanking", "seedphrase"],
+    why: "pretends to be a login / KYC / verification page",
+  },
+  {
+    kind: "bait",
+    words: ["refund", "cashback", "reward", "rewards", "claim", "prize", "lottery", "winner", "giveaway", "bonus", "freegift", "lucky"],
+    why: "uses prize / refund bait",
+  },
+  { kind: "delivery", words: ["customs", "redelivery", "reschedule"], why: "uses parcel-delivery bait" },
+];
+
+export const EXECUTABLE_EXT = /\.(apk|xapk|exe|scr|msi|bat|cmd|ps1|vbs|vbe|js|jse|jar|dmg|pkg|iso|img|bin|sh|lnk|hta|wsf|cpl)$/i;

@@ -1,0 +1,22 @@
+# Local dependencies for ScamShield development (the app itself runs with `npm run dev`).
+# docker compose up -d   →   DATABASE_URL=postgresql://scamshield:scamshield@localhost:5432/scamshield
+#                             REDIS_URL=redis://localhost:6379
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: scamshield
+      POSTGRES_PASSWORD: scamshield
+      POSTGRES_DB: scamshield
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scamshield"]
+      interval: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    ports: ["127.0.0.1:6379:6379"]
+volumes:
+  pgdata: {}

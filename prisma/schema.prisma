@@ -1,0 +1,387 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String          @id @default(uuid())
+  email         String          @unique
+  name          String?
+  emailVerified Boolean
+  image         String?
+  createdAt     DateTime
+  updatedAt     DateTime
+  sessions      Session[]
+  accounts      Account[]
+  settings      UserSettings?
+  analyses      ScamAnalysis[]
+  reports       ScamReport[]
+  events        AnalysisEvent[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime
+  updatedAt             DateTime
+
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+  updatedAt  DateTime?
+
+  @@map("verification")
+}
+
+// ---------------------------------------------------------------------------
+// ScamShield domain models
+//
+// Privacy principles:
+//  - Raw message content is NEVER stored. Analyses keep a masked, truncated preview only if the
+//    user allows it (UserSettings.storeContentPreview), plus a one-way fingerprint.
+//  - Every ScamAnalysis has an expiresAt; /api/v1/cron/retention deletes expired rows.
+//  - Intelligence (ScamPattern) is keyed by fingerprints/domains and never exposes who reported.
+// ---------------------------------------------------------------------------
+
+enum InputType {
+  MESSAGE
+  URL
+  IMAGE
+  EMAIL
+}
+
+enum Classification {
+  SAFE
+  SUSPICIOUS
+  SCAM
+}
+
+enum RiskLevel {
+  SAFE
+  SUSPICIOUS
+  HIGH
+  CRITICAL
+}
+
+enum ReportStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+}
+
+enum PatternType {
+  MESSAGE_FINGERPRINT
+  DOMAIN
+}
+
+enum PatternStatus {
+  UNVERIFIED
+  TRUSTED
+  REJECTED
+}
+
+model UserSettings {
+  userId              String   @id
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  storeContentPreview Boolean  @default(true)
+  retentionDays       Int      @default(90)
+  allowLlmAnalysis    Boolean  @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("user_settings")
+}
+
+model ScamAnalysis {
+  id                 String         @id @default(cuid())
+  userId             String?
+  user               User?          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  requestId          String
+  inputType          InputType
+  /// SHA-256 of normalised content (see src/lib/detection/fingerprint.ts)
+  fingerprint        String
+  /// 64-bit SimHash (hex) for near-duplicate search
+  simhash            String?
+  /// Masked + truncated preview; null when the user disabled previews
+  contentPreview     String?
+  contentLength      Int
+  classification     Classification
+  riskLevel          RiskLevel
+  riskScore          Int
+  confidence         Float
+  category           String
+  explanation        String
+  aiSummary          String?
+  reasons            Json
+  recommendedActions Json
+  signals            Json
+  adjustments        Json
+  llmProvider        String?
+  llmModel           String?
+  llmStatus          String
+  mlModelVersion     String?
+  processingTimeMs   Int
+  createdAt          DateTime       @default(now())
+  expiresAt          DateTime
+
+  indicators  ScamIndicator[]
+  urlAnalyses URLAnalysis[]
+  reports     ScamReport[]
+  events      AnalysisEvent[]
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([createdAt])
+  @@index([classification])
+  @@index([category])
+  @@index([riskScore])
+  @@index([fingerprint])
+  @@index([expiresAt])
+  @@map("scam_analysis")
+}
+
+model ScamIndicator {
+  id         String       @id @default(cuid())
+  analysisId String
+  analysis   ScamAnalysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+  source     String
+  type       String
+  severity   String
+  /// Masked snippet (digits/emails redacted)
+  evidence   String
+  category   String?
+
+  @@index([analysisId])
+  @@index([type])
+  @@map("scam_indicator")
+}
+
+model URLAnalysis {
+  id            String        @id @default(cuid())
+  analysisId    String?
+  analysis      ScamAnalysis? @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+  /// SHA-256 of the normalised URL (full URLs may contain personal tokens and are not stored)
+  urlHash       String
+  hostname      String
+  domain        String?
+  riskScore     Int
+  flags         Json
+  redirectCount Int           @default(0)
+  finalDomain   String?
+  createdAt     DateTime      @default(now())
+
+  @@index([analysisId])
+  @@index([domain])
+  @@index([urlHash])
+  @@index([createdAt])
+  @@map("url_analysis")
+}
+
+model ScamReport {
+  id             String        @id @default(cuid())
+  userId         String
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  analysisId     String?
+  analysis       ScamAnalysis? @relation(fields: [analysisId], references: [id], onDelete: SetNull)
+  reportType     String
+  category       String
+  fingerprint    String
+  domain         String?
+  contentPreview String
+  note           String?
+  /// Phase 5: the reporter's verdict — "scam", "suspicious" or "false_positive".
+  verdict        String        @default("scam")
+  status         ReportStatus  @default(PENDING)
+  createdAt      DateTime      @default(now())
+
+  /// One report per user per content: prevents a single account from inflating counts.
+  @@unique([userId, fingerprint])
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([fingerprint])
+  @@index([domain])
+  @@index([category])
+  @@map("scam_report")
+}
+
+model ScamPattern {
+  id                String        @id @default(cuid())
+  patternType       PatternType
+  /// Fingerprint (MESSAGE_FINGERPRINT) or registrable domain (DOMAIN)
+  value             String
+  category          String
+  simhash           String?
+  simhashBand0      Int?
+  simhashBand1      Int?
+  simhashBand2      Int?
+  simhashBand3      Int?
+  reportCount       Int           @default(0)
+  distinctReporters Int           @default(0)
+  /// 0–1, derived from distinct reporters; NOT ground truth until status = TRUSTED
+  confidence        Float         @default(0)
+  status            PatternStatus @default(UNVERIFIED)
+  firstSeen         DateTime      @default(now())
+  lastSeen          DateTime      @default(now())
+
+  @@unique([patternType, value])
+  @@index([simhashBand0])
+  @@index([simhashBand1])
+  @@index([simhashBand2])
+  @@index([simhashBand3])
+  @@index([category])
+  @@index([lastSeen])
+  @@map("scam_pattern")
+}
+
+model AnalysisEvent {
+  id         String        @id @default(cuid())
+  requestId  String
+  userId     String?
+  user       User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  analysisId String?
+  analysis   ScamAnalysis? @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+  eventType  String
+  inputType  String?
+  latencyMs  Int?
+  errorCode  String?
+  metadata   Json?
+  createdAt  DateTime      @default(now())
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([eventType, createdAt])
+  @@index([createdAt])
+  @@map("analysis_event")
+}
+
+// ---- Phase 5: provenance-aware URL/domain intelligence ------------------------------------------
+
+enum IntelKind {
+  DOMAIN
+  URL
+}
+
+enum IntelStatus {
+  UNKNOWN
+  SUSPICIOUS
+  CONFIRMED_MALICIOUS
+  BENIGN
+}
+
+/// Where a record came from. LLM output is deliberately NOT a source.
+enum IntelSource {
+  USER_REPORT
+  LOCAL_RULE
+  IMPORTED_PUBLIC
+  VERIFIED
+}
+
+/// One row per (kind, key, sourceType): sources never overwrite each other, so user reports stay
+/// separate from imported or independently verified findings.
+model IntelRecord {
+  id           String      @id @default(cuid())
+  kind         IntelKind
+  /// DOMAIN: registrable domain, lower-case ASCII (punycode). URL: SHA-256 of the normalised URL
+  /// without query/fragment (never the raw URL, which may carry tokens).
+  key          String
+  sourceType   IntelSource
+  status       IntelStatus
+  category     String
+  /// 0–1. Capped by source type in the service layer.
+  confidence   Float
+  /// Independent observations (e.g. distinct reporters or import batches).
+  observations Int         @default(1)
+  /// Short, masked explanation (no message content).
+  explanation  String
+  /// Provenance: e.g. "import:phishing-list-2026-10.csv", "user-report", "manual-review".
+  sourceName   String
+  updateMethod String
+  firstSeen    DateTime    @default(now())
+  lastSeen     DateTime    @default(now())
+  reviewAt     DateTime?
+  expiresAt    DateTime?
+
+  @@unique([kind, key, sourceType])
+  @@index([kind, key])
+  @@index([expiresAt])
+  @@map("scam_intel")
+}
+
+// ---------------------------------------------------------------------------------------------
+// Shared learning (opt-in contributions). Text is masked on the device AND again on ingestion.
+// Contributions never change a model directly: they are curated (scripts/curate-contributions.ts)
+// into a training dataset; a new model is trained, gated, signed and installed by a human.
+
+enum ContributionStatus {
+  QUARANTINED
+  ACCEPTED
+  REJECTED
+}
+
+model Contribution {
+  id              String             @id @default(cuid())
+  /// Content fingerprint (canonical form, volatile tokens removed): duplicates across contributors.
+  fingerprint     String
+  /// SHA-256 of the app's random installation ID (no account, no device identifier).
+  contributorHash String
+  /// Masked message text (OTPs, card/account/phone numbers, e-mails, UPI IDs, link paths removed).
+  text            String
+  /// correct | missed_scam | false_positive | unsure
+  verdict         String
+  /// Derived training label (scam | safe), null for "unsure".
+  label           String?
+  systemLevel     RiskLevel
+  systemScore     Int
+  category        String?
+  appVersion      String
+  modelBuild      String?
+  /// Automatic checks, e.g. "prompt_injection", "safe_label_on_critical_request".
+  flags           String[]
+  status          ContributionStatus @default(QUARANTINED)
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  @@unique([fingerprint, contributorHash])
+  @@index([fingerprint])
+  @@index([status])
+  @@index([contributorHash])
+}

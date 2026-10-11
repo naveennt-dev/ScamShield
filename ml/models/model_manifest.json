@@ -1,0 +1,52 @@
+{
+  "name": "scam-tfidf-logreg",
+  "version": "1.1.0",
+  "buildId": "1.1.0+20261007.906379c2",
+  "createdAt": "2026-10-07T19:00:22.911084+00:00",
+  "tokenizerVersion": "v2",
+  "labels": [
+    "safe",
+    "scam",
+    "suspicious"
+  ],
+  "categories": [
+    "banking",
+    "credential_theft",
+    "delivery",
+    "government_impersonation",
+    "investment",
+    "job",
+    "kyc",
+    "loan",
+    "lottery",
+    "malware",
+    "other",
+    "phishing",
+    "romance",
+    "tech_support",
+    "upi"
+  ],
+  "probabilityType": "calibrated-sigmoid-on-validation",
+  "trainingData": {
+    "kind": "mixed",
+    "rows": 3771,
+    "dataSha256": "906379c2aebe3b16bd15ceb58137f4cbed493841920830c0a89f1219f8d456c0",
+    "sources": [
+      "synthetic-handwritten-v1",
+      "synthetic-handwritten-v2",
+      "synthetic-handwritten-v3",
+      "uci-sms-ham",
+      "uci-sms-spam"
+    ]
+  },
+  "files": {
+    "joblib": {
+      "path": "scam_classifier.joblib",
+      "sha256": "2a08203364a28a121adc0a6ca91c4f062162b4a0bc5156c840969c2d9bfd7105"
+    },
+    "json": {
+      "path": "scam_classifier.json",
+      "sha256": "1bb7b0ea2f3d6cb0eeefbe174f24991c8054493246174792c37524d896debd1d"
+    }
+  }
+}
