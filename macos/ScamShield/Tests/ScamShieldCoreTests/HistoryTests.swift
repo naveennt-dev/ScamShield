@@ -142,7 +142,7 @@ struct HistoryStoreTests {
         #expect(s.lastError != nil)  // and the failure is visible in the History window
     }
 
-    @Test func boundedByRetentionAndCount() {
+    @Test func boundedByRetentionAndCount() async {
         var clock = Date(timeIntervalSince1970: 1_800_000_000)
         let s = HistoryStore(directory: tempDir(), defaults: defaults(), now: { clock })
         s.retentionDays = 7
@@ -150,9 +150,12 @@ struct HistoryStoreTests {
         clock += 8 * 86_400
         s.record(scanID: UUID(), summary: summary(), text: "new", mode: .localOnly)
         #expect(s.entries.count == 1)
+        // ~500 synchronous file writes: yield the main actor between them so tests running in
+        // parallel (e.g. EngineManager's time-limited startup) are not starved for seconds.
         for i in 0..<(HistoryStore.maxEntries + 5) {
             clock += 300
             s.record(scanID: UUID(), summary: summary(), text: "m\(i)", mode: .localOnly)
+            await Task.yield()
         }
         #expect(s.entries.count == HistoryStore.maxEntries)
     }
