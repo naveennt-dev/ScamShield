@@ -60,6 +60,13 @@ final class MenuBarController: NSObject, NSPopoverDelegate {
         lastPopoverCloseReason = NSApp.currentEvent.map { "event type=\($0.type.rawValue)" } ?? "programmatic"
     }
 
+    #if SCAMSHIELD_DEVTOOLS
+    /// Developer UI captures: re-creates the menu content with one row shown highlighted.
+    func rebuildContent(highlighting row: String?) {
+        popover.contentViewController = NSHostingController(rootView: MenuBarRoot(state: state, controller: self, highlightedRow: row))
+    }
+    #endif
+
     /// Closes the popover, then runs the action (so windows it opens aren't covered by the popover).
     func perform(_ action: @escaping @MainActor () -> Void) {
         closePopover()
@@ -70,12 +77,14 @@ final class MenuBarController: NSObject, NSPopoverDelegate {
 private struct MenuBarRoot: View {
     let state: AppState
     let controller: MenuBarController
+    var highlightedRow: String? = nil
 
     var body: some View {
         MenuBarView(
             shortcut: state.settings.shortcut,
             connection: state.settings.connection,
             analysisMode: state.settings.configuration.effectiveAnalysisMode,
+            highlightedRow: highlightedRow,
             actions: .init(
                 scanScreen: { controller.perform { state.scan(.fullScreen) } },
                 selectRegion: { controller.perform { state.scan(.region) } },

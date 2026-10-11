@@ -28,11 +28,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private static let log = Logger(subsystem: "dev.scamshield.mac", category: "app")
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        let args = ProcessInfo.processInfo.arguments
         // Single instance: a second launch (Finder, Spotlight, `open -n`) hands over and quits, so
         // there is never a second menu-bar icon, hotkey registration or scanner window. The
         // self-test is exempt: it is an isolated, scripted instance that quits when done.
-        if !args.contains("--self-test"), !args.contains("--scan-eval"), let other = Self.otherRunningInstance() {
+        // Scripted developer runs exist only in development builds; a release build never exempts.
+        #if SCAMSHIELD_DEVTOOLS
+        let scriptedRun = AppState.isDeveloperSession
+        #else
+        let scriptedRun = false
+        #endif
+        if !scriptedRun, let other = Self.otherRunningInstance() {
             Self.log.notice("another ScamShield instance is running (pid \(other.processIdentifier, privacy: .public)); handing over")
             DistributedNotificationCenter.default().postNotificationName(Self.reopenNotification, object: nil, userInfo: nil, deliverImmediately: true)
             NSApp.terminate(nil)

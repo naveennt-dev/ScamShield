@@ -85,6 +85,10 @@ struct AppEnvironment {
             SelfTest(state: state, menuBar: menuBar, outputDirectory: URL(fileURLWithPath: args[i + 1])).run()
             return
         }
+        if let i = args.firstIndex(of: "--ui-capture"), i + 1 < args.count {
+            UICapture(state: state, menuBar: menuBar, outputDirectory: URL(fileURLWithPath: args[i + 1])).run()
+            return
+        }
         if let i = args.firstIndex(of: "--scan-eval"), i + 2 < args.count {
             ScanEval(state: state, messages: URL(fileURLWithPath: args[i + 1]), outputDirectory: URL(fileURLWithPath: args[i + 2])).run()
             return

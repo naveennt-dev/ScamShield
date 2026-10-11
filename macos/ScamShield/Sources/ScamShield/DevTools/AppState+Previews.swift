@@ -7,7 +7,7 @@ import ScamShieldDevSupport
 
 extension AppState {
     /// Self-test / scan-eval runs (scripted developer sessions).
-    static let isDeveloperSession = ProcessInfo.processInfo.arguments.contains { $0 == "--self-test" || $0 == "--scan-eval" }
+    static let isDeveloperSession = ProcessInfo.processInfo.arguments.contains { $0 == "--self-test" || $0 == "--scan-eval" || $0 == "--ui-capture" }
 
     func preview(_ scenario: PreviewScenario) {
         guard !coordinator.phase.isBusy else { return }

@@ -20,7 +20,7 @@ final class HistoryWindowController {
     init(history: HistoryStore, reports: ReportStore, contributions: ContributionOutbox? = nil, onFeedbackSaved: @escaping () -> Void = {}) {
         window = NSWindow(
             contentRect: NSRect(origin: .zero, size: HistoryView.size),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable],
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered,
             defer: true
         )
