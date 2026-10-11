@@ -28,7 +28,12 @@ fixes. Releases are tagged `vX.Y.Z`; nothing is released until a tag and a GitHu
   accurate platform table; technical setup moved to `docs/development.md`.
 - New user guide (scanning, results, privacy, offline/online, troubleshooting, uninstall); install
   guides with checksum verification; downloads page links and verified build details.
-- CI: the macOS job runs on `macos-26` (Xcode 26 SDK, needed for the Liquid Glass APIs).
+- CI: the macOS job runs on `macos-26` (Xcode 26). The Liquid Glass code is also guarded at compile
+  time (`#if compiler(>=6.2)`), so an older Xcode builds the macOS 14–25 appearance instead of
+  failing — the cause of the first CI failure (`glassEffect`, `.glass`, `.glassProminent` unknown to
+  Xcode 16.4).
+- Concise README; details moved to `docs/how-it-works.md`; redesigned downloads page with status
+  labels; release checklist (`docs/release/RELEASE-CHECKLIST.md`).
 
 ### Licence
 - Apache-2.0, with a separate trademark policy for the ScamShield name and logo.

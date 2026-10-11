@@ -15,18 +15,21 @@
     return null;
   }
 
+  const PILL = { released: "Available", "built-not-released": "Coming soon", "in-testing": "Testing", planned: "Planned" };
   const releasedAsset = (p) => p.status === "released" && p.asset && /^https:\/\/github\.com\/[^/]+\/[^/]+\/releases\/download\//.test(p.asset.url || "") && /^[0-9a-f]{64}$/.test(p.asset.sha256 || "");
   const storeLink = (p) => p.status === "released" && p.store && /^https:\/\/(play\.google\.com|apps\.apple\.com|chromewebstore\.google\.com)\//.test(p.store.url || "");
 
   function card(p, data) {
     const c = el("article", `card status-${p.status}`);
-    c.append(el("h3", null, p.name));
+    const head = el("div", "card-head");
+    head.append(el("h3", null, p.name), el("span", `pill pill-${p.status}`, PILL[p.status] || p.status));
+    c.append(head);
     c.append(el("p", "status", p.statusText));
     const dl = el("dl");
-    for (const [k, v] of [["Requirements", p.requirements], ["Package", p.package], ["Version", data.version || "—"], ["Released", data.releaseDate || "—"]]) {
-      dl.append(el("dt", null, k), el("dd", null, v));
+    for (const [k, v] of [["Requirements", p.requirements], ["Package", p.package], ["Version", data.version], ["Released", data.releaseDate]]) {
+      if (v && v !== "—") dl.append(el("dt", null, k), el("dd", null, v)); // only real values
     }
-    c.append(dl);
+    if (dl.childElementCount) c.append(dl);
     if (releasedAsset(p)) {
       const a = el("a", "button", `Download for ${p.name}`);
       a.href = p.asset.url; a.setAttribute("download", "");
@@ -56,7 +59,7 @@
   }
   $("release-line").textContent = data.version
     ? `Latest release: ${data.version}${data.releaseDate ? ` (${data.releaseDate})` : ""}.`
-    : "No release has been published yet. Platforms below show their current status.";
+    : "No release has been published yet — nothing can be downloaded today. Each platform below shows its real status.";
 
   const picker = $("picker");
   for (const p of data.platforms) { const o = el("option", null, p.name); o.value = p.id; picker.append(o); }

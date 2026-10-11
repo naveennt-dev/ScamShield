@@ -5,31 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Download ScamShield — check suspicious messages and links on your own device.">
   <title>Download ScamShield</title>
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <header>
+  <header class="hero">
+    <svg class="mark" viewBox="0 0 24 28" aria-hidden="true"><path d="M12 2 3 5.5v7.2c0 6 3.9 10.6 9 12.3 5.1-1.7 9-6.3 9-12.3V5.5L12 2Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="m8 13.5 3 3 5.5-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <h1>Download ScamShield</h1>
-    <p>Checks suspicious messages and links on your device. Free and open source (Apache-2.0).</p>
-    <p class="notice" id="release-line">Loading release information…</p>
+    <p class="lead">Check suspicious messages and links on your own device. Free and open source (Apache-2.0).</p>
+    <p class="notice" id="release-line" role="status">Loading release information…</p>
   </header>
   <main>
     <section aria-labelledby="rec-title" id="recommended" hidden>
-      <h2 id="rec-title">Recommended for your device</h2>
+      <h2 id="rec-title">For this device</h2>
       <div id="rec-card"></div>
     </section>
     <section aria-labelledby="all-title">
-      <h2 id="all-title">All platforms</h2>
-      <label for="picker">Choose a platform</label>
-      <select id="picker"></select>
+      <div class="row">
+        <h2 id="all-title">All platforms</h2>
+        <label class="picker"><span>Show</span>
+          <select id="picker"></select>
+        </label>
+      </div>
       <div class="grid" id="cards"></div>
     </section>
-    <section aria-labelledby="verify-title">
-      <h2 id="verify-title">Verify your download</h2>
-      <p>Every published file is listed with its SHA-256 checksum. On macOS or Linux run
-        <code>shasum -a 256 &lt;file&gt;</code>; on Windows <code>Get-FileHash &lt;file&gt;</code>. The result must match exactly.
-        Only download from this page or the project's GitHub Releases — never from mirrors.</p>
+    <section class="panel" aria-labelledby="now-title">
+      <h2 id="now-title">Want to try it before a release?</h2>
+      <p>You can build the macOS app or the Android test build yourself — see
+        <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/guides/user-guide.md#build-from-source">Build from source</a>.
+        To hear about the first release, use <strong>Watch → Custom → Releases</strong> on the
+        <a href="https://github.com/naveennt-dev/ScamShield">GitHub repository</a>.</p>
+    </section>
+    <section class="panel" aria-labelledby="verify-title">
+      <h2 id="verify-title">Verify every download</h2>
+      <p>Each published file is listed with its SHA-256 checksum. Check it before opening:
+        <code>shasum -a 256 &lt;file&gt;</code> (macOS/Linux) or <code>Get-FileHash &lt;file&gt;</code> (Windows).
+        Download only from this page or the project's
+        <a href="https://github.com/naveennt-dev/ScamShield/releases">GitHub Releases</a> — never from mirrors or links in messages.</p>
     </section>
   </main>
   <footer>
@@ -37,9 +50,9 @@
     <a href="https://github.com/naveennt-dev/ScamShield/releases">Releases</a> ·
     <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/guides/user-guide.md">User guide</a> ·
     <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/release/PRIVACY-NOTICE-DRAFT.md">Privacy (draft)</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/LICENSE">Licence (Apache-2.0)</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/TRADEMARKS.md">Trademark policy</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/SECURITY.md">Report a security issue</a>
+    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/LICENSE">Licence</a> ·
+    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/TRADEMARKS.md">Trademarks</a> ·
+    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/SECURITY.md">Security</a>
   </footer>
   <script src="site.js"></script>
 </body>

@@ -60,8 +60,8 @@
       "name": "Browser extension (Chromium)",
       "requirements": "Needs the ScamShield desktop app",
       "package": "Web store",
-      "status": "planned",
-      "statusText": "Works locally as an unpacked extension; no store listing yet.",
+      "status": "in-testing",
+      "statusText": "Works locally as an unpacked extension with the macOS app; not in a web store yet.",
       "guide": "https://github.com/naveennt-dev/ScamShield/blob/main/extension/chromium/README.md",
       "asset": null,
       "store": null

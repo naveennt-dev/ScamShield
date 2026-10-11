@@ -18,8 +18,8 @@ PowerShell; Linux: `sha256sum <file>`.)
 
 1. Open the DMG and drag **ScamShield** onto **Applications**.
 2. Open ScamShield from Applications. A shield appears in the menu bar.
-   - This preview is **not notarized by Apple** yet, so macOS shows that it can't verify the
-     developer. **Only for a copy whose checksum you verified above:** open **System Settings →
+   - This preview is signed with the project's own local certificate, **not an Apple Developer ID,
+     and not notarized by Apple** yet, so macOS shows that it can't verify the developer. **Only for a copy whose checksum you verified above:** open **System Settings →
      Privacy & Security**, scroll down and click **Open Anyway** next to ScamShield. Don't do this
      for apps from unknown sources in general — notarization is Apple's malware check, and this is
      an exception for a verified copy of this specific app.

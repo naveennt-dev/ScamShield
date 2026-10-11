@@ -108,6 +108,7 @@ private struct CloseButton: View {
 
     var body: some View {
         Group {
+            #if compiler(>=6.2)
             if #available(macOS 26, *) {
                 Button(action: action) {
                     Image(systemName: "xmark").font(.system(size: 11, weight: .bold)).frame(width: 16, height: 16)
@@ -115,16 +116,23 @@ private struct CloseButton: View {
                 .buttonStyle(.glass)
                 .buttonBorderShape(.circle)
             } else {
-                Button(action: action) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 11, weight: .bold))
-                        .foregroundStyle(Theme.secondaryText)
-                        .frame(width: 24, height: 24)
-                        .background(.quaternary, in: Circle())
-                }
-                .buttonStyle(.plain)
+                fallback
             }
+            #else
+            fallback
+            #endif
         }
+    }
+
+    private var fallback: some View {
+        Button(action: action) {
+            Image(systemName: "xmark")
+                .font(.system(size: 11, weight: .bold))
+                .foregroundStyle(Theme.secondaryText)
+                .frame(width: 24, height: 24)
+                .background(.quaternary, in: Circle())
+        }
+        .buttonStyle(.plain)
     }
 }
 
