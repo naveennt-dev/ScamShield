@@ -1,17 +1,49 @@
 import SwiftUI
 import ScamShieldCore
 
+/// Transient UI state (this toolchain has no @State macro plugin; same pattern as HistoryUIState).
+@MainActor
+@Observable
+public final class SettingsUIState {
+    public var aiKeyDraft = ""
+    public var aiKeyMessage: String?
+    public init() {}
+}
+
 public struct SettingsView: View {
     @Bindable var store: SettingsStore
+    @Bindable var ui: SettingsUIState
 
-    public init(store: SettingsStore) {
+    public init(store: SettingsStore, ui: SettingsUIState = SettingsUIState()) {
         self.store = store
+        self.ui = ui
     }
 
     public static let size = CGSize(width: 520, height: 600)
 
     public var body: some View {
         Form {
+            if let status = store.engineStatus {
+                Section {
+                    Label(status, systemImage: store.engineFailed ? "exclamationmark.triangle.fill" : "checkmark.seal.fill")
+                        .foregroundStyle(store.engineFailed ? Color.orange : Color.primary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Button("Retry") { store.retryEngine?() }
+                        .accessibilityIdentifier("engineRetry")
+                } header: {
+                    Text("Analysis engine")
+                } footer: {
+                    Text("ScamShield's analysis engine runs on this device and starts and stops with the app.")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+            }
+            Section {
+                Toggle("Keep the scanner above other windows", isOn: Binding(get: { store.scannerAlwaysOnTop }, set: { store.scannerAlwaysOnTop = $0 }))
+                Toggle("Open ScamShield when I log in", isOn: Binding(get: { store.launchAtLogin }, set: { store.setLaunchAtLogin($0) }))
+                if let note = store.launchAtLoginNote { Text(note).font(.caption).foregroundStyle(.orange) }
+            } header: {
+                Text("App")
+            }
             Section {
                 LabeledContent("Backend URL") {
                     HStack {
@@ -39,7 +71,7 @@ public struct SettingsView: View {
             } header: {
                 Text("Local ScamShield service")
             } footer: {
-                Text("The app only talks to a ScamShield service running on this device. It never contacts AI providers directly and stores no API keys.")
+                Text("The app only talks to the ScamShield service running on this device. It never contacts AI providers directly; an optional AI key is kept only in your Keychain.")
                     .font(.caption).foregroundStyle(.secondary)
             }
 
@@ -58,6 +90,28 @@ public struct SettingsView: View {
                 } else {
                     Label("Local-only: nothing leaves this device.", systemImage: "lock.laptopcomputer")
                         .foregroundStyle(.green).font(.callout)
+                }
+                if store.engineStatus != nil {
+                    LabeledContent("AI service key") {
+                        if store.aiKeyConfigured {
+                            HStack {
+                                Text("Saved in your Keychain").foregroundStyle(.secondary)
+                                Button("Remove") { store.removeAIKey(); ui.aiKeyMessage = "Removed." }
+                            }
+                        } else {
+                            HStack {
+                                SecureField("", text: $ui.aiKeyDraft, prompt: Text("Paste your key"))
+                                    .textFieldStyle(.roundedBorder)
+                                Button("Save") {
+                                    ui.aiKeyMessage = store.saveAIKey(ui.aiKeyDraft) ? "Saved — the engine restarts to use it." : "Couldn't save that key."
+                                    ui.aiKeyDraft = ""
+                                }
+                                .disabled(ui.aiKeyDraft.trimmingCharacters(in: .whitespaces).isEmpty)
+                            }
+                        }
+                    }
+                    Text(ui.aiKeyMessage ?? "Needed only for the AI second opinion. It is stored in your login Keychain on this device and given only to ScamShield's own engine — never written to a file.")
+                        .font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
                 }
             } header: {
                 Text("Analysis")

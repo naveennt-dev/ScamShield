@@ -51,7 +51,9 @@ public enum ScannerFailure: Error, Equatable, Sendable {
         case .noTextDetected:
             return "Try selecting the message more precisely."
         case .analysisServiceUnavailable:
-            return "Start the local ScamShield service and try again."
+            return SettingsStore.managedEngine
+                ? "ScamShield's analysis engine isn't available. Open Settings and click Retry, or quit and reopen ScamShield."
+                : "Start the local ScamShield service and try again."
         case .cloudAnalysisEnabled:
             return "ScamShield is in local-only mode, but this service could use cloud AI without being asked (it's older than the app). Nothing was sent. Restart it with scripts/scamshield.sh restart."
         case .analysisFailed(let reason):

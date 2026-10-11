@@ -110,6 +110,11 @@ const EnvSchema = z.object({
   DYNAMIC_INSPECTION_ENABLED: bool(false),
   /** Let the local ScamShield Link Guard extension call the link scanner (loopback only). */
   ALLOW_BROWSER_EXTENSION: bool(false),
+  /**
+   * "desktop": the on-device engine bundled in the apps (single process, loopback only — in-memory
+   * rate limits and no database are the intended design). "server": a deployed service.
+   */
+  SCAMSHIELD_EDITION: z.enum(["server", "desktop"]).default("server"),
   DYNAMIC_INSPECTION_TIMEOUT_MS: int(20000, 5000, 60000),
   URL_FETCH_TIMEOUT_MS: int(5000, 500, 20000),
   URL_FETCH_MAX_REDIRECTS: int(5, 0, 10),

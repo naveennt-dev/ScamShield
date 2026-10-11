@@ -19,6 +19,7 @@ export async function register() {
   const models = [env.SCAM_PRIMARY_MODEL, env.SCAM_FALLBACK_MODEL, env.SCAM_FAST_MODEL].filter(Boolean).length;
   logger.info("startup_config", {
     nodeEnv: env.NODE_ENV,
+    edition: env.SCAMSHIELD_EDITION,
     appVersion: env.APP_VERSION,
     database: Boolean(env.DATABASE_URL),
     redis: Boolean(env.REDIS_URL),
@@ -33,7 +34,23 @@ export async function register() {
     retentionCron: Boolean(env.CRON_SECRET),
   });
 
-  if (env.NODE_ENV === "production") {
+  // Desktop edition: exit when the app that launched the engine is gone (crash, force quit), so it
+  // never lingers in the background on its own.
+  const parent = Number(process.env.SCAMSHIELD_PARENT_PID);
+  if (env.SCAMSHIELD_EDITION === "desktop" && Number.isInteger(parent) && parent > 1) {
+    const watch = setInterval(() => {
+      try {
+        process.kill(parent, 0); // existence check only
+      } catch {
+        logger.info("engine_parent_gone");
+        process.exit(0);
+      }
+    }, 2000);
+    watch.unref();
+  }
+
+  // The desktop engine has no database, Redis or cron by design — those warnings are server-only.
+  if (env.NODE_ENV === "production" && env.SCAMSHIELD_EDITION !== "desktop") {
     const problems: string[] = [];
     if (!env.BETTER_AUTH_SECRET || env.BETTER_AUTH_SECRET.length < 32) problems.push("BETTER_AUTH_SECRET missing or shorter than 32 chars");
     if (!env.REDIS_URL) problems.push("REDIS_URL not set (rate limits are per-instance)");

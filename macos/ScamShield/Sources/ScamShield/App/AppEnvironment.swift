@@ -29,12 +29,27 @@ struct AppEnvironment {
             historyDefaults = UserDefaults(suiteName: "dev.scamshield.selftest.\(UUID().uuidString)")!
         }
         #endif
-        return AppEnvironment(state: AppState(settings: settings, coordinator: ScannerCoordinator(),
+        let state = AppState(settings: settings, coordinator: ScannerCoordinator(),
                                               history: HistoryStore(directory: historyDir, defaults: historyDefaults),
                                               reports: ReportStore(directory: historyDir),
                                               contributions: ContributionOutbox(
                                                 directory: historyDir, defaults: historyDefaults,
-                                                appVersion: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0.0")))
+                                                appVersion: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0.0"))
+        // On-device engine: bundled in installed apps (Contents/Resources/engine). Developer builds
+        // without it keep using scripts/scamshield.sh.
+        let layout = EngineLayout.bundled()
+        SettingsStore.managedEngine = layout != nil
+        let support = HistoryStore.defaultDirectory
+        let base = config.apiBaseURL
+        state.engine = EngineManager(
+            baseURL: base,
+            layout: layout,
+            logURL: FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Library/Logs/ScamShield/engine.log"),
+            environment: { EngineEnvironment.make(port: base.port ?? 3000, authSecret: EngineEnvironment.authSecret(in: support), aiKey: AIKeyStore.read()) })
+        settings.retryEngine = { [weak state] in state?.restartEngine() }
+        settings.onAIKeyChanged = { [weak state] in state?.restartEngine() }
+        settings.onScannerLevelChanged = { [weak state] on in state?.scannerPanel.setAlwaysOnTop(on) }
+        return AppEnvironment(state: state)
     }
 
     /// Accessory apps still get key equivalents from the main menu while one of their windows is key

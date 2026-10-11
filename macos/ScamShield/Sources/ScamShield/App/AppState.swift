@@ -39,6 +39,9 @@ final class AppState: NSObject {
 
     private static let log = Logger(subsystem: "dev.scamshield.mac", category: "scanner")
 
+    /// The bundled on-device engine (nil-layout engines just reuse a running developer service).
+    @ObservationIgnored var engine: EngineManager?
+
     init(settings: SettingsStore, coordinator: ScannerCoordinator, history: HistoryStore, reports: ReportStore,
          contributions: ContributionOutbox? = nil) {
         self.contributions = contributions ?? ContributionOutbox(directory: history.fileURL.deletingLastPathComponent(),
@@ -172,6 +175,34 @@ final class AppState: NSObject {
 
     func shutdown() {
         hotkey.unregister()
+        engine?.stop()
+    }
+
+    /// Starts (or re-uses) the analysis engine, then refreshes the connection status.
+    func startEngine() {
+        guard let engine else { return }
+        settings.engineStatus = "Starting the analysis engine…"
+        settings.engineFailed = false
+        Task { @MainActor in
+            await engine.start()
+            switch engine.state {
+            case .running(let managed):
+                settings.engineStatus = managed ? "Analysis engine running on this device." : "Using the ScamShield service already running on this device."
+                settings.engineFailed = false
+            case .failed(let why):
+                settings.engineStatus = why
+                settings.engineFailed = true
+            default:
+                break
+            }
+            await settings.testConnection()
+        }
+    }
+
+    /// Applies a changed AI key: the engine reads it only at start.
+    func restartEngine() {
+        engine?.stop()
+        startEngine()
     }
 
     // MARK: Private

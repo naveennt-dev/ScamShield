@@ -52,6 +52,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let developerRun = false
         #endif
         if !developerRun {
+            env.state.startEngine()
             consent.showIfNeeded(store: env.state.settings)
             env.state.shareQueuedFeedback() // retry opt-in feedback queued while the service was down
         }
