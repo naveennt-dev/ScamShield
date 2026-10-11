@@ -10,3 +10,18 @@ See [docs/ml/dataset.md](../../docs/ml/dataset.md) for the schema, sources, spli
 - `eval/scenario_suite.jsonl` — controlled held-out scenarios for `scripts/evaluate-system.ts`.
 
 Schema: `text,label,category,source,language` (CSV or JSONL).
+
+## Published test split — attribution (CC BY 4.0)
+
+`processed/test.jsonl` (755 rows) is published so CI can run the model evaluation gate. It contains:
+
+- **723 messages from the SMS Spam Collection** — Almeida, T. & Gómez Hidalgo, J. (2011). *SMS Spam
+  Collection* [dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5CC84 — licensed
+  under **Creative Commons Attribution 4.0 International** (https://creativecommons.org/licenses/by/4.0/).
+  **Changes made:** a random subset was selected for the test split; labels were mapped to
+  `safe` / `suspicious` / `scam` with a category, language and duplicate-group id; one private phone
+  number in a personal (non-spam) message was replaced with `[number removed]`.
+- **32 synthetic messages** written for this project (Apache-2.0, like the code).
+
+The training and validation splits are not published (git-ignored); `npm run ml:fetch-data`
+downloads the original corpus.
