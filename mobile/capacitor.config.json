@@ -1,0 +1,13 @@
+{
+  "appId": "dev.scamshield.android",
+  "appName": "ScamShield",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

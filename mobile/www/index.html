@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Local-only: no network connections of any kind; scripts only from the app itself. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <title>ScamShield</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <svg class="mark" viewBox="0 0 24 28" aria-hidden="true"><path d="M12 2 3 5.5v7.2c0 6 3.9 10.6 9 12.3 5.1-1.7 9-6.3 9-12.3V5.5L12 2Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="m8 13.5 3 3 5.5-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div>
+      <h1>ScamShield</h1>
+      <p class="badge" id="badge">Checked on this device only</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="tabs" role="tablist" aria-label="What to check">
+      <button role="tab" id="tab-message" aria-selected="true" aria-controls="panel">Message</button>
+      <button role="tab" id="tab-link" aria-selected="false" aria-controls="panel">Link</button>
+    </div>
+
+    <section id="panel" role="tabpanel" aria-labelledby="tab-message">
+      <label for="input" id="input-label">Paste or share the message you received</label>
+      <textarea id="input" rows="7" autocomplete="off" autocapitalize="off" spellcheck="false"
+        placeholder="e.g. Your account will be blocked today. Update KYC at …"></textarea>
+      <input id="link" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" hidden
+        placeholder="https://…" aria-labelledby="input-label">
+      <div class="actions">
+        <button id="check" class="primary">Check</button>
+        <button id="clear" class="secondary">Clear</button>
+      </div>
+      <p class="hint" id="hint">Nothing you check leaves this phone. Links are never opened.</p>
+    </section>
+
+    <section id="result" class="card" hidden aria-live="polite" tabindex="-1">
+      <div class="verdict">
+        <span class="dot" id="r-dot" aria-hidden="true"></span>
+        <div>
+          <h2 id="r-headline"></h2>
+          <p class="score" id="r-score"></p>
+        </div>
+      </div>
+      <p class="category" id="r-category"></p>
+      <h3 id="r-why-title">Why</h3>
+      <ul id="r-reasons"></ul>
+      <div id="r-actions-box">
+        <h3>What to do</h3>
+        <ul id="r-actions"></ul>
+      </div>
+      <details>
+        <summary>Why this colour</summary>
+        <p id="r-colour"></p>
+      </details>
+      <p class="fine">An automated check — not a guarantee. When in doubt, contact the organisation using a number you already know.</p>
+    </section>
+  </main>
+
+  <footer class="fine" id="engine-info"></footer>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

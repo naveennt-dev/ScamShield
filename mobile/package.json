@@ -1,0 +1,19 @@
+{
+  "name": "scamshield-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "ScamShield for Android (and later iOS): Capacitor shell around the shared, on-device detection engine.",
+  "scripts": {
+    "build:engine": "node build-engine.mjs",
+    "sync": "npm run build:engine && cap sync android",
+    "test:parity": "cd .. && ML_BACKEND=embedded LOG_LEVEL=error npx tsx --env-file=.env mobile/test/parity.ts"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/core": "8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3"
+  }
+}

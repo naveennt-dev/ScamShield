@@ -80,3 +80,14 @@ next-env.d.ts
 /macos/ScamShield/.build-dev/
 # The model-signing PUBLIC key must ship (clients verify updates with it); private keys never live here.
 !/ml/registry/model-signing-public.pem
+
+# mobile (Capacitor): generated engine bundle, copied web assets, packages, signing material
+/mobile/node_modules/
+/mobile/www/engine.js
+/mobile/www/engine.js.LEGAL.txt
+/mobile/android/app/src/main/assets/public/
+/mobile/android/app/src/main/assets/capacitor.config.json
+/mobile/android/app/src/main/assets/capacitor.plugins.json
+/mobile/android/capacitor-cordova-android-plugins/
+*.keystore
+*.jks

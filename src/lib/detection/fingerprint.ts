@@ -33,9 +33,11 @@ const FNV_OFFSET = 0xcbf29ce484222325n;
 const FNV_PRIME = 0x100000001b3n;
 const MASK64 = (1n << 64n) - 1n;
 
+const UTF8 = new TextEncoder(); // same bytes as Buffer.from(s, "utf8"); also works on the device
+
 function fnv1a64(s: string): bigint {
   let h = FNV_OFFSET;
-  for (const byte of Buffer.from(s, "utf8")) {
+  for (const byte of UTF8.encode(s)) {
     h ^= BigInt(byte);
     h = (h * FNV_PRIME) & MASK64;
   }
