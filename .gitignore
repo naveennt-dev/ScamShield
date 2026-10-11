@@ -93,3 +93,9 @@ next-env.d.ts
 /mobile/android/capacitor-cordova-android-plugins/
 *.keystore
 *.jks
+/mobile/android/keystore.properties
+*.p12
+*.p8
+
+# release packaging output (assets are uploaded to GitHub Releases, never committed)
+/dist/

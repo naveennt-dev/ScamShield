@@ -1,5 +1,24 @@
 apply plugin: 'com.android.application'
 
+// Release signing. The key NEVER lives in the repository: provide it through environment variables
+// (CI secrets) or mobile/android/keystore.properties (git-ignored, on the release machine only):
+//   storeFile=/absolute/path/to/scamshield-release.jks
+//   storePassword=…   keyAlias=…   keyPassword=…
+// Without a complete configuration, release builds stop with an error instead of producing an
+// unsigned or debug-signed "release". Debug builds are unaffected.
+def releaseSigning = [:]
+def keystoreProps = rootProject.file('keystore.properties')
+if (keystoreProps.exists()) {
+    def p = new Properties()
+    keystoreProps.withInputStream { p.load(it) }
+    ['storeFile', 'storePassword', 'keyAlias', 'keyPassword'].each { releaseSigning[it] = p.getProperty(it) }
+}
+[storeFile: 'SCAMSHIELD_ANDROID_KEYSTORE', storePassword: 'SCAMSHIELD_ANDROID_KEYSTORE_PASSWORD',
+ keyAlias: 'SCAMSHIELD_ANDROID_KEY_ALIAS', keyPassword: 'SCAMSHIELD_ANDROID_KEY_PASSWORD'].each { key, env ->
+    if (System.getenv(env)) releaseSigning[key] = System.getenv(env)
+}
+def releaseSigningReady = ['storeFile', 'storePassword', 'keyAlias', 'keyPassword'].every { releaseSigning[it] }
+
 android {
     namespace = "dev.scamshield.android"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -16,9 +35,21 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            if (releaseSigningReady) {
+                storeFile file(releaseSigning.storeFile)
+                storePassword releaseSigning.storePassword
+                keyAlias releaseSigning.keyAlias
+                keyPassword releaseSigning.keyPassword
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
+            debuggable false
+            signingConfig releaseSigningReady ? signingConfigs.release : null
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -43,6 +74,15 @@ dependencies {
 }
 
 apply from: 'capacitor.build.gradle'
+
+// A release build without the release key is an error, never a silently unsigned artefact.
+gradle.taskGraph.whenReady { graph ->
+    if (!releaseSigningReady && graph.allTasks.any { it.name ==~ /(assemble|bundle|package)Release/ }) {
+        throw new GradleException("Release signing is not configured. Set SCAMSHIELD_ANDROID_KEYSTORE, " +
+            "SCAMSHIELD_ANDROID_KEYSTORE_PASSWORD, SCAMSHIELD_ANDROID_KEY_ALIAS and SCAMSHIELD_ANDROID_KEY_PASSWORD, " +
+            "or create mobile/android/keystore.properties (see docs/release/RELEASE-CHECKLIST.md).")
+    }
+}
 
 try {
     def servicesJSON = file('google-services.json')

@@ -3,56 +3,215 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Download ScamShield — check suspicious messages and links on your own device.">
-  <title>Download ScamShield</title>
+  <meta name="description" content="ScamShield checks suspicious messages and links on your own device and explains, in plain language, whether they look like a scam. Open source, Apache-2.0.">
+  <title>ScamShield — Know before you click</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'%3E%3Cpath d='M12 2 3 5.5v7.2c0 6 3.9 10.6 9 12.3 5.1-1.7 9-6.3 9-12.3V5.5L12 2Z' fill='%231d5fd6'/%3E%3Cpath d='m8 13.5 3 3 5.5-6' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <header class="hero">
-    <svg class="mark" viewBox="0 0 24 28" aria-hidden="true"><path d="M12 2 3 5.5v7.2c0 6 3.9 10.6 9 12.3 5.1-1.7 9-6.3 9-12.3V5.5L12 2Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="m8 13.5 3 3 5.5-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <h1>Download ScamShield</h1>
-    <p class="lead">Check suspicious messages and links on your own device. Free and open source (Apache-2.0).</p>
-    <p class="notice" id="release-line" role="status">Loading release information…</p>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="ScamShield home">
+        <svg viewBox="0 0 24 28" aria-hidden="true"><path d="M12 2 3 5.5v7.2c0 6 3.9 10.6 9 12.3 5.1-1.7 9-6.3 9-12.3V5.5L12 2Z" class="shield-fill"/><path d="m8 13.5 3 3 5.5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>ScamShield</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <nav aria-label="Main">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/guides/user-guide.md">Docs</a></li>
+          <li><a class="nav-cta" href="https://github.com/naveennt-dev/ScamShield">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main>
-    <section aria-labelledby="rec-title" id="recommended" hidden>
-      <h2 id="rec-title">For this device</h2>
-      <div id="rec-card"></div>
-    </section>
-    <section aria-labelledby="all-title">
-      <div class="row">
-        <h2 id="all-title">All platforms</h2>
-        <label class="picker"><span>Show</span>
-          <select id="picker"></select>
-        </label>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Open-source preview · no public release yet</p>
+          <h1>Know before<br>you click.</h1>
+          <p class="lead">ScamShield checks a suspicious message or link <strong>on your own device</strong> and tells you, in plain language, whether it looks like a scam — and exactly why.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#download">Check availability</a>
+            <a class="btn btn-ghost" href="https://github.com/naveennt-dev/ScamShield">View source on GitHub</a>
+          </div>
+          <ul class="facts" aria-label="At a glance">
+            <li>Checks run on the device</li>
+            <li>Explains every warning</li>
+            <li>Apache-2.0</li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-label="ScamShield screenshots">
+          <figure class="shot shot-mac">
+            <img src="assets/macos-high-risk.png" width="479" height="640" alt="ScamShield on macOS showing a high-risk scam result with reasons and advice">
+          </figure>
+          <figure class="shot shot-phone">
+            <img src="assets/android-shared-sms.png" width="420" height="933" alt="ScamShield on Android rating a shared SMS as a high-risk scam, 95 out of 100">
+          </figure>
+        </div>
       </div>
-      <div class="grid" id="cards"></div>
     </section>
-    <section class="panel" aria-labelledby="now-title">
-      <h2 id="now-title">Want to try it before a release?</h2>
-      <p>You can build the macOS app or the Android test build yourself — see
-        <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/guides/user-guide.md#build-from-source">Build from source</a>.
-        To hear about the first release, use <strong>Watch → Custom → Releases</strong> on the
-        <a href="https://github.com/naveennt-dev/ScamShield">GitHub repository</a>.</p>
+
+    <section class="strip" aria-label="Platforms">
+      <div class="wrap strip-inner">
+        <span>macOS · Apple silicon</span><span>Android</span><span>Chrome &amp; Edge extension</span><span class="muted">Windows · Linux · iOS planned</span>
+      </div>
     </section>
-    <section class="panel" aria-labelledby="verify-title">
-      <h2 id="verify-title">Verify every download</h2>
-      <p>Each published file is listed with its SHA-256 checksum. Check it before opening:
-        <code>shasum -a 256 &lt;file&gt;</code> (macOS/Linux) or <code>Get-FileHash &lt;file&gt;</code> (Windows).
-        Download only from this page or the project's
-        <a href="https://github.com/naveennt-dev/ScamShield/releases">GitHub Releases</a> — never from mirrors or links in messages.</p>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <p class="kicker">Features</p>
+        <h2>A second pair of eyes for every message.</h2>
+        <p class="section-lead">Scams depend on you acting fast. ScamShield slows the moment down and shows you what is wrong.</p>
+        <div class="features">
+          <article class="feature">
+            <div class="icon" aria-hidden="true">✉︎</div>
+            <h3>Messages and screenshots</h3>
+            <p>Scan the screen or a region on macOS — text is read on the Mac and the screenshot is discarded. On Android, paste a message or use <em>Share → Check with ScamShield</em>.</p>
+          </article>
+          <article class="feature">
+            <div class="icon" aria-hidden="true">⌁</div>
+            <h3>Links, without opening them</h3>
+            <p>Spots look-alike brands (<code>amaz0n</code>), official names in front of another site (<code>paypal.com-account-verify.xyz</code>), punycode tricks, shorteners and risky endings.</p>
+          </article>
+          <article class="feature">
+            <div class="icon" aria-hidden="true">?</div>
+            <h3>Explains why</h3>
+            <p>Every warning lists the signs it found — an OTP request, a threat, a fake bank link — and what to do next, including where to report it.</p>
+          </article>
+          <article class="feature">
+            <div class="icon" aria-hidden="true">⌂</div>
+            <h3>Private by design</h3>
+            <p>Checks run locally. The Android app has no internet permission at all. History on the Mac stays on the Mac, with numbers masked.</p>
+          </article>
+          <article class="feature">
+            <div class="icon" aria-hidden="true">!</div>
+            <h3>Honest when unsure</h3>
+            <p>If part of a check fails you see <strong>Unable to assess</strong> — never a false “safe”.</p>
+          </article>
+          <article class="feature">
+            <div class="icon" aria-hidden="true">+</div>
+            <h3>Optional AI second opinion</h3>
+            <p>On macOS, off until you agree. It sees only masked text, uses your own key, and can raise a warning but never lower the on-device result.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="how">
+      <div class="wrap how-grid">
+        <div>
+          <p class="kicker">How it works</p>
+          <h2>Three independent checks, one clear answer.</h2>
+          <ol class="steps">
+            <li><strong>Safety rules</strong> — 59 rules across 18 scam families plus 5 combination rules: OTP and PIN requests, KYC threats, refund and prize bait, job and investment offers, remote-access requests. English, Hindi and Hinglish.</li>
+            <li><strong>Link analysis</strong> — every address in the message is checked for impersonation and deception.</li>
+            <li><strong>On-device ML model</strong> — estimates how scam-like the wording is (TF-IDF + logistic regression, trained on 3,771 messages).</li>
+            <li><strong>Risk fusion</strong> — combines them into a 0–100 score with safety guards: a clear rule or link finding can't be argued away, and the model alone can't raise a high-risk alarm.</li>
+          </ol>
+          <p class="note">Measured on test sets written for this project, not real-world traffic. No detector can guarantee a message is safe. <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/how-it-works.md">Read the details →</a></p>
+        </div>
+        <div class="gallery" aria-label="Example results">
+          <figure class="shot shot-phone small"><img src="assets/android-link.png" width="420" height="933" alt="Android: a look-alike PayPal link rated high risk, 74 out of 100"><figcaption>Look-alike link · High risk</figcaption></figure>
+          <figure class="shot shot-phone small"><img src="assets/android-genuine.png" width="420" height="933" alt="Android: a genuine message with no scam signs found, 0 out of 100"><figcaption>Genuine message · No scam signs</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <div class="wrap privacy-grid">
+        <figure class="shot shot-menu"><img src="assets/macos-menu.png" width="417" height="480" alt="The ScamShield menu in the macOS menu bar"></figure>
+        <div>
+          <p class="kicker">Privacy</p>
+          <h2>What you check stays with you.</h2>
+          <ul class="checks">
+            <li>No account, no sign-up.</li>
+            <li>Screenshots are read and discarded, never saved.</li>
+            <li>macOS History stays on your Mac and masks numbers, e-mail addresses and link paths.</li>
+            <li>The Android app cannot use the internet — Android itself enforces it.</li>
+            <li>The optional AI second opinion receives only masked text, after you agree.</li>
+          </ul>
+          <p class="note">Read the <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/release/PRIVACY-NOTICE-DRAFT.md">draft privacy notice</a> (not yet legally reviewed).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="download">
+      <div class="wrap">
+        <p class="kicker">Download</p>
+        <h2>Availability</h2>
+        <p class="release-line" id="release-line" role="status">Loading release information…</p>
+        <div id="recommended" hidden>
+          <h3 class="sub">For this device</h3>
+          <div id="rec-card"></div>
+        </div>
+        <div class="row">
+          <h3 class="sub">All platforms</h3>
+          <label class="picker"><span>Show</span> <select id="picker"></select></label>
+        </div>
+        <div class="grid" id="cards"></div>
+        <div class="panels">
+          <div class="panel">
+            <h3>Try it before a release</h3>
+            <p>Build the macOS app or the Android test build yourself — see <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/guides/user-guide.md#build-from-source">Build from source</a>. To hear about the first release, choose <strong>Watch → Custom → Releases</strong> on <a href="https://github.com/naveennt-dev/ScamShield">GitHub</a>.</p>
+          </div>
+          <div class="panel">
+            <h3>Verify every download</h3>
+            <p>Published files list a SHA-256 checksum. Compare it before opening: <code>shasum -a 256 &lt;file&gt;</code> (macOS, Linux) or <code>Get-FileHash &lt;file&gt;</code> (Windows). Download only from here or <a href="https://github.com/naveennt-dev/ScamShield/releases">GitHub Releases</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap narrow">
+        <p class="kicker">FAQ</p>
+        <h2>Questions</h2>
+        <details><summary>Does ScamShield read my messages automatically?</summary><p>No. It only checks what you scan, paste or share with it.</p></details>
+        <details><summary>Does it need the internet?</summary><p>Not for the on-device checks. On macOS, only the opt-in “AI second opinion” mode uses the network. The Android app never does.</p></details>
+        <details><summary>Is “No scam signs found” a guarantee?</summary><p>No. It means none of the checks found a warning sign. When in doubt, contact the organisation using a number you already know.</p></details>
+        <details><summary>Why is there no download yet?</summary><p>The apps are in preview. The macOS app still needs Apple notarization and the Android app release signing and device testing. Releases will appear on GitHub with checksums.</p></details>
+        <details><summary>How do I report a security problem?</summary><p>Privately, through GitHub's vulnerability reporting — see the <a href="https://github.com/naveennt-dev/ScamShield/blob/main/SECURITY.md">security policy</a>. Never post real messages, OTPs or passwords in public issues.</p></details>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <div class="wrap cta-inner">
+        <h2>Open source. Built in the open.</h2>
+        <p>Read the code, report issues or contribute detection rules.</p>
+        <div class="cta-row center">
+          <a class="btn btn-primary" href="https://github.com/naveennt-dev/ScamShield">GitHub repository</a>
+          <a class="btn btn-ghost" href="https://github.com/naveennt-dev/ScamShield/blob/main/CONTRIBUTING.md">Contributing guide</a>
+        </div>
+      </div>
     </section>
   </main>
-  <footer>
-    <a href="https://github.com/naveennt-dev/ScamShield">Source code</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/releases">Releases</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/guides/user-guide.md">User guide</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/release/PRIVACY-NOTICE-DRAFT.md">Privacy (draft)</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/LICENSE">Licence</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/TRADEMARKS.md">Trademarks</a> ·
-    <a href="https://github.com/naveennt-dev/ScamShield/blob/main/SECURITY.md">Security</a>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <a class="brand" href="#top"><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M12 2 3 5.5v7.2c0 6 3.9 10.6 9 12.3 5.1-1.7 9-6.3 9-12.3V5.5L12 2Z" class="shield-fill"/><path d="m8 13.5 3 3 5.5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ScamShield</span></a>
+        <p class="fine">Code under the Apache License 2.0. The ScamShield name and logo are covered by the trademark policy. No detector can guarantee that a message or link is safe.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/guides/user-guide.md">User guide</a></li>
+        <li><a href="https://github.com/naveennt-dev/ScamShield/releases">Releases</a></li>
+        <li><a href="https://github.com/naveennt-dev/ScamShield/blob/main/SECURITY.md">Security</a></li>
+        <li><a href="https://github.com/naveennt-dev/ScamShield/blob/main/docs/release/PRIVACY-NOTICE-DRAFT.md">Privacy (draft)</a></li>
+        <li><a href="https://github.com/naveennt-dev/ScamShield/blob/main/LICENSE">Licence</a></li>
+        <li><a href="https://github.com/naveennt-dev/ScamShield/blob/main/TRADEMARKS.md">Trademarks</a></li>
+        <li><a href="https://github.com/naveennt-dev/ScamShield/blob/main/CONTRIBUTING.md">Contributing</a></li>
+      </ul>
+    </div>
   </footer>
   <script src="site.js"></script>
 </body>

@@ -66,6 +66,9 @@ if [[ -z "$IDENTITY" ]] && security find-identity -p codesigning 2>/dev/null | g
   IDENTITY="ScamShield Local Signing"
 fi
 SIGN_ID="${IDENTITY:--}"
+# Notarization needs Apple's secure timestamp; local and ad-hoc builds stay offline (no timestamp).
+TIMESTAMP=(--timestamp=none)
+[[ "$SIGN_ID" == "Developer ID Application:"* ]] && TIMESTAMP=(--timestamp)
 # Nested code first (inside-out): every Mach-O file of the embedded engine, with the hardened
 # runtime; the Node.js runtime additionally gets Engine.entitlements (V8 JIT only).
 if [[ -d "$APP/Contents/Resources/engine" ]]; then
@@ -78,16 +81,16 @@ if [[ -d "$APP/Contents/Resources/engine" ]]; then
   while IFS= read -r f; do
     if file -b "$f" | grep -q "Mach-O"; then
       ENT=(); [[ "$f" == "$APP/Contents/Resources/engine/node" ]] && ENT=(--entitlements "$ENGINE_ENT")
-      codesign --force --sign "$SIGN_ID" ${SCAMSHIELD_SIGN_KEYCHAIN:+--keychain "$SCAMSHIELD_SIGN_KEYCHAIN"} --options runtime --timestamp=none ${ENT[@]+"${ENT[@]}"} "$f"
+      codesign --force --sign "$SIGN_ID" ${SCAMSHIELD_SIGN_KEYCHAIN:+--keychain "$SCAMSHIELD_SIGN_KEYCHAIN"} --options runtime "${TIMESTAMP[@]}" ${ENT[@]+"${ENT[@]}"} "$f"
     fi
   done < <(find "$APP/Contents/Resources/engine" -type f \( -perm -u+x -o -name "*.node" -o -name "*.dylib" \))
 fi
 if [[ -n "$IDENTITY" ]]; then
   echo "▸ code signing with \"$IDENTITY\" (stable identity)"
-  codesign --force --sign "$IDENTITY" ${SCAMSHIELD_SIGN_KEYCHAIN:+--keychain "$SCAMSHIELD_SIGN_KEYCHAIN"} --options runtime --timestamp=none "$APP"
+  codesign --force --sign "$IDENTITY" ${SCAMSHIELD_SIGN_KEYCHAIN:+--keychain "$SCAMSHIELD_SIGN_KEYCHAIN"} --options runtime "${TIMESTAMP[@]}" "$APP"
 else
   echo "▸ ad-hoc code signing (Screen Recording must be re-granted after each rebuild)"
-  codesign --force --sign - --options runtime --timestamp=none "$APP"
+  codesign --force --sign - --options runtime "${TIMESTAMP[@]}" "$APP"
 fi
 codesign --verify --strict "$APP"
 BUILT_SDK="$(otool -l "$APP/Contents/MacOS/ScamShield" | awk '/LC_BUILD_VERSION/{f=1} f&&/ sdk /{print $2; exit}')"

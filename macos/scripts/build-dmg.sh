@@ -41,7 +41,9 @@ rm -f "$DMG"
 hdiutil create -quiet -volname "ScamShield ${VERSION}" -srcfolder "$STAGE" -ov -format UDZO -imagekey zlib-level=9 "$DMG"
 IDENTITY="${SCAMSHIELD_SIGN_IDENTITY:-}"
 if [[ -z "$IDENTITY" ]] && security find-identity -p codesigning 2>/dev/null | grep -q '"ScamShield Local Signing"'; then IDENTITY="ScamShield Local Signing"; fi
-[[ -n "$IDENTITY" ]] && codesign --force --sign "$IDENTITY" --timestamp=none "$DMG"
+TIMESTAMP=(--timestamp=none)
+[[ "$IDENTITY" == "Developer ID Application:"* ]] && TIMESTAMP=(--timestamp)   # required for notarization
+[[ -n "$IDENTITY" ]] && codesign --force --sign "$IDENTITY" "${TIMESTAMP[@]}" "$DMG"
 
 echo "▸ verifying"
 hdiutil verify -quiet "$DMG" && echo "  ✓ image checksum"
